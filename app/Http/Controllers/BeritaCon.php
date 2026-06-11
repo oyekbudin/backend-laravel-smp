@@ -9,6 +9,7 @@ use App\Models\Beritas;
 use App\Models\Pesan_kesan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 use Intervention\Image\Laravel\Facades\Image;
 use Illuminate\Http\Request;
@@ -117,7 +118,7 @@ class BeritaCon extends BaseController
                 'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:51200',
             ]);
 
-            $penulis = session('admin_nama');
+            $penulis = Auth::user()->nama_lengkap ?? 'Admin';
 
             $file = $request->file('gambar');
 
