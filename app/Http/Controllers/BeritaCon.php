@@ -48,7 +48,7 @@ class BeritaCon extends BaseController
         return view('show', compact('berita', 'lainnya'));
     }
 
-    public function old2tambahberita(Request $request)
+    /*public function old2tambahberita(Request $request)
     {
         $request->validate([
             'judul' => 'required',
@@ -104,7 +104,7 @@ class BeritaCon extends BaseController
         return response()->json([
             'url' => asset('uploads/editor/' . $filename)
         ]);
-    }
+    }*/
     public function tambahberita(Request $request)
     {
         try {
@@ -117,9 +117,10 @@ class BeritaCon extends BaseController
                 'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:51200',
             ]);
 
-            // =========================
-            // 📌 UPLOAD + CONVERT WEBP
-            // =========================
+            $admin = \App\Models\Admin::find(session('admin_id'));
+
+            $penulis = $admin ? $admin->nama_lengkap : 'Admin';
+
             $file = $request->file('gambar');
 
             $uploadPath = public_path('uploads/berita');
@@ -170,7 +171,7 @@ class BeritaCon extends BaseController
             \App\Models\Beritas::create([
                 'judul' => $request->judul,
                 'isi' => $request->isi,
-                'penulis' => $request->penulis,
+                'penulis' => $penulis,
                 'gambar' => $path,     // 🔥 bukan json lagi
                 'thumbnail' => $path,  // langsung pakai gambar ini
                 'slug' => $slug,
@@ -184,30 +185,30 @@ class BeritaCon extends BaseController
 
 
     }
+    /*
+        public function old_tambahberita(Request $request)
+        {
+            // Validasi input
+            $request->validate([
+                //'id'   => 'required',
+                'judul' => 'required',
+                'isi' => 'required',
+                'penulis' => 'required',
+                //'password'    => 'required',
+            ]);
 
-    public function old_tambahberita(Request $request)
-    {
-        // Validasi input
-        $request->validate([
-            //'id'   => 'required',
-            'judul' => 'required',
-            'isi' => 'required',
-            'penulis' => 'required',
-            //'password'    => 'required',
-        ]);
+            // Simpan ke database
+            Beritas::create([
+                //'id'     => $request->id,
+                'judul' => $request->judul,
+                'isi' => $request->isi,
+                //'isi' => bcrypt($request->isi),
+                'penulis' => $request->penulis,
+                //'kelas'    => $request->kelas,
+            ]);
 
-        // Simpan ke database
-        Beritas::create([
-            //'id'     => $request->id,
-            'judul' => $request->judul,
-            'isi' => $request->isi,
-            //'isi' => bcrypt($request->isi),
-            'penulis' => $request->penulis,
-            //'kelas'    => $request->kelas,
-        ]);
-
-        return redirect()->back()->with('success', 'Berita berhasil ditambahkan!');
-    }
+            return redirect()->back()->with('success', 'Berita berhasil ditambahkan!');
+        }*/
 
     public function edit($id)
     {
