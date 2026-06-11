@@ -117,9 +117,7 @@ class BeritaCon extends BaseController
                 'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:51200',
             ]);
 
-            $admin = \App\Models\Admin::find(session('admin_id'));
-
-            $penulis = $admin ? $admin->nama_lengkap : 'Admin';
+            $penulis = session('admin_nama');
 
             $file = $request->file('gambar');
 
