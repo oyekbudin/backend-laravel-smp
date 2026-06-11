@@ -121,19 +121,33 @@ class BeritaCon extends BaseController
 
             $file = $request->file('gambar');
 
+            if (!$file) {
+                dd('File tidak terbaca dari form');
+            }
+
             $uploadPath = public_path('uploads/berita');
 
             if (!file_exists($uploadPath)) {
                 mkdir($uploadPath, 0775, true);
             }
 
-            // pakai nama unik
+            // DEBUG INFO
+            dd([
+                'real_path' => $file->getRealPath(),
+                'original_name' => $file->getClientOriginalName(),
+                'size' => $file->getSize(),
+            ]);
+
             $filename = \Str::uuid() . '.' . $file->getClientOriginalExtension();
 
-            // langsung pindah file
-            $file->move($uploadPath, $filename);
+            if (!$file->move($uploadPath, $filename)) {
+                dd('Gagal move file');
+            }
 
             $path = 'uploads/berita/' . $filename;
+
+            dd($path);
+
 
 
             // =========================
