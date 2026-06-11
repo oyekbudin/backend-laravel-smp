@@ -110,45 +110,38 @@ class BeritaCon extends BaseController
     {
         try {
 
-            // ✅ VALIDASI (1 GAMBAR SAJA)
+
+            // ✅ VALIDASI
             $request->validate([
                 'judul' => 'required',
                 'isi' => 'required',
                 'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:51200',
             ]);
 
+            // ✅ PENULIS
             $penulis = Auth::user()->nama_lengkap ?? 'Admin';
 
-            $file = $request->file('gambar');
+            // =========================
+            // 🖼️ UPLOAD GAMBAR
+            // =========================
+            $path = null;
 
-            $uploadPath = base_path('../public_html/uploads/berita');
+            if ($request->hasFile('gambar')) {
+                $file = $request->file('gambar');
 
-            if (!file_exists($uploadPath)) {
-                mkdir($uploadPath, 0775, true);
+                $uploadPath = base_path('../public_html/uploads/berita');
+
+                if (!file_exists($uploadPath)) {
+                    mkdir($uploadPath, 0775, true);
+                }
+
+                $filename = \Str::uuid() . '.' . $file->getClientOriginalExtension();
+
+                // ✅ pakai move (normal)
+                $file->move($uploadPath, $filename);
+
+                $path = 'uploads/berita/' . $filename;
             }
-
-            $filename = \Str::uuid() . '.' . $file->getClientOriginalExtension();
-
-            $destination = $uploadPath . '/' . $filename;
-
-            // 🔥 COPY MANUAL (PALING STABIL)
-            if (!copy($file->getRealPath(), $destination)) {
-                dd('Gagal copy file');
-            }
-
-            // hapus file tmp (optional)
-            @unlink($file->getRealPath());
-
-            $path = 'uploads/berita/' . $filename;
-
-            // DEBUG
-            dd([
-                'saved' => file_exists($destination),
-                'path' => $path
-            ]);
-
-
-
 
             // =========================
             // 🔥 SLUG
@@ -169,8 +162,8 @@ class BeritaCon extends BaseController
                 'judul' => $request->judul,
                 'isi' => $request->isi,
                 'penulis' => $penulis,
-                'gambar' => $path,     // 🔥 bukan json lagi
-                'thumbnail' => $path,  // langsung pakai gambar ini
+                'gambar' => $path,
+                'thumbnail' => $path,
                 'slug' => $slug,
             ]);
 
@@ -182,6 +175,7 @@ class BeritaCon extends BaseController
 
 
     }
+
     /*
         public function old_tambahberita(Request $request)
         {
