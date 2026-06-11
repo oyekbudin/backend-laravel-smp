@@ -121,7 +121,7 @@ class BeritaCon extends BaseController
 
             $file = $request->file('gambar');
 
-            $uploadPath = public_path('uploads/berita');
+            $uploadPath = base_path('../public_html/uploads/berita');
 
             if (!file_exists($uploadPath)) {
                 mkdir($uploadPath, 0775, true);
