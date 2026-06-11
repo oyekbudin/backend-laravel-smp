@@ -2,48 +2,56 @@
 
 <main class="main">
 
-  <article class="container py-4" style="max-width: 800px;">
+    <article class="container py-4" style="max-width: 800px;">
 
-    <!-- Title -->
-    <section class="mb-3">
-      <h1 class="fw-bold lh-sm">{{ $berita->judul }}</h1>
-    </section>
+        <!-- Title -->
+        <section class="mb-3">
+            <h1 class="fw-bold lh-sm">{{ $berita->judul }}</h1>
+        </section>
 
-    <!-- Thumbnail utama -->
-    <figure class="mb-4">
-      <img 
-        src="{{ $berita->gambar ? asset(is_array(json_decode($berita->gambar, true)) ? json_decode($berita->gambar, true)[0] : $berita->gambar) : asset('assets/img/default.webp') }}" 
-        alt="{{ $berita->judul }}"  
-        class="img-fluid w-100"
-        loading="lazy"
-      >
-    </figure>
+        <!-- Thumbnail -->
+        <figure class="mb-4">
+            <img src="{{ $berita->gambar ? asset(is_array(json_decode($berita->gambar, true)) ? json_decode($berita->gambar, true)[0] : $berita->gambar) : asset('assets/img/default.webp') }}"
+                class="img-fluid w-100" loading="lazy">
+        </figure>
 
-    <!-- Content -->
-    <section class="content mb-4">
-      {!! $berita->isi !!}
-    </section>
+        <!-- Content -->
+        <section class="content mb-4">
+            {!! $berita->isi !!}
+        </section>
 
-    <!-- Gallery (multiple images) -->
-    @php
-        $images = json_decode($berita->gambar, true);
-    @endphp
+        <!-- Gallery -->
+        @php
+            $images = json_decode($berita->gambar, true);
+        @endphp
 
-    @if(is_array($images) && count($images) > 1)
-      <div class="d-flex flex-wrap">
-        @foreach($images as $index => $img)
-          @if($index != 0) {{-- skip gambar pertama (sudah jadi thumbnail) --}}
-            <img 
-              src="{{ asset($img) }}" 
-              style="width:200px; margin:5px;"
-              loading="lazy"
-            >
-          @endif
-        @endforeach
-      </div>
-    @endif
+        @if (is_array($images) && count($images) > 1)
+            <div class="d-flex flex-wrap mb-4">
+                @foreach ($images as $index => $img)
+                    @if ($index != 0)
+                        <img src="{{ asset($img) }}" style="width:200px; margin:5px;" loading="lazy">
+                    @endif
+                @endforeach
+            </div>
+        @endif
 
-  </article>
+        <!-- 🔥 BERITA LAINNYA -->
+        <section class="mt-5">
+            <h5 class="mb-3">Berita Lainnya</h5>
+
+            <div class="row g-2">
+                @foreach ($lainnya as $item)
+                    <div class="col-4">
+                        <a href="/berita/{{ $item->slug }}">
+                            <img src="{{ $item->gambar ? asset(is_array(json_decode($item->gambar, true)) ? json_decode($item->gambar, true)[0] : $item->gambar) : asset('assets/img/default.webp') }}"
+                                class="img-fluid w-100" style="aspect-ratio:1/1; object-fit:cover;" loading="lazy">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+
+    </article>
 
 </main>
 

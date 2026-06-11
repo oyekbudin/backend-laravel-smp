@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use App\Models\Beritas; 
+use App\Models\Beritas;
 use App\Models\Pesan_kesan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -17,12 +17,12 @@ use Illuminate\Http\Request;
 
 class BeritaCon extends BaseController
 {
-   public function index()
-{
-    $databerita = Beritas::orderBy('tanggal_publish', 'desc')->get();
+    public function index()
+    {
+        $databerita = Beritas::orderBy('tanggal_publish', 'desc')->get();
 
-    return view('berandaberita', compact('databerita'));
-}
+        return view('berandaberita', compact('databerita'));
+    }
 
     public function katalog()
     {
@@ -37,69 +37,75 @@ class BeritaCon extends BaseController
     }
 
     public function show($slug)
-{
-    $berita = Beritas::where('slug', $slug)->firstOrFail();
-    return view('show', compact('berita'));
-}
+    {
+        $berita = Beritas::where('slug', $slug)->firstOrFail();
 
-public function old2tambahberita(Request $request)
-{
-    $request->validate([
-        'judul'   => 'required',
-        'isi'     => 'required',
-        'penulis' => 'required',
-        'image'   => 'required|image|max:51200',
-    ]);
+        $lainnya = Beritas::where('id', '!=', $berita->id)
+            ->latest()
+            ->take(3)
+            ->get();
 
-    try {
-        $file = $request->file('image');
+        return view('show', compact('berita', 'lainnya'));
+    }
 
-        // nama file unik
-        $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
-
-        // simpan ke storage/app/public/berita
-        $path = $file->storeAs('berita', $filename, 'public');
-
-        // simpan ke database
-        \App\Models\Beritas::create([
-            'judul'   => $request->judul,
-            'isi'     => $request->isi,
-            'penulis' => $request->penulis,
-            'gambar'  => 'storage/' . $path,
+    public function old2tambahberita(Request $request)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'isi' => 'required',
+            'penulis' => 'required',
+            'image' => 'required|image|max:51200',
         ]);
 
-        return back()->with('success', 'Berhasil upload!');
+        try {
+            $file = $request->file('image');
 
-    } catch (\Exception $e) {
-    \Log::error('Upload error: ' . $e->getMessage());
-    \Log::error($e);
-    
-    return back()->with('error', 'Upload gagal!');
-}
-}
-public function uploadImage(Request $request)
-{
-    if (!$request->hasFile('upload')) {
-        return response()->json(['error' => 'no file'], 400);
+            // nama file unik
+            $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
+
+            // simpan ke storage/app/public/berita
+            $path = $file->storeAs('berita', $filename, 'public');
+
+            // simpan ke database
+            \App\Models\Beritas::create([
+                'judul' => $request->judul,
+                'isi' => $request->isi,
+                'penulis' => $request->penulis,
+                'gambar' => 'storage/' . $path,
+            ]);
+
+            return back()->with('success', 'Berhasil upload!');
+
+        } catch (\Exception $e) {
+            \Log::error('Upload error: ' . $e->getMessage());
+            \Log::error($e);
+
+            return back()->with('error', 'Upload gagal!');
+        }
     }
+    public function uploadImage(Request $request)
+    {
+        if (!$request->hasFile('upload')) {
+            return response()->json(['error' => 'no file'], 400);
+        }
 
-    $file = $request->file('upload');
+        $file = $request->file('upload');
 
-    $filename = \Str::uuid().'.'.$file->getClientOriginalExtension();
+        $filename = \Str::uuid() . '.' . $file->getClientOriginalExtension();
 
-    $path = public_path('uploads/editor');
+        $path = public_path('uploads/editor');
 
-    if (!file_exists($path)) {
-        mkdir($path, 0775, true);
+        if (!file_exists($path)) {
+            mkdir($path, 0775, true);
+        }
+
+        $file->move($path, $filename);
+
+        return response()->json([
+            'url' => asset('uploads/editor/' . $filename)
+        ]);
     }
-
-    $file->move($path, $filename);
-
-    return response()->json([
-        'url' => asset('uploads/editor/'.$filename)
-    ]);
-}
-public function tambahberita(Request $request)
+    public function tambahberita(Request $request)
     {
         try {
 
@@ -186,19 +192,19 @@ public function tambahberita(Request $request)
         // Validasi input
         $request->validate([
             //'id'   => 'required',
-            'judul'    => 'required',
+            'judul' => 'required',
             'isi' => 'required',
-            'penulis'    => 'required',
+            'penulis' => 'required',
             //'password'    => 'required',
         ]);
 
         // Simpan ke database
         Beritas::create([
             //'id'     => $request->id,
-            'judul'    => $request->judul,
-            'isi'    => $request->isi,
+            'judul' => $request->judul,
+            'isi' => $request->isi,
             //'isi' => bcrypt($request->isi),
-            'penulis'    => $request->penulis,
+            'penulis' => $request->penulis,
             //'kelas'    => $request->kelas,
         ]);
 
@@ -206,67 +212,67 @@ public function tambahberita(Request $request)
     }
 
     public function edit($id)
-{
-    $berita = Beritas::findOrFail($id);
-    return view('berita.edit', compact('berita'));
-}
+    {
+        $berita = Beritas::findOrFail($id);
+        return view('berita.edit', compact('berita'));
+    }
 
-public function destroy($id)
-{
-    $berita = Beritas::findOrFail($id);
-    $berita->delete();
-    return redirect()->back()->with('success', 'Data berita berhasil dihapus');
-}
-public function update(Request $request, $id)
-{
-    $berita = Beritas::findOrFail($id);
+    public function destroy($id)
+    {
+        $berita = Beritas::findOrFail($id);
+        $berita->delete();
+        return redirect()->back()->with('success', 'Data berita berhasil dihapus');
+    }
+    public function update(Request $request, $id)
+    {
+        $berita = Beritas::findOrFail($id);
 
-    $request->validate([
-        'judul'    => 'required',
+        $request->validate([
+            'judul' => 'required',
             'isi' => 'required',
-            'penulis'    => 'required',
-        
-    ]);
+            'penulis' => 'required',
 
-    $berita->judul = $request->judul;
-    $berita->isi = $request->isi;
-    $berita->penulis = $request->penulis;
-    
+        ]);
 
-    
+        $berita->judul = $request->judul;
+        $berita->isi = $request->isi;
+        $berita->penulis = $request->penulis;
 
-    $berita->save();
 
-    return redirect()->back()->with('success', 'Berita berhasil diperbarui!');
-}
 
-public function galeri()
-{
-    $beritas = Beritas::all();
-    return view('galeri', compact('beritas'));
-}
 
-public function apipesankesan(Request $request)
-{
-    // validasi
-    $validated = $request->validate([
-        'penulis' => 'required|string|max:255',
-        'konten'  => 'required|string'
-    ]);
+        $berita->save();
 
-    // simpan
-    $data = Pesan_kesan::create([
-        'penulis' => strtoupper($validated['penulis']),
-        'konten'  => $validated['konten'],
-    ]);
+        return redirect()->back()->with('success', 'Berita berhasil diperbarui!');
+    }
 
-    // response JSON
-    return response()->json([
-        'status' => true,
-        'message' => 'Berhasil disimpan',
-        'data' => $data
-    ], 200);
-}
+    public function galeri()
+    {
+        $beritas = Beritas::all();
+        return view('galeri', compact('beritas'));
+    }
+
+    public function apipesankesan(Request $request)
+    {
+        // validasi
+        $validated = $request->validate([
+            'penulis' => 'required|string|max:255',
+            'konten' => 'required|string'
+        ]);
+
+        // simpan
+        $data = Pesan_kesan::create([
+            'penulis' => strtoupper($validated['penulis']),
+            'konten' => $validated['konten'],
+        ]);
+
+        // response JSON
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil disimpan',
+            'data' => $data
+        ], 200);
+    }
 
 
 }
