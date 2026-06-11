@@ -1,4 +1,3 @@
-@include('header')
 @section('meta')
     <meta property="og:site_name" content="SMP Ma'arif NU 01 Wanareja" />
     <meta property="og:title" content="{{ $berita->judul }}" />
@@ -9,6 +8,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="{{ url($berita->gambar ?? 'assets/img/default.webp') }}" />
 @endsection
+
+@include('header')
 
 
 <main class="main">
