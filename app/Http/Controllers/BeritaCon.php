@@ -40,7 +40,7 @@ class BeritaCon extends BaseController
     {
         $berita = Beritas::where('slug', $slug)->firstOrFail();
 
-        $lainnya = Beritas::where('id', '!=', $berita->id)
+        $lainnya = Beritas::where('id_berita', '!=', $berita->id_berita)
             ->latest()
             ->take(3)
             ->get();
