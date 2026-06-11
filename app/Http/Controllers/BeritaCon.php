@@ -114,7 +114,6 @@ class BeritaCon extends BaseController
             $request->validate([
                 'judul' => 'required',
                 'isi' => 'required',
-                'penulis' => 'required',
                 'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:51200',
             ]);
 
