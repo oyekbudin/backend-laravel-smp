@@ -202,62 +202,49 @@ trix-editor {
 
 @include('footerbar')
 
-<!-- MODAL TAMBAH berita -->
-<div class="modal fade" id="tambahAdminModal" tabindex="-1" aria-labelledby="tambahAdminModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<!-- MODAL TAMBAH BERITA -->
+<div class="modal fade" id="tambahAdminModal" tabindex="-1">
+  <div class="modal-dialog">
     <div class="modal-content">
+
       <div class="modal-header">
-        <h5 class="modal-title" id="tambahAdminModalLabel">Tambah Berita</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title">Tambah Berita</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+
       <div class="modal-body">
-        <!--script src="https://cdn.jsdelivr.net/npm/tinymce@7.2.1/tinymce.min.js"></script-->
-        
+
         <form action="{{ route('berita.tambahberita') }}" method="POST" enctype="multipart/form-data">
-  @csrf
-  <div class="row">
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label class="form-label">Judul</label>
-        <input type="text" name="judul" class="form-control" required>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label class="form-label">Penulis</label>
-        <input type="text" name="penulis" class="form-control">
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="mb-3">
-        <label class="form-label">Isi Berita</label>
-        <textarea id="" name="isi" class="form-control"></textarea>
-        
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="mb-3">
-    <label class="form-label">Gambar Berita</label>
-    <input type="file" name="images[]" class="form-control" accept="image/*" multiple required>
-</div>
-    </div>
-    <div class="col-md-12">
-      <div class="mb-3">
-    <label class="form-label">Thumbnail (opsional)</label>
-    <input type="file" name="thumbnail" class="form-control" accept="image/*">
-    <small class="text-muted">Jika kosong, otomatis pakai gambar pertama</small>
-</div>
-    </div>
-  </div>
-  <div class="text-end">
-    <button type="submit" class="btn btn-primary">Simpan</button>
-  </div>
-</form>
+          @csrf
+
+          <input type="text" name="judul" class="form-control mb-3" placeholder="Judul" required>
+
+          <textarea name="isi" class="form-control mb-3" placeholder="Isi berita"></textarea>
+
+          <!-- Upload 1 gambar -->
+          <input type="file" name="gambar" class="form-control mb-3" accept="image/*" onchange="previewGambar(event)" required>
+
+          <!-- Preview -->
+          <img id="preview" style="width:100%; display:none; margin-bottom:10px;">
+
+          <button type="submit" class="btn btn-primary w-100">Simpan</button>
+
+        </form>
 
       </div>
+
     </div>
   </div>
 </div>
+
+<!-- SCRIPT PREVIEW -->
+<script id="4h9zqp">
+function previewGambar(event) {
+  const img = document.getElementById('preview');
+  img.src = URL.createObjectURL(event.target.files[0]);
+  img.style.display = 'block';
+}
+</script>
 
 <!-- MODAL EDIT ADMIN -->
 <div class="modal fade" id="editAdminModal" tabindex="-1" aria-labelledby="editAdminModalLabel" aria-hidden="true">

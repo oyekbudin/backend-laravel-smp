@@ -23,7 +23,7 @@
         </a>
     </li>
 
-    <li class="nav-item">
+    <!--li class="nav-item">
         <a class="nav-link {{ Request::is('siswa*') ? 'active' : '' }}" href="/siswa">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
@@ -39,7 +39,7 @@
             </div>
             <span class="nav-link-text ms-1">Kelola Absensi</span>
         </a>
-    </li>
+    </li-->
 
     <li class="nav-item">
         <a class="nav-link {{ Request::is('admins*') ? 'active' : '' }}" href="/admins">
@@ -59,14 +59,14 @@
         </a>
     </li>
 
-    <li class="nav-item">
+    <!--li class="nav-item">
         <a class="nav-link {{ Request::is('modestandby') ? 'active' : '' }}" href="/modestandby">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-app text-dark text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Mode Standby</span>
         </a>
-    </li>
+    </li-->
 
     <li class="nav-item">
         <a class="nav-link" href="/logout">

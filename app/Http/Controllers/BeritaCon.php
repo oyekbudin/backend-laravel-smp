@@ -109,84 +109,82 @@ class BeritaCon extends BaseController
     {
         try {
 
-            // ✅ VALIDASI
+            // ✅ VALIDASI (1 GAMBAR SAJA)
             $request->validate([
                 'judul' => 'required',
                 'isi' => 'required',
                 'penulis' => 'required',
-                'images' => 'required',
-                'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:51200',
-                'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:51200',
+                'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:51200',
             ]);
 
             // =========================
-            // 📌 UPLOAD MULTIPLE IMAGE
+            // 📌 UPLOAD + CONVERT WEBP
             // =========================
-            $imagePaths = [];
+            $file = $request->file('gambar');
 
-            foreach ($request->file('images') as $file) {
+            $uploadPath = public_path('uploads/berita');
 
-                $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
-
-                $uploadPath = public_path('uploads/berita');
-
-                if (!file_exists($uploadPath)) {
-                    mkdir($uploadPath, 0775, true);
-                }
-
-                $file->move($uploadPath, $filename);
-
-                $imagePaths[] = 'uploads/berita/' . $filename;
+            if (!file_exists($uploadPath)) {
+                mkdir($uploadPath, 0775, true);
             }
 
-            // =========================
-            // ⭐ THUMBNAIL LOGIC
-            // =========================
-            if ($request->hasFile('thumbnail')) {
+            $filename = \Str::uuid() . '.webp';
+            $fullPath = $uploadPath . '/' . $filename;
 
-                $thumb = $request->file('thumbnail');
-                $thumbName = Str::uuid() . '.' . $thumb->getClientOriginalExtension();
+            $ext = strtolower($file->getClientOriginalExtension());
 
-                $thumb->move(public_path('uploads/berita'), $thumbName);
-
-                $thumbnail = 'uploads/berita/' . $thumbName;
-
+            if ($ext == 'jpg' || $ext == 'jpeg') {
+                $image = imagecreatefromjpeg($file);
+            } elseif ($ext == 'png') {
+                $image = imagecreatefrompng($file);
+                imagepalettetotruecolor($image);
+                imagealphablending($image, true);
+                imagesavealpha($image, true);
+            } elseif ($ext == 'webp') {
+                $image = imagecreatefromwebp($file);
             } else {
-                $thumbnail = $imagePaths[0] ?? null;
+                throw new \Exception('Format tidak didukung');
             }
 
-            // =========================
-            // 🔥 AUTO SLUG (ANTI DUPLICATE)
-            // =========================
-            $baseSlug = Str::slug($request->judul);
+            // simpan ke webp
+            imagewebp($image, $fullPath, 80);
+            imagedestroy($image);
 
+            $path = 'uploads/berita/' . $filename;
+
+            // =========================
+            // 🔥 SLUG
+            // =========================
+            $baseSlug = \Str::slug($request->judul);
             $slug = $baseSlug;
             $counter = 1;
 
-            while (Beritas::where('slug', $slug)->exists()) {
+            while (\App\Models\Beritas::where('slug', $slug)->exists()) {
                 $slug = $baseSlug . '-' . $counter;
                 $counter++;
             }
 
             // =========================
-            // 💾 SIMPAN KE DATABASE
+            // 💾 SIMPAN
             // =========================
-            Beritas::create([
+            \App\Models\Beritas::create([
                 'judul' => $request->judul,
                 'isi' => $request->isi,
                 'penulis' => $request->penulis,
-                'gambar' => json_encode($imagePaths),
-                'thumbnail' => $thumbnail,
+                'gambar' => $path,     // 🔥 bukan json lagi
+                'thumbnail' => $path,  // langsung pakai gambar ini
                 'slug' => $slug,
             ]);
 
             return back()->with('success', 'Berita berhasil ditambahkan!');
 
         } catch (\Exception $e) {
-
             return back()->with('error', 'Gagal: ' . $e->getMessage());
         }
+
+
     }
+
     public function old_tambahberita(Request $request)
     {
         // Validasi input
