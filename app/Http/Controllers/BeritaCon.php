@@ -121,32 +121,32 @@ class BeritaCon extends BaseController
 
             $file = $request->file('gambar');
 
-            if (!$file) {
-                dd('File tidak terbaca dari form');
-            }
-
             $uploadPath = public_path('uploads/berita');
 
             if (!file_exists($uploadPath)) {
                 mkdir($uploadPath, 0775, true);
             }
 
-            // DEBUG INFO
-            dd([
-                'real_path' => $file->getRealPath(),
-                'original_name' => $file->getClientOriginalName(),
-                'size' => $file->getSize(),
-            ]);
-
             $filename = \Str::uuid() . '.' . $file->getClientOriginalExtension();
 
-            if (!$file->move($uploadPath, $filename)) {
-                dd('Gagal move file');
+            $destination = $uploadPath . '/' . $filename;
+
+            // 🔥 COPY MANUAL (PALING STABIL)
+            if (!copy($file->getRealPath(), $destination)) {
+                dd('Gagal copy file');
             }
+
+            // hapus file tmp (optional)
+            @unlink($file->getRealPath());
 
             $path = 'uploads/berita/' . $filename;
 
-            dd($path);
+            // DEBUG
+            dd([
+                'saved' => file_exists($destination),
+                'path' => $path
+            ]);
+
 
 
 
