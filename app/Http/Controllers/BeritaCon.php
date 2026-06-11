@@ -127,29 +127,14 @@ class BeritaCon extends BaseController
                 mkdir($uploadPath, 0775, true);
             }
 
-            $filename = \Str::uuid() . '.webp';
-            $fullPath = $uploadPath . '/' . $filename;
+            // pakai nama unik
+            $filename = \Str::uuid() . '.' . $file->getClientOriginalExtension();
 
-            $ext = strtolower($file->getClientOriginalExtension());
-
-            if ($ext == 'jpg' || $ext == 'jpeg') {
-                $image = imagecreatefromjpeg($file);
-            } elseif ($ext == 'png') {
-                $image = imagecreatefrompng($file);
-                imagepalettetotruecolor($image);
-                imagealphablending($image, true);
-                imagesavealpha($image, true);
-            } elseif ($ext == 'webp') {
-                $image = imagecreatefromwebp($file);
-            } else {
-                throw new \Exception('Format tidak didukung');
-            }
-
-            // simpan ke webp
-            imagewebp($image, $fullPath, 80);
-            imagedestroy($image);
+            // langsung pindah file
+            $file->move($uploadPath, $filename);
 
             $path = 'uploads/berita/' . $filename;
+
 
             // =========================
             // 🔥 SLUG
