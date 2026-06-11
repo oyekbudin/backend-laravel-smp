@@ -1,6 +1,16 @@
 @include('header')
+<meta property="og:site_name" content="SMP Ma'arif NU 01 Wanareja" />
+    <meta property="og:title" content="{{ $berita->judul }}" />
+    <meta property="og:description" content="{{ Str::limit(strip_tags($berita->isi), 150) }}" />
+    <meta property="og:image" content="{{ url($berita->gambar ?? 'assets/img/default.webp') }}" />
+    <meta property="og:url" content="{{ url('/berita/' . $berita->slug) }}">
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{{ url($berita->gambar ?? 'assets/img/default.webp') }}" />
 
-<main class="main">
+
+
+    <main class="main">
 
     <article class="container py-4" style="max-width: 800px;">
 
