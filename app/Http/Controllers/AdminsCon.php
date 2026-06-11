@@ -102,8 +102,9 @@ class AdminsCon extends BaseController
                 'admin_username' => $user->username,
             ]);
 
-            return redirect()->intended('/_dashboard')
-                ->with('success', 'Login berhasil!');
+            /*return redirect()->intended('/_dashboard')
+                ->with('success', 'Login berhasil!');*/
+            return redirect('/berita');
         }
 
         return back()->withErrors([
