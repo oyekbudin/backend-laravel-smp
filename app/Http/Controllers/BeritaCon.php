@@ -41,7 +41,7 @@ class BeritaCon extends BaseController
         $berita = Beritas::where('slug', $slug)->firstOrFail();
 
         $lainnya = Beritas::where('id_berita', '!=', $berita->id_berita)
-            ->latest()
+            ->orderBy('tanggal_publish', 'desc') // 🔥 pakai ini
             ->take(3)
             ->get();
 
