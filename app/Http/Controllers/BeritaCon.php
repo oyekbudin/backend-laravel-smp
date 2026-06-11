@@ -49,63 +49,6 @@ class BeritaCon extends BaseController
         return view('show', compact('berita', 'lainnya'));
     }
 
-    /*public function old2tambahberita(Request $request)
-    {
-        $request->validate([
-            'judul' => 'required',
-            'isi' => 'required',
-            'penulis' => 'required',
-            'image' => 'required|image|max:51200',
-        ]);
-
-        try {
-            $file = $request->file('image');
-
-            // nama file unik
-            $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
-
-            // simpan ke storage/app/public/berita
-            $path = $file->storeAs('berita', $filename, 'public');
-
-            // simpan ke database
-            \App\Models\Beritas::create([
-                'judul' => $request->judul,
-                'isi' => $request->isi,
-                'penulis' => $request->penulis,
-                'gambar' => 'storage/' . $path,
-            ]);
-
-            return back()->with('success', 'Berhasil upload!');
-
-        } catch (\Exception $e) {
-            \Log::error('Upload error: ' . $e->getMessage());
-            \Log::error($e);
-
-            return back()->with('error', 'Upload gagal!');
-        }
-    }
-    public function uploadImage(Request $request)
-    {
-        if (!$request->hasFile('upload')) {
-            return response()->json(['error' => 'no file'], 400);
-        }
-
-        $file = $request->file('upload');
-
-        $filename = \Str::uuid() . '.' . $file->getClientOriginalExtension();
-
-        $path = public_path('uploads/editor');
-
-        if (!file_exists($path)) {
-            mkdir($path, 0775, true);
-        }
-
-        $file->move($path, $filename);
-
-        return response()->json([
-            'url' => asset('uploads/editor/' . $filename)
-        ]);
-    }*/
     public function tambahberita(Request $request)
     {
         try {
