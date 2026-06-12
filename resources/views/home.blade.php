@@ -252,65 +252,18 @@
                     <p class="text-muted">Informasi terbaru SMP Ma'arif NU 01 Wanareja</p>
                 </div>
                 <style>
-                    /* CARD BERITA */
-                    .berita-card {
-                        border: 1px solid rgb(0 0 0 / 0.15);
-                        border-radius: 10px;
-                        overflow: hidden;
-                        transition: all 0.3s ease;
-                        background: #fff;
-                    }
-
-                    /* IMAGE WRAPPER */
-                    .berita-img-wrapper {
-                        height: 200px;
-                        overflow: hidden;
-                    }
-
-                    /* IMAGE */
-                    .berita-img,
-                    .berita-img-wrapper img {
+                    .berita-img {
                         width: 100%;
-                        height: 100%;
+                        aspect-ratio: 16/9;
                         object-fit: cover;
                         display: block;
-                        transition: transform 0.5s ease;
                     }
 
-                    /* HOVER CARD */
-                    .berita-card:hover {
-                        transform: translateY(-5px);
+                    .berita-card {
+                        border: 1px solid #;
+                        border: 1px solid rgb(0 0 0 / .15);
                     }
 
-                    /* ZOOM IMAGE SAAT HOVER CARD */
-                    .berita-card:hover .berita-img,
-                    .berita-card:hover .berita-img-wrapper img {
-                        transform: scale(1.08);
-                    }
-
-                    /* JUDUL */
-                    #judul-berita-home {
-                        line-height: 24px;
-                        font-size: 20px;
-                        font-family: Karla, sans-serif;
-                        font-weight: 700;
-                        color: #016fba;
-                        text-decoration: none;
-                    }
-
-                    /* HOVER JUDUL (underline modern) */
-                    #judul-berita-home:hover {
-                        text-decoration: underline;
-                    }
-
-                    /* TANGGAL */
-                    .tanggal-berita-home {
-                        color: #585858;
-                        font-size: 14px;
-                        font-family: Karla, sans-serif;
-                    }
-
-                    /* TEKS CARD */
                     .berita-card h5 {
                         font-size: 16px;
                         line-height: 1.3;
@@ -319,6 +272,51 @@
                     .berita-card p {
                         font-size: 14px;
                         margin-bottom: 8px;
+                    }
+
+                    #judul-berita-home {
+                        line-height: 24px;
+                        font-size: 20px;
+                        font-family: Karla, sans-serif;
+                        font-weight: 700;
+                        color: #016fba;
+
+                    }
+
+                    #judul-berita-home:hover {}
+
+                    .tanggal-berita-home {
+                        color: #585858;
+                        font-size: 14px;
+                        font-family: Karla, sans-serif;
+                    }
+
+
+                    .berita-card {
+                        overflow: hidden;
+                        transition: all 0.3s ease;
+                    }
+
+                    .berita-card:hover {
+                        /*transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);*/
+                        text-decoration: underline;
+                    }
+
+                    .berita-img-wrapper {
+                        height: 200px;
+                        overflow: hidden;
+                    }
+
+                    .berita-img-wrapper img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: 0.5s ease;
+                    }
+
+                    .berita-card:hover img {
+                        transform: scale(1.1);
                     }
                 </style>
 
