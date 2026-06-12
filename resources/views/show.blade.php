@@ -89,15 +89,32 @@
         <section class="mt-5">
             <h5 class="mb-3">Berita Lainnya</h5>
 
-            <div class="row g-2">
-                @foreach ($lainnya as $item)
-                    <div class="col-4">
-                        <a href="/berita/{{ $item->slug }}">
-                            <img src="{{ $item->gambar ? asset(is_array(json_decode($item->gambar, true)) ? json_decode($item->gambar, true)[0] : $item->gambar) : asset('assets/img/default.webp') }}"
-                                class="img-fluid w-100" style="aspect-ratio:1/1; object-fit:cover;" loading="lazy">
-                        </a>
-                    </div>
+            <div class="list-group list-group-flush">
+
+                @foreach ($lainnya->take(10) as $item)
+                    <a href="/berita/{{ $item->slug }}"
+                        class="list-group-item list-group-item-action d-flex gap-3 py-3">
+
+                        <!-- THUMBNAIL -->
+                        <img src="{{ $item->gambar ? asset(is_array(json_decode($item->gambar, true)) ? json_decode($item->gambar, true)[0] : $item->gambar) : asset('assets/img/default.webp') }}"
+                            class="flex-shrink-0" style="width:90px; height:70px; object-fit:cover; border-radius:8px;"
+                            loading="lazy">
+
+                        <!-- CONTENT -->
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1 fw-bold text-dark" style="line-height:1.3;">
+                                {{ $item->judul }}
+                            </h6>
+
+                            <small class="text-muted">
+                                <i class="bi bi-clock"></i>
+                                {{ \Carbon\Carbon::parse($item->tanggal_publish)->locale('id')->diffForHumans() }}
+                            </small>
+                        </div>
+
+                    </a>
                 @endforeach
+
             </div>
         </section>
 
