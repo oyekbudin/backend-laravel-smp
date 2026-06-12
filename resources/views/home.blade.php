@@ -273,6 +273,15 @@
                         font-size: 14px;
                         margin-bottom: 8px;
                     }
+
+                    #judul-berita-home {
+                        line-height: 24px;
+                        font-size: 20px;
+                        font-family: Karla, sans-serif;
+                        font-weight: 700;
+                        color: #016fba;
+
+                    }
                 </style>
 
                 <div class="row g-3">
@@ -291,17 +300,11 @@
                                     <!-- CONTENT -->
                                     <div class="p-3">
 
-                                        <h5 class="fw-bold">{{ $db->judul }}</h5>
+                                        <h5 id="judul-berita-home" class="">{{ $db->judul }}</h5>
 
-                                        <small class="text-muted d-block mb-1">
-                                            {{ $db->penulis }}
-                                        </small>
-
-                                        <p class="text-muted">
-                                            {{ Str::limit(strip_tags($db->isi), 100) }}
+                                        <p class="text-muted d-block mb-1">
+                                            {{ $db->tanggal_publish }}
                                         </p>
-
-
 
                                     </div>
                                 </a>
