@@ -43,7 +43,7 @@ class BeritaCon extends BaseController
 
         $lainnya = Beritas::where('id_berita', '!=', $berita->id_berita)
             ->orderBy('tanggal_publish', 'desc') // 🔥 pakai ini
-            ->take(3)
+            ->take(10)
             ->get();
 
         return view('show', compact('berita', 'lainnya'));
