@@ -39,7 +39,7 @@
             <h1 id="judul-berita" class="lh-sm">{{ $berita->judul }}</h1>
         </section>
 
-        <div class="d-flex align-items-center gap-2 mt-3">
+        <div class="d-flex align-items-center gap-2 mb-3">
 
             <span class="me-2 text-muted small">Bagikan:</span>
 
