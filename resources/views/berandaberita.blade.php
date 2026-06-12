@@ -67,10 +67,16 @@
 
                             <!-- ACTION -->
                             <div class="text-end ms-3">
-                                <button class="btn btn-warning btn-sm mb-1" data-bs-toggle="modal"
+                                <!--button class="btn btn-warning btn-sm mb-1" data-bs-toggle="modal"
                                     data-bs-target="#editAdminModal" data-id="{{ $db->id_berita }}"
                                     data-judul="{{ $db->judul }}" data-isi="{{ $db->isi }}"
                                     data-penulis="{{ $db->penulis }}">
+                                    Edit
+                                </button-->
+                                <button class="btn btn-warning btn-sm mb-1" data-bs-toggle="modal"
+                                    data-bs-target="#editAdminModal" data-id="{{ $db->id_berita }}"
+                                    data-judul="{{ $db->judul }}" data-isi="{{ $db->isi }}"
+                                    data-penulis="{{ $db->penulis }}" data-gambar="{{ asset($db->gambar) }}">
                                     Edit
                                 </button>
 
@@ -296,7 +302,7 @@
                         <input type="file" name="gambar" class="form-control mb-2"
                             onchange="previewEditGambar(event)">
 
-                        <img id="previewEdit" style="width:100%; display:none; border-radius:8px;">
+                        <img id="previewEdit" style="width:100%; display:none; margin-top:10px; border-radius:8px;">
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100">Update</button>
@@ -325,10 +331,20 @@
             var judul = button.getAttribute('data-judul');
             var isi = button.getAttribute('data-isi');
             var penulis = button.getAttribute('data-penulis');
+            var gambar = button.getAttribute('data-gambar');
 
             document.getElementById('edit_judul').value = judul;
             document.getElementById('edit_isi').value = isi;
             document.getElementById('edit_penulis').value = penulis;
+
+            // 🔥 tampilkan gambar lama
+            const preview = document.getElementById('previewEdit');
+            if (gambar) {
+                preview.src = gambar;
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
 
             document.getElementById('formEditAdmin').action = '/berita/' + id;
         });
