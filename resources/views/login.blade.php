@@ -1,25 +1,55 @@
 @include('header')
+<style>
+    body {
+        background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+    }
 
-<main class="container py-5" style="max-width:400px;">
+    .card {
+        backdrop-filter: blur(6px);
+    }
+</style>
+<main class="d-flex align-items-center justify-content-center vh-100 bg-light">
 
-  <h4 class="mb-4 text-center">Login</h4>
+    <div class="card shadow-sm border-0" style="width:100%; max-width:380px; border-radius:12px;">
 
-  <form method="POST" action="/login">
-    @csrf
+        <div class="card-body p-4">
 
-    <div class="mb-3">
-      <input type="text" name="username" class="form-control" placeholder="Username" required>
+            <h4 class="text-center mb-4 fw-bold">Login</h4>
+
+            <form method="POST" action="/login">
+                @csrf
+
+                <!-- USERNAME -->
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white">
+                            <i class="bi bi-person"></i>
+                        </span>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white">
+                            <i class="bi bi-lock"></i>
+                        </span>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                </div>
+
+                <!-- BUTTON -->
+                <button type="submit" class="btn btn-primary w-100 py-2">
+                    Masuk
+                </button>
+
+            </form>
+
+        </div>
     </div>
-
-    <div class="mb-3">
-      <input type="password" name="password" class="form-control" placeholder="Password" required>
-    </div>
-
-    <button type="submit" class="btn btn-primary w-100">
-      Login
-    </button>
-
-  </form>
 
 </main>
 
