@@ -258,49 +258,82 @@
     }
 </script>
 
-<!-- MODAL EDIT ADMIN -->
-<div class="modal fade" id="editAdminModal" tabindex="-1" aria-labelledby="editAdminModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<!-- MODAL EDIT berita -->
+<!-- MODAL EDIT BERITA (SAMA SEPERTI TAMBAH) -->
+<div class="modal fade" id="editAdminModal" tabindex="-1">
+    <div class="modal-dialog">
         <div class="modal-content">
+
             <div class="modal-header">
-                <h5 class="modal-title" id="editAdminModalLabel">Edit Berita</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title">Edit Berita</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
+
             <div class="modal-body">
-                <form id="formEditAdmin" method="POST">
+
+                <form id="formEditAdmin" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Judul</label>
-                                <input type="text" id="edit_judul" name="judul" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Penulis</label>
-                                <input type="text" id="edit_penulis" name="penulis" class="form-control"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Isi Berita</label>
-                                <input type="text" id="edit_isi" name="isi" class="form-control">
-                            </div>
-                        </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Judul Berita</label>
+                        <input type="text" id="edit_judul" name="judul" class="form-control" required>
                     </div>
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary">Update</button>
+
+                    <div class="mb-3">
+                        <label class="form-label">Isi Berita</label>
+                        <textarea id="edit_isi" name="isi" class="form-control" rows="10"></textarea>
                     </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Penulis</label>
+                        <input type="text" id="edit_penulis" name="penulis" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Foto Berita</label>
+
+                        <input type="file" name="gambar" class="form-control mb-2"
+                            onchange="previewEditGambar(event)">
+
+                        <img id="previewEdit" style="width:100%; display:none; border-radius:8px;">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Update</button>
                 </form>
+
             </div>
+
         </div>
     </div>
 </div>
+
+<script>
+    function previewEditGambar(event) {
+        const img = document.getElementById('previewEdit');
+        img.src = URL.createObjectURL(event.target.files[0]);
+        img.style.display = 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var editModal = document.getElementById('editAdminModal');
+
+        editModal.addEventListener('show.bs.modal', function(event) {
+            var button = event.relatedTarget;
+
+            var id = button.getAttribute('data-id');
+            var judul = button.getAttribute('data-judul');
+            var isi = button.getAttribute('data-isi');
+            var penulis = button.getAttribute('data-penulis');
+
+            document.getElementById('edit_judul').value = judul;
+            document.getElementById('edit_isi').value = isi;
+            document.getElementById('edit_penulis').value = penulis;
+
+            document.getElementById('formEditAdmin').action = '/berita/' + id;
+        });
+    });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
