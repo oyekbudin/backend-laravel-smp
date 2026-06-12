@@ -309,6 +309,7 @@
                                         <h5 id="judul-berita-home" class="">{{ $db->judul }}</h5>
 
                                         <span class="tanggal-berita-home">
+                                            <i class="bi bi-clock"></i>
                                             {{ \Carbon\Carbon::parse($db->tanggal_publish)->diffForHumans() }}
                                         </span>
 
