@@ -283,10 +283,40 @@
 
                     }
 
+                    #judul-berita-home:hover {}
+
                     .tanggal-berita-home {
                         color: #585858;
                         font-size: 14px;
                         font-family: Karla, sans-serif;
+                    }
+
+
+                    .berita-card {
+                        overflow: hidden;
+                        transition: all 0.3s ease;
+                    }
+
+                    .berita-card:hover {
+                        /*transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);*/
+                        text-decoration: underline;
+                    }
+
+                    .berita-img-wrapper {
+                        height: 200px;
+                        overflow: hidden;
+                    }
+
+                    .berita-img-wrapper img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: 0.5s ease;
+                    }
+
+                    .berita-card:hover img {
+                        transform: scale(1.1);
                     }
                 </style>
 
