@@ -27,7 +27,6 @@
         color: #323233;
         background-color: #fefefe;
     }
-    
 </style>
 
 
@@ -39,6 +38,26 @@
         <section class="mb-3 pb-1">
             <h1 id="judul-berita" class="lh-sm">{{ $berita->judul }}</h1>
         </section>
+
+        <div class="d-flex align-items-center gap-2 mt-3">
+
+            <span class="me-2 text-muted small">Bagikan:</span>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('/berita/' . $berita->slug) }}" target="_blank"
+                class="btn btn-sm btn-outline-primary d-flex align-items-center gap-1">
+                <i class="bi bi-facebook"></i>
+                Facebook
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://api.whatsapp.com/send?text={{ $berita->judul }}%0a%0a{{ url('/berita/' . $berita->slug) }}"
+                target="_blank" class="btn btn-sm btn-outline-success d-flex align-items-center gap-1">
+                <i class="bi bi-whatsapp"></i>
+                WhatsApp
+            </a>
+
+        </div>
 
         <!-- Thumbnail -->
         <figure class="mb-4">
