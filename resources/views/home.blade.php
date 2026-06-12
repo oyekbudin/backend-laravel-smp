@@ -280,14 +280,15 @@
                         <div class="col-md-6 col-lg-4">
 
 
-                            <div class="berita-card h-100">
+                            <a class="berita-card h-100" href="{{ route('show', $db->slug) }}"
+                                class="text-decoration-none">
 
                                 <!-- IMAGE -->
                                 <img src="{{ $db->gambar ? asset($db->gambar) : asset('assets/img/health/cardiology-2.webp') }}"
                                     class="berita-img" alt="{{ $db->judul }}" loading="lazy">
 
                                 <!-- CONTENT -->
-                                <div class="pt-2">
+                                <div class="p-3">
 
                                     <h5 class="fw-bold">{{ $db->judul }}</h5>
 
@@ -299,14 +300,11 @@
                                         {{ Str::limit(strip_tags($db->isi), 100) }}
                                     </p>
 
-                                    <a href="{{ route('show', $db->slug) }}"
-                                        class="text-primary text-decoration-none">
-                                        Baca →
-                                    </a>
+                        
 
                                 </div>
 
-                            </div>
+                            </a>
 
 
                         </div>
