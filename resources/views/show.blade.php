@@ -28,7 +28,7 @@
 
         <!-- Title -->
         <section class="mb-3">
-            <h1 id="judul-berita" class="fw-bold lh-sm">{{ $berita->judul }}</h1>
+            <h1 id="judul-berita" class="lh-sm">{{ $berita->judul }}</h1>
         </section>
 
         <!-- Thumbnail -->
