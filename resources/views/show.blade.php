@@ -17,6 +17,7 @@
         letter-spacing: -1.5px;
         line-height: 1.1;
         font-family: "Crimson Text", "Times New Roman", Times, serif;
+        color: #000;
     }
 </style>
 
