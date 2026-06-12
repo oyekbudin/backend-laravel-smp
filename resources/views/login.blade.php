@@ -8,7 +8,7 @@
         backdrop-filter: blur(6px);!important
     }
 </style>
-<main class="d-flex align-items-center justify-content-center vh-100 bg-light">
+<main class="d-flex align-items-center justify-content-center vh-100">
 
     <div class="card shadow-sm border-0" style="width:100%; max-width:380px; border-radius:12px;">
 

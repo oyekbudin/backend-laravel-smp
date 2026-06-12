@@ -66,7 +66,7 @@
         }
 
         .card {
-            background: #fffbe6;
+            /*background: #fffbe6;*/
             border-left: 5px solid #ffc107;
         }
 
