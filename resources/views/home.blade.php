@@ -260,7 +260,8 @@
                     }
 
                     .berita-card {
-                        border: none;
+                        border: 1px solid #;
+                        border: 1px solid rgb(0 0 0 / .15);
                     }
 
                     .berita-card h5 {
@@ -280,31 +281,34 @@
                         <div class="col-md-6 col-lg-4">
 
 
-                            <a class="berita-card h-100" href="{{ route('show', $db->slug) }}"
-                                class="text-decoration-none">
+                            <div class="berita-card h-100">
 
-                                <!-- IMAGE -->
-                                <img src="{{ $db->gambar ? asset($db->gambar) : asset('assets/img/health/cardiology-2.webp') }}"
-                                    class="berita-img" alt="{{ $db->judul }}" loading="lazy">
+                                <a href="{{ route('show', $db->slug) }}" class="text-decoration-none">
+                                    <!-- IMAGE -->
+                                    <img src="{{ $db->gambar ? asset($db->gambar) : asset('assets/img/health/cardiology-2.webp') }}"
+                                        class="berita-img" alt="{{ $db->judul }}" loading="lazy">
 
-                                <!-- CONTENT -->
-                                <div class="p-3">
+                                    <!-- CONTENT -->
+                                    <div class="p-3">
 
-                                    <h5 class="fw-bold">{{ $db->judul }}</h5>
+                                        <h5 class="fw-bold">{{ $db->judul }}</h5>
 
-                                    <small class="text-muted d-block mb-1">
-                                        {{ $db->penulis }}
-                                    </small>
+                                        <small class="text-muted d-block mb-1">
+                                            {{ $db->penulis }}
+                                        </small>
 
-                                    <p class="text-muted">
-                                        {{ Str::limit(strip_tags($db->isi), 100) }}
-                                    </p>
+                                        <p class="text-muted">
+                                            {{ Str::limit(strip_tags($db->isi), 100) }}
+                                        </p>
 
-                        
 
-                                </div>
 
-                            </a>
+                                    </div>
+                                </a>
+
+
+
+                            </div>
 
 
                         </div>
