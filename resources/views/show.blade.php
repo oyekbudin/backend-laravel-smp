@@ -19,6 +19,14 @@
         font-family: "Crimson Text", "Times New Roman", Times, serif;
         color: #000;
     }
+
+    #isi-berita {
+        font-size: 17px;
+        line-height: 160%;
+        font-family: Karla, sans-serif;
+        color: #323233;
+        background-color: #fefefe;
+    }
 </style>
 
 
@@ -27,7 +35,7 @@
     <article class="container py-4" style="max-width: 800px;">
 
         <!-- Title -->
-        <section class="mb-3">
+        <section class="mb-3 pb-1">
             <h1 id="judul-berita" class="lh-sm">{{ $berita->judul }}</h1>
         </section>
 
@@ -38,7 +46,7 @@
         </figure>
 
         <!-- Content -->
-        <section class="content mb-4">
+        <section id="isi-berita" class="content mb-4 p-0">
             {!! $berita->isi !!}
         </section>
 
