@@ -11,6 +11,15 @@
 
 @include('header')
 
+<style>
+    #judul-berita {
+        font-size: 55px;
+        letter-spacing: -1.5px;
+        line-height: 1.1;
+        font-family: "Crimson Text", "Times New Roman", Times, serif;
+    }
+</style>
+
 
 <main class="main">
 
@@ -18,7 +27,7 @@
 
         <!-- Title -->
         <section class="mb-3">
-            <h1 class="fw-bold lh-sm">{{ $berita->judul }}</h1>
+            <h1 id="judul-berita" class="fw-bold lh-sm">{{ $berita->judul }}</h1>
         </section>
 
         <!-- Thumbnail -->
