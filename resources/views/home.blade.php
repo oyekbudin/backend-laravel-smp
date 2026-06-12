@@ -1,5 +1,77 @@
 @include('header')
+<style>
+    .berita-img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        display: block;
+    }
 
+    .berita-card {
+        border: 1px solid #;
+        border: 1px solid rgb(0 0 0 / .15);
+    }
+
+    .berita-card h5 {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+    .berita-card p {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    #judul-berita-home {
+        line-height: 24px;
+        font-size: 20px;
+        font-family: Karla, sans-serif;
+        font-weight: 700;
+        color: #016fba;
+
+    }
+
+    #headline-berita-home {
+        font-size: 24px;
+        font-family: Karla, sans-serif;
+        font-weight: 700;
+        color: #016fba;
+    }
+
+    .tanggal-berita-home {
+        color: #585858;
+        font-size: 14px;
+        font-family: Karla, sans-serif;
+    }
+
+
+    .berita-card {
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .berita-card:hover {
+        /*transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);*/
+        text-decoration: underline;
+    }
+
+    .berita-img-wrapper {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .berita-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s ease;
+    }
+
+    .berita-card:hover img {
+        transform: scale(1.1);
+    }
+</style>
 
 
 <main class="main">
@@ -248,77 +320,9 @@
             <div class="container py-5">
 
                 <div class="text-center mb-4">
-                    <h2 class="fw-bold">Berita & Kegiatan Sekolah</h2>
-                    <p class="text-muted">Informasi terbaru SMP Ma'arif NU 01 Wanareja</p>
+                    <h2 id="headline-berita-home" class="">Berita & Kegiatan SMP Ma'arif NU 01 Wanareja</h2>
                 </div>
-                <style>
-                    .berita-img {
-                        width: 100%;
-                        aspect-ratio: 16/9;
-                        object-fit: cover;
-                        display: block;
-                    }
 
-                    .berita-card {
-                        border: 1px solid #;
-                        border: 1px solid rgb(0 0 0 / .15);
-                    }
-
-                    .berita-card h5 {
-                        font-size: 16px;
-                        line-height: 1.3;
-                    }
-
-                    .berita-card p {
-                        font-size: 14px;
-                        margin-bottom: 8px;
-                    }
-
-                    #judul-berita-home {
-                        line-height: 24px;
-                        font-size: 20px;
-                        font-family: Karla, sans-serif;
-                        font-weight: 700;
-                        color: #016fba;
-
-                    }
-
-                    #judul-berita-home:hover {}
-
-                    .tanggal-berita-home {
-                        color: #585858;
-                        font-size: 14px;
-                        font-family: Karla, sans-serif;
-                    }
-
-
-                    .berita-card {
-                        overflow: hidden;
-                        transition: all 0.3s ease;
-                    }
-
-                    .berita-card:hover {
-                        /*transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);*/
-                        text-decoration: underline;
-                    }
-
-                    .berita-img-wrapper {
-                        height: 200px;
-                        overflow: hidden;
-                    }
-
-                    .berita-img-wrapper img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        transition: 0.5s ease;
-                    }
-
-                    .berita-card:hover img {
-                        transform: scale(1.1);
-                    }
-                </style>
 
                 <div class="row g-3">
 
