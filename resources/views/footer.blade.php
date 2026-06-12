@@ -70,22 +70,7 @@
   <!-- Main JS File -->
   <script src="{{ asset('assets/js/main.js')}}"></script>
   
-  <script>
-const colors = [
-    '#fff3cd', // kuning
-    '#d1ecf1', // biru muda
-    '#d4edda', // hijau muda
-    '#f8d7da', // merah muda
-    '#e2e3e5', // abu
-    '#fde2e4', // pink
-    '#e0f7fa'  // cyan
-];
-
-document.querySelectorAll('.mading-card').forEach(card => {
-    let randomColor = colors[Math.floor(Math.random() * colors.length)];
-    card.style.backgroundColor = randomColor;
-});
-</script>
+  
 
 </body>
 

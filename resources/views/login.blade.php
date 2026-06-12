@@ -1,11 +1,11 @@
 @include('header')
 <style>
     body {
-        background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+        background: linear-gradient(135deg, #0d6efd, #0dcaf0);!important
     }
 
     .card {
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);!important
     }
 </style>
 <main class="d-flex align-items-center justify-content-center vh-100 bg-light">
@@ -37,7 +37,7 @@
                         <span class="input-group-text bg-white">
                             <i class="bi bi-lock"></i>
                         </span>
-                        <input type="password" name="password" class="form-control" required>
+                        <input type="text" name="password" class="form-control" required>
                     </div>
                 </div>
 
