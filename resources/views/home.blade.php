@@ -282,6 +282,12 @@
                         color: #016fba;
 
                     }
+
+                    .tanggal-berita-home {
+                        color: #585858;
+                        font-size: 14px;
+                        font-family: Karla, sans-serif;
+                    }
                 </style>
 
                 <div class="row g-3">
@@ -302,9 +308,9 @@
 
                                         <h5 id="judul-berita-home" class="">{{ $db->judul }}</h5>
 
-                                        <p class="text-muted d-block mb-1">
-                                            {{ $db->tanggal_publish }}
-                                        </p>
+                                        <span class="tanggal-berita-home">
+                                            {{ \Carbon\Carbon::parse($db->tanggal_publish)->diffForHumans() }}
+                                        </span>
 
                                     </div>
                                 </a>
