@@ -286,14 +286,41 @@
                                         <div class="berita-card h-100">
 
                                             <a href="{{ route('show', $db->slug) }}" class="text-decoration-none">
-                                                <!-- IMAGE -->
-                                                <img src="{{ $db->gambar1 ? asset($db->gambar1) : asset('assets/img/health/cardiology-2.webp') }}"
-                                                    class="berita-img" alt="{{ $db->judul }}" loading="lazy">
+
+                                                <!-- WRAPPER IMAGE -->
+                                                <div style="position: relative;">
+
+                                                    <!-- IMAGE -->
+                                                    <img src="{{ $db->gambar1 ? asset($db->gambar1) : asset('assets/img/health/cardiology-2.webp') }}"
+                                                        class="berita-img" alt="{{ $db->judul }}" loading="lazy">
+
+                                                    <!-- BADGE ALBUM -->
+                                                    @if (!empty($db->gambar2))
+                                                        <div
+                                                            style="
+                    position:absolute;
+                    top:10px;
+                    left:10px;
+                    background:rgba(0,0,0,0.6);
+                    color:white;
+                    padding:4px 8px;
+                    border-radius:6px;
+                    font-size:12px;
+                    display:flex;
+                    align-items:center;
+                    gap:4px;
+                ">
+                                                            <i class="bi bi-images"></i>
+                                                            Album Foto
+                                                        </div>
+                                                    @endif
+
+                                                </div>
 
                                                 <!-- CONTENT -->
                                                 <div class="p-3">
 
-                                                    <h5 id="judul-berita-home" class="">{{ $db->judul }}</h5>
+                                                    <h5 id="judul-berita-home">{{ $db->judul }}</h5>
 
                                                     <span class="tanggal-berita-home">
                                                         <i class="bi bi-clock"></i>
@@ -301,9 +328,8 @@
                                                     </span>
 
                                                 </div>
+
                                             </a>
-
-
 
                                         </div>
 
