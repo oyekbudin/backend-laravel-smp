@@ -187,9 +187,21 @@
                                         <!-- TOMBOL X -->
                                         <button type="button" id="removeBtn{{ $i }}"
                                             onclick="removeGambar(event, {{ $i }})"
-                                            class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 d-none"
-                                            style="z-index:10; line-height:1;">
-                                            &times;
+                                            class="position-absolute top-0 end-0 m-1 d-none"
+                                            style="
+        z-index:10;
+        width:28px;
+        height:28px;
+        border:none;
+        border-radius:50%;
+        background:rgba(0,0,0,0.6);
+        color:white;
+        font-size:18px;
+        font-weight:bold;
+        line-height:1;
+        cursor:pointer;
+    ">
+                                            ×
                                         </button>
 
                                     </label>
@@ -222,6 +234,8 @@
                 preview.src = e.target.result;
                 preview.classList.remove('d-none');
                 icon.classList.add('d-none');
+
+                // TAMPILKAN TOMBOL X
                 removeBtn.classList.remove('d-none');
             }
 
@@ -231,20 +245,24 @@
 
     function removeGambar(event, index) {
         event.preventDefault();
-        event.stopPropagation(); // biar tidak buka file picker
+        event.stopPropagation();
 
         const input = document.getElementById('gambarInput' + index);
         const preview = document.getElementById('preview' + index);
         const icon = document.getElementById('iconPlus' + index);
         const removeBtn = document.getElementById('removeBtn' + index);
 
-        // reset input file
+        // reset input
         input.value = "";
 
-        // reset tampilan
+        // sembunyikan gambar
         preview.src = "";
         preview.classList.add('d-none');
+
+        // tampilkan icon +
         icon.classList.remove('d-none');
+
+        // SEMBUNYIKAN tombol X lagi
         removeBtn.classList.add('d-none');
     }
 </script>
