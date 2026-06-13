@@ -94,6 +94,8 @@
                             <img src="{{ asset($berita->$field) }}" class="img-fluid rounded" style="cursor:pointer"
                                 data-bs-toggle="modal" data-bs-target="#modalGambar"
                                 onclick="setGambar('{{ asset($berita->$field) }}')">
+
+
                         </div>
                     @endif
                 @endfor
@@ -114,6 +116,7 @@
                         <div style="width: 100px; height: 80px; overflow: hidden; flex-shrink: 0;">
                             <img src="{{ $item->gambar1 ? asset($item->gambar1) : asset('assets/img/default.webp') }}"
                                 class="w-100 h-100 object-fit-cover rounded" loading="lazy" alt="{{ $item->judul }}">
+
                         </div>
 
                         <!-- CONTENT -->
@@ -137,20 +140,19 @@
     </article>
 
 </main>
-
 <div class="modal fade" id="modalGambar" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content bg-transparent border-0 text-center">
 
-            <!-- TOMBOL DOWNLOAD -->
-            <div class="text-end mb-2">
-                <a id="downloadBtn" href="#" download class="btn btn-light btn-sm">
-                    <i class="bi bi-download"></i> Download
+            <!-- DOWNLOAD BUTTON -->
+            <div class="position-relative">
+                <a id="downloadBtn" class="btn btn-light btn-sm position-absolute top-0 end-0 m-2" href="#">
+                    <i class="bi bi-download"></i>
                 </a>
-            </div>
 
-            <!-- GAMBAR -->
-            <img id="gambarModal" class="img-fluid rounded">
+                <!-- GAMBAR -->
+                <img id="gambarModal" class="img-fluid rounded">
+            </div>
 
         </div>
     </div>
@@ -159,8 +161,37 @@
 <script>
     function setGambar(src) {
         document.getElementById('gambarModal').src = src;
-        document.getElementById('downloadBtn').href = src;
+        document.getElementById('downloadBtn').setAttribute('data-src', src);
     }
+
+    document.getElementById('downloadBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const src = this.getAttribute('data-src');
+        const img = new Image();
+
+        img.crossOrigin = "anonymous";
+
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+
+            // convert ke PNG
+            const pngUrl = canvas.toDataURL('image/png');
+
+            // download
+            const link = document.createElement('a');
+            link.href = pngUrl;
+            link.download = 'berita-' + Date.now() + '.png';
+            link.click();
+        };
+
+        img.src = src;
+    });
 </script>
 
 @include('footer')
