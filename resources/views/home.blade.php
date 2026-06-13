@@ -33,7 +33,7 @@
 
     #headline-berita-home {
         font-size: 24px;
-        font-family: Karla, sans-serif;
+        font-family: "Crimson Text", "Times New Roman", Times, serif;
         font-weight: 700;
         color: #016fba;
     }
@@ -317,6 +317,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Berita -->
             <div class="container py-5">
 
                 <div class="text-center mb-4">
@@ -359,51 +361,9 @@
                     @endforeach
 
                 </div>
-
-
-                <!--div class="row g-4">
-      
-
-        @foreach ($databerita as $db)
-<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="card berita-card h-100 border-0 shadow-sm">
-
-                
-                <div class="berita-img-wrapper">
-                    <img
-                        src="{{ $db->gambar ? asset($db->gambar) : asset('assets/img/health/cardiology-2.webp') }}"
-                        class="card-img-top"
-                        alt="{{ $db->judul }}">
-                </div>
-
-                
-                <div class="card-body d-flex flex-column">
-
-                    <h5 class="fw-bold">{{ $db->judul }}</h5>
-
-                    <small class="text-muted mb-2">
-                        ✍️ {{ $db->penulis }}
-                    </small>
-
-                    <p class="text-muted flex-grow-1">
-                        {{ Str::limit(strip_tags($db->isi), 120) }}
-                    </p>
-
-                    <a href="{{ route('show', $db->slug) }}" class="btn btn-primary btn-sm mt-auto">
-                        Selengkapnya →
-                    </a>
-
-                </div>
-
+                @endforeach
             </div>
-
-        </div>
-@endforeach
-
-    </div-->
-
-            </div>
+            <!-- end Berita -->
 
             <div class="row mt-5 pt-4 certifications-row" data-aos="fade-up" data-aos-delay="600">
                 <div class="col-12 text-center mb-4">
