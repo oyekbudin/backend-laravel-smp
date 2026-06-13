@@ -98,7 +98,7 @@ class BeritaCon extends BaseController
             // =========================
             // 🔥 SLUG SEDERHANA
             // =========================
-            $slug = \Str::slug($request->judul);
+            $slug = \Str::slug($request->judul) . '-' . time();
 
             // =========================
             // 💾 SIMPAN (HANYA SEKALI!)
