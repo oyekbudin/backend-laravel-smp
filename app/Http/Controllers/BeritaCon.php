@@ -49,70 +49,15 @@ class BeritaCon extends BaseController
         return view('show', compact('berita', 'lainnya'));
     }
 
+
     public function tambahberita(Request $request)
-    {
-        $data = [];
-
-        // =====================
-        // FOTO UTAMA (gambar)
-        // =====================
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-
-            $nama = time() . '_1.' . $file->getClientOriginalExtension();
-
-            $file->move(public_path('upload'), $nama);
-
-            $data['gambar'] = $nama;
-        }
-
-        // =====================
-        // ALBUM (gambar2 - gambar10)
-        // =====================
-        for ($i = 2; $i <= 10; $i++) {
-            if ($request->hasFile('gambar' . $i)) {
-                $file = $request->file('gambar' . $i);
-
-                $nama = time() . '_' . $i . '.' . $file->getClientOriginalExtension();
-
-                $file->move(public_path('upload'), $nama);
-
-                $data['gambar' . $i] = $nama;
-            }
-        }
-
-        // =====================
-        // FIELD LAIN
-        // =====================
-        $baseSlug = Str::slug($request->judul);
-        $slug = $baseSlug;
-        $counter = 1;
-
-        while (Beritas::where('slug', $slug)->exists()) {
-            $slug = $baseSlug . '-' . $counter;
-            $counter++;
-        }
-
-
-        $data['slug'] = $slug;
-        $data['judul'] = $request->judul;
-        $data['isi'] = $request->isi;
-
-        // =====================
-        // INSERT
-        // =====================
-        \App\Models\Beritas::create($data);
-
-        return redirect()->back();
-    }
-    public function oldtambahberita(Request $request)
     {
         try {
 
             $request->validate([
                 'judul' => 'required',
                 'isi' => 'required',
-                'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
+                'gambar1' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
             ]);
 
             $penulis = Auth::user()->nama_lengkap ?? 'Admin';
@@ -123,62 +68,49 @@ class BeritaCon extends BaseController
                 mkdir($uploadPath, 0775, true);
             }
 
-            // function upload
-            function uploadGambar($file, $judul, $uploadPath)
-            {
-                $baseName = \Str::slug($judul);
-                $ext = $file->getClientOriginalExtension();
-                $filename = $baseName . '.' . $ext;
-
-                $counter = 1;
-                while (file_exists($uploadPath . '/' . $filename)) {
-                    $filename = $baseName . '-' . $counter . '.' . $ext;
-                    $counter++;
-                }
-
-                $file->move($uploadPath, $filename);
-
-                return 'uploads/berita/' . $filename;
-            }
-
-            // =====================
-            // UPLOAD
-            // =====================
             $data = [];
 
-            // gambar utama
-            if ($request->hasFile('gambar')) {
-                $data['gambar'] = uploadGambar(
-                    $request->file('gambar'),
-                    $request->judul,
-                    $uploadPath
-                );
+            // =====================
+            // LOOP SEMUA GAMBAR
+            // =====================
+            for ($i = 1; $i <= 10; $i++) {
 
-                $data['thumbnail'] = $data['gambar'];
-            }
-
-            // album
-            for ($i = 2; $i <= 10; $i++) {
                 if ($request->hasFile('gambar' . $i)) {
-                    $data['gambar' . $i] = uploadGambar(
-                        $request->file('gambar' . $i),
-                        $request->judul . '-' . $i,
-                        $uploadPath
-                    );
+
+                    $file = $request->file('gambar' . $i);
+
+                    $baseName = \Str::slug($request->judul . '-' . $i);
+                    $ext = $file->getClientOriginalExtension();
+
+                    $filename = $baseName . '.' . $ext;
+
+                    $counter = 1;
+                    while (file_exists($uploadPath . '/' . $filename)) {
+                        $filename = $baseName . '-' . $counter . '.' . $ext;
+                        $counter++;
+                    }
+
+                    $file->move($uploadPath, $filename);
+
+                    $data['gambar' . $i] = 'uploads/berita/' . $filename;
                 }
             }
 
-            // slug unik
-            $baseSlug = Str::slug($request->judul);
+            // =====================
+            // SLUG
+            // =====================
+            $baseSlug = \Str::slug($request->judul);
             $slug = $baseSlug;
             $counter = 1;
 
-            while (Beritas::where('slug', $slug)->exists()) {
+            while (\App\Models\Beritas::where('slug', $slug)->exists()) {
                 $slug = $baseSlug . '-' . $counter;
                 $counter++;
             }
 
-            // simpan
+            // =====================
+            // SIMPAN
+            // =====================
             \App\Models\Beritas::create(array_merge([
                 'judul' => $request->judul,
                 'isi' => $request->isi,

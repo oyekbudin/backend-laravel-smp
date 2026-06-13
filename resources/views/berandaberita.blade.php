@@ -161,35 +161,17 @@
                         <textarea rows="10" name="isi" class="form-control"></textarea>
                     </div>
 
-                    <!-- FOTO UTAMA -->
                     <div class="mb-3">
-                        <label class="form-label">Foto Utama</label>
-
-                        <input type="file" name="gambar" id="gambarInput1" class="d-none" accept="image/*"
-                            onchange="previewGambar(event, 1)" required>
-
-                        <label for="gambarInput1"
-                            class="border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
-                            style="cursor: pointer; width:120px; aspect-ratio:1/1;">
-
-                            <span id="iconPlus1" class="fs-3 text-secondary">+</span>
-
-                            <img id="preview1"
-                                class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover d-none">
-                        </label>
-                    </div>
-
-                    <!-- ALBUM -->
-                    <div class="mb-3">
-                        <label class="form-label">Album Foto</label>
+                        <label class="form-label">Upload Foto (Max 10)</label>
 
                         <div class="row g-2">
-                            @for ($i = 2; $i <= 10; $i++)
+                            @for ($i = 1; $i <= 10; $i++)
                                 <div class="col-4 col-md-2">
 
                                     <input type="file" name="gambar{{ $i }}"
                                         id="gambarInput{{ $i }}" class="d-none" accept="image/*"
-                                        onchange="previewGambar(event, {{ $i }})">
+                                        onchange="previewGambar(event, {{ $i }})"
+                                        {{ $i == 1 ? 'required' : '' }}>
 
                                     <label for="gambarInput{{ $i }}"
                                         class="border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
