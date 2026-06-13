@@ -140,8 +140,18 @@
 
 <div class="modal fade" id="modalGambar" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content bg-transparent border-0">
+        <div class="modal-content bg-transparent border-0 text-center">
+
+            <!-- TOMBOL DOWNLOAD -->
+            <div class="text-end mb-2">
+                <a id="downloadBtn" href="#" download class="btn btn-light btn-sm">
+                    <i class="bi bi-download"></i> Download
+                </a>
+            </div>
+
+            <!-- GAMBAR -->
             <img id="gambarModal" class="img-fluid rounded">
+
         </div>
     </div>
 </div>
@@ -149,6 +159,7 @@
 <script>
     function setGambar(src) {
         document.getElementById('gambarModal').src = src;
+        document.getElementById('downloadBtn').href = src;
     }
 </script>
 
