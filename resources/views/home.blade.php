@@ -422,7 +422,7 @@
                         <div class="card-body">
 
                             <h5 class="mb-3" id="headline-berita-home">
-                                <i class="bi bi-calendar-event text-primary"></i>
+                                
                                 Kalender Pendidikan
                             </h5>
 
