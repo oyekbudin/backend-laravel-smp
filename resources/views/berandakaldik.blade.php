@@ -45,11 +45,7 @@
                     @forelse ($datakaldik as $dk)
                         <div class="border-bottom p-3 d-flex align-items-start">
 
-                            <!-- THUMBNAIL
-                            <div class="me-3">
-                                <img src="{{ asset($db->gambar) }}"
-                                    style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
-                            </div>-->
+                            
 
                             <!-- CONTENT -->
                             <div class="flex-grow-1">
