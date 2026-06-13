@@ -42,7 +42,7 @@ class Beritas extends Model
      */
     public $timestamps = false;
 
-    protected static function boot()
+    /*protected static function boot()
     {
         parent::boot();
 
@@ -53,7 +53,7 @@ class Beritas extends Model
         static::updating(function ($berita) {
             $berita->slug = Str::slug($berita->judul, '-');
         });
-    }
+    }*/
     
 
 }
