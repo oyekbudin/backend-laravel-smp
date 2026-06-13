@@ -165,20 +165,16 @@
                     <div class="mb-3">
                         <label class="form-label">Foto Utama</label>
 
-                        <!-- input hidden -->
-                        <input type="file" name="gambar" id="gambarInput" class="d-none" accept="image/*"
-                            onchange="previewGambar(event)" required>
+                        <input type="file" name="gambar" id="gambarInput1" class="d-none" accept="image/*"
+                            onchange="previewGambar(event, 1)" required>
 
-                        <!-- box -->
-                        <div id="uploadBox"
+                        <div onclick="document.getElementById('gambarInput1').click()"
                             class="w-25 border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
-                            style="cursor: pointer; aspect-ratio:1/1;"
-                            onclick="document.getElementById('gambarInput').click()">
+                            style="cursor: pointer; aspect-ratio:1/1;">
 
-                            <span id="iconPlus" class="fs-1 text-secondary">+</span>
+                            <span id="iconPlus1" class="fs-3 text-secondary">+</span>
 
-                            <!-- preview -->
-                            <img id="preview"
+                            <img id="preview1"
                                 class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover d-none">
                         </div>
                     </div>
@@ -224,19 +220,7 @@
         </div>
     </div>
 </div>
-<script>
-    function previewGambar(event) {
-        const file = event.target.files[0];
-        const preview = document.getElementById('preview');
-        const icon = document.getElementById('iconPlus');
 
-        if (file) {
-            preview.src = URL.createObjectURL(file);
-            preview.classList.remove('d-none');
-            icon.classList.add('d-none');
-        }
-    }
-</script>
 <script>
     function previewGambar(event, index) {
         const input = event.target;
