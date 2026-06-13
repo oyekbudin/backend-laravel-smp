@@ -196,201 +196,220 @@
             </div>
         </div>
     </section><!-- /Hero Section -->
+    <!-- pembagian area -->
+    <div class="container">
+        <div class="row">
+            <!-- content -->
+            <div class="col-lg-8">
 
-    <section id="mpls-ramah-anak" class="py-5 bg-light">
-        <div class="container">
+                <!-- Home About Section -->
+                <section id="home-about" class="home-about section">
 
-            <!-- Heading jelas (SEO penting) -->
-            <header class="text-center mb-5">
-                <h1 class="h2 fw-bold">
-                    Pesan & Kesan MPLS Ramah Anak SMP Ma'arif NU 01 Wanareja Tahun 2026
-                </h1>
-                <p class="text-muted">
-                    Kumpulan pengalaman dan kesan siswa selama kegiatan MPLS.
-                </p>
-            </header>
+                    <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <!-- Konten utama -->
-            <div class="row g-4" itemscope itemtype="https://schema.org/ItemList">
-                @forelse($pesankesan as $item)
-                    <!-- ITEM -->
-                    <article class="col-md-3" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/CreativeWork">
+                        <div class="row gy-5 align-items-center">
+                            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                                <div class="about-image">
+                                    <div
+                                        style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                        <iframe
+                                            src="https://www.youtube.com/embed/3P2fzU8sojA?autoplay=1&mute=1&loop=1&playlist=3P2fzU8sojA"
+                                            frameborder="0"
+                                            style="position: absolute; top:0; left:0; width:100%; height:100%;"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
 
-                        <div class="card shadow-sm h-100 border-0 mading-card">
-
-                            <!-- Image -->
-                            <div class="card-header">
-                                <p class="card-text" itemprop="text">
-                                    <i class="bi bi-person"></i> {{ $item->penulis }}
-                                </p>
-                            </div>
-                            <div class="card-body">
-                                <!-- Isi pesan -->
-                                <p class="card-text" itemprop="text">
-                                    {{ $item->konten }}
-                                </p>
-
-                                <!-- Author -->
-
+                                    <div class="experience-badge">
+                                        <span class="years">Garuda </span>
+                                        <span class="text">Nusantara</span>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="card-footer">
-                                <footer>
-                                    <p class="mb-1 text-muted small">
+                            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+                                <div class="about-card">
 
+                                    <h2 class="about-title">Marching Band Garuda Nusantara</h2>
 
-                                        <i class="bi bi-calendar"></i>
-                                        {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('j F Y') }}
-                                        &nbsp; | &nbsp;
-                                        <i class="bi bi-clock"></i>
-                                        {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('H.i') }}
+                                    <p class="about-text">
+                                        Garuda Nusantara adalah Marching Band yang diikuti oleh siswa-siswi SMP Ma'arif
+                                        NU 01
+                                        Wanareja.
                                     </p>
-                                </footer>
+
+                                    <p class="about-text">
+                                        Garuda Nusantara telah mengepakkan sayapnya di berbagai acara:
+                                    </p>
+
+                                    <ul class="about-list">
+                                        <li>Hari Santri Nasional ke-9 tingkat kecamatan Wanareja tahun 2023</li>
+                                        <li>HUT RI Ke-79 tingkat desa Bantar tahun 2024</li>
+                                        <li>Hari Santri Nasional ke-10 tingkat kecamatan Wanareja tahun 2024</li>
+                                        <li>Acara Maulid Nabi dan Khatmil Qur'an di seluruh kecamatan Wanareja</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Berita -->
+                        <div class="container py-5">
+
+                            <div class="text-center mb-4">
+                                <h2 id="headline-berita-home" class="">Berita & Kegiatan SMP Ma'arif NU 01
+                                    Wanareja</h2>
                             </div>
 
-                        </div>
-                    </article>
-                @empty
 
-                    <div class="col-12 text-center py-5">
-                        <div class="alert alert-light border">
-                            <h5 class="mb-2">Belum Ada Pesan</h5>
-                            <p class="mb-0 text-muted">
-                                Pesan & Kesan akan ditampilkan disini
-                            </p>
-                        </div>
-                    </div>
-                @endforelse
+                            <div class="row g-3">
 
-                <!-- COPY ITEM DI ATAS UNTUK DATA LAIN -->
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Home About Section -->
-    <section id="home-about" class="home-about section">
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="row gy-5 align-items-center">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-                    <div class="about-image">
-                        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                            <iframe
-                                src="https://www.youtube.com/embed/3P2fzU8sojA?autoplay=1&mute=1&loop=1&playlist=3P2fzU8sojA"
-                                frameborder="0" style="position: absolute; top:0; left:0; width:100%; height:100%;"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-
-                        <div class="experience-badge">
-                            <span class="years">Garuda </span>
-                            <span class="text">Nusantara</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-                    <div class="about-card">
-
-                        <h2 class="about-title">Marching Band Garuda Nusantara</h2>
-
-                        <p class="about-text">
-                            Garuda Nusantara adalah Marching Band yang diikuti oleh siswa-siswi SMP Ma'arif NU 01
-                            Wanareja.
-                        </p>
-
-                        <p class="about-text">
-                            Garuda Nusantara telah mengepakkan sayapnya di berbagai acara:
-                        </p>
-
-                        <ul class="about-list">
-                            <li>Hari Santri Nasional ke-9 tingkat kecamatan Wanareja tahun 2023</li>
-                            <li>HUT RI Ke-79 tingkat desa Bantar tahun 2024</li>
-                            <li>Hari Santri Nasional ke-10 tingkat kecamatan Wanareja tahun 2024</li>
-                            <li>Acara Maulid Nabi dan Khatmil Qur'an di seluruh kecamatan Wanareja</li>
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- Berita -->
-            <div class="container py-5">
-
-                <div class="text-center mb-4">
-                    <h2 id="headline-berita-home" class="">Berita & Kegiatan SMP Ma'arif NU 01 Wanareja</h2>
-                </div>
+                                @foreach ($databerita as $db)
+                                    <div class="col-md-6 col-lg-4">
 
 
-                <div class="row g-3">
+                                        <div class="berita-card h-100">
 
-                    @foreach ($databerita as $db)
-                        <div class="col-md-6 col-lg-4">
+                                            <a href="{{ route('show', $db->slug) }}" class="text-decoration-none">
+                                                <!-- IMAGE -->
+                                                <img src="{{ $db->gambar ? asset($db->gambar) : asset('assets/img/health/cardiology-2.webp') }}"
+                                                    class="berita-img" alt="{{ $db->judul }}" loading="lazy">
+
+                                                <!-- CONTENT -->
+                                                <div class="p-3">
+
+                                                    <h5 id="judul-berita-home" class="">{{ $db->judul }}</h5>
+
+                                                    <span class="tanggal-berita-home">
+                                                        <i class="bi bi-clock"></i>
+                                                        {{ \Carbon\Carbon::parse($db->tanggal_publish)->diffForHumans() }}
+                                                    </span>
+
+                                                </div>
+                                            </a>
 
 
-                            <div class="berita-card h-100">
 
-                                <a href="{{ route('show', $db->slug) }}" class="text-decoration-none">
-                                    <!-- IMAGE -->
-                                    <img src="{{ $db->gambar ? asset($db->gambar) : asset('assets/img/health/cardiology-2.webp') }}"
-                                        class="berita-img" alt="{{ $db->judul }}" loading="lazy">
+                                        </div>
 
-                                    <!-- CONTENT -->
-                                    <div class="p-3">
-
-                                        <h5 id="judul-berita-home" class="">{{ $db->judul }}</h5>
-
-                                        <span class="tanggal-berita-home">
-                                            <i class="bi bi-clock"></i>
-                                            {{ \Carbon\Carbon::parse($db->tanggal_publish)->diffForHumans() }}
-                                        </span>
 
                                     </div>
-                                </a>
-
-
+                                @endforeach
 
                             </div>
 
-
                         </div>
-                    @endforeach
+                        <!-- end Berita -->
+                    </div>
+                    <!-- sidebar -->
+                    <div class="col-lg-4">
+                        <section id="mpls-ramah-anak" class="py-5 bg-light">
+                            <div class="container">
 
-                </div>
-                
+                                <!-- Heading jelas (SEO penting) -->
+                                <header class="text-center mb-5">
+                                    <h1 class="h2 fw-bold">
+                                        Pesan & Kesan MPLS Ramah Anak SMP Ma'arif NU 01 Wanareja Tahun 2026
+                                    </h1>
+                                    <p class="text-muted">
+                                        Kumpulan pengalaman dan kesan siswa selama kegiatan MPLS.
+                                    </p>
+                                </header>
+
+                                <!-- Konten utama -->
+                                <div class="row g-4" itemscope itemtype="https://schema.org/ItemList">
+                                    @forelse($pesankesan as $item)
+                                        <!-- ITEM -->
+                                        <article class="col-md-3" itemprop="itemListElement" itemscope
+                                            itemtype="https://schema.org/CreativeWork">
+
+                                            <div class="card shadow-sm h-100 border-0 mading-card">
+
+                                                <!-- Image -->
+                                                <div class="card-header">
+                                                    <p class="card-text" itemprop="text">
+                                                        <i class="bi bi-person"></i> {{ $item->penulis }}
+                                                    </p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <!-- Isi pesan -->
+                                                    <p class="card-text" itemprop="text">
+                                                        {{ $item->konten }}
+                                                    </p>
+
+                                                    <!-- Author -->
+
+                                                </div>
+
+                                                <div class="card-footer">
+                                                    <footer>
+                                                        <p class="mb-1 text-muted small">
+
+
+                                                            <i class="bi bi-calendar"></i>
+                                                            {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('j F Y') }}
+                                                            &nbsp; | &nbsp;
+                                                            <i class="bi bi-clock"></i>
+                                                            {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('H.i') }}
+                                                        </p>
+                                                    </footer>
+                                                </div>
+
+                                            </div>
+                                        </article>
+                                    @empty
+
+                                        <div class="col-12 text-center py-5">
+                                            <div class="alert alert-light border">
+                                                <h5 class="mb-2">Belum Ada Pesan</h5>
+                                                <p class="mb-0 text-muted">
+                                                    Pesan & Kesan akan ditampilkan disini
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endforelse
+
+                                    <!-- COPY ITEM DI ATAS UNTUK DATA LAIN -->
+
+                                </div>
+                            </div>
+                        </section>
+                    </div>
             </div>
-            <!-- end Berita -->
+        </div>
 
-            <div class="row mt-5 pt-4 certifications-row" data-aos="fade-up" data-aos-delay="600">
-                <div class="col-12 text-center mb-4">
-                    <h4 class="certification-title"></h4>
-                </div>
-                <div class="col-12">
-                    <div class="certifications"> <!-- logo logo -->
-                        <div class="certification-item" data-aos="zoom-in" data-aos-delay="700">
-                            <img src="assets/img/lazisnu.png" alt="Certification">
-                        </div>
-                        <div class="certification-item" data-aos="zoom-in" data-aos-delay="800">
-                            <img src="assets/img/tutwuri.png" alt="Certification">
-                        </div>
-                        <div class="certification-item" data-aos="zoom-in" data-aos-delay="900">
-                            <img src="assets/img/ipnuippnu.png" alt="Certification">
-                        </div>
-                        <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
-                            <img src="assets/img/tunaskelapa.png" alt="Certification">
-                        </div>
-                        <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
-                            <img src="assets/img/logo_pmi.png" style="height:70px" alt="Certification">
-                        </div>
+        <!-- end pembagian -->
+
+
+
+
+        <div class="row mt-5 pt-4 certifications-row" data-aos="fade-up" data-aos-delay="600">
+            <div class="col-12 text-center mb-4">
+                <h4 class="certification-title"></h4>
+            </div>
+            <div class="col-12">
+                <div class="certifications"> <!-- logo logo -->
+                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="700">
+                        <img src="assets/img/lazisnu.png" alt="Certification">
+                    </div>
+                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="800">
+                        <img src="assets/img/tutwuri.png" alt="Certification">
+                    </div>
+                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="900">
+                        <img src="assets/img/ipnuippnu.png" alt="Certification">
+                    </div>
+                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
+                        <img src="assets/img/tunaskelapa.png" alt="Certification">
+                    </div>
+                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
+                        <img src="assets/img/logo_pmi.png" style="height:70px" alt="Certification">
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
 
     </section><!-- /Home About Section -->
 
