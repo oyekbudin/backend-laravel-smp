@@ -155,7 +155,7 @@
                 </a>
 
                 <img id="gambarModal" class="img-fluid rounded"
-                    style="max-height: 100vh; width: 100%; object-fit: contain;">
+                    style="max-height: 80vh; width: 100%; object-fit: contain;">
 
             </div>
 
