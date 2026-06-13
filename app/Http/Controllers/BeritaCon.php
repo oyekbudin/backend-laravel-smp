@@ -53,11 +53,13 @@ class BeritaCon extends BaseController
     {
         try {
 
-            // ✅ VALIDASI
+            // ✅ VALIDASI (judul harus unik)
             $request->validate([
-                'judul' => 'required',
+                'judul' => 'required|unique:beritas,judul',
                 'isi' => 'required',
-                'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:51200',
+                'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
+            ], [
+                'judul.unique' => 'Judul sudah digunakan, silakan ganti.',
             ]);
 
             // ✅ PENULIS
@@ -77,6 +79,7 @@ class BeritaCon extends BaseController
                     mkdir($uploadPath, 0775, true);
                 }
 
+                // 🔥 nama file dari judul
                 $baseName = \Str::slug($request->judul);
                 $ext = $file->getClientOriginalExtension();
                 $filename = $baseName . '.' . $ext;
@@ -93,37 +96,21 @@ class BeritaCon extends BaseController
             }
 
             // =========================
-            // 🔥 SLUG + INSERT AMAN
+            // 🔥 SLUG SEDERHANA
             // =========================
-            $baseSlug = \Str::slug($request->judul);
-            $slug = $baseSlug;
-            $counter = 1;
+            $slug = \Str::slug($request->judul);
 
-            do {
-                try {
-
-                    \App\Models\Beritas::create([
-                        'judul' => $request->judul,
-                        'isi' => $request->isi,
-                        'penulis' => $penulis,
-                        'gambar' => $path,
-                        'thumbnail' => $path,
-                        'slug' => $slug,
-                    ]);
-
-                    break;
-
-                } catch (\Illuminate\Database\QueryException $e) {
-
-                    if ($e->errorInfo[1] == 1062) {
-                        $slug = $baseSlug . '-' . $counter;
-                        $counter++;
-                    } else {
-                        throw $e;
-                    }
-                }
-
-            } while (true);
+            // =========================
+            // 💾 SIMPAN (HANYA SEKALI!)
+            // =========================
+            \App\Models\Beritas::create([
+                'judul' => $request->judul,
+                'isi' => $request->isi,
+                'penulis' => $penulis,
+                'gambar' => $path,
+                'thumbnail' => $path,
+                'slug' => $slug,
+            ]);
 
             return back()->with('success', 'Berita berhasil ditambahkan!');
 

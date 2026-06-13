@@ -219,31 +219,45 @@
                 <form action="{{ route('berita.tambahberita') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
+                    <!-- JUDUL -->
                     <div class="mb-3">
-                        <label for="" class="form-label">Judul Berita</label>
-                        <input type="text" name="judul" class="form-control mb-3" placeholder="" required>
+                        <label class="form-label">Judul Berita</label>
+                        <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror"
+                            value="{{ old('judul') }}" required>
+                        @error('judul')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
+                    <!-- ISI -->
                     <div class="mb-3">
-                        <label for="" class="form-label">Isi Berita</label>
-                        <textarea rows="10" name="isi" class="form-control mb-3" placeholder=""></textarea>
+                        <label class="form-label">Isi Berita</label>
+                        <textarea rows="10" name="isi" class="form-control @error('isi') is-invalid @enderror">{{ old('isi') }}</textarea>
+                        @error('isi')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
+                    <!-- GAMBAR -->
                     <div class="mb-3">
-                        <label for="" class="form-label">Foto Berita</label>
-                        <!-- Upload 1 gambar -->
-                        <input type="file" name="gambar" class="form-control mb-3" accept="image/*"
+                        <label class="form-label">Foto Berita</label>
+
+                        <input type="file" name="gambar"
+                            class="form-control @error('gambar') is-invalid @enderror" accept="image/*"
                             onchange="previewGambar(event)" required>
 
-                        <!-- Preview -->
-                        <img id="preview" style="width:100%; display:none; margin-bottom:10px;">
+                        @error('gambar')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
 
+                        <!-- info -->
+                        @if (old('gambar'))
+                            <small class="text-danger">Gambar harus diupload ulang</small>
+                        @endif
+
+                        <!-- preview -->
+                        <img id="preview" style="width:100%; display:none; margin-top:10px;">
                     </div>
-
-
-
-
-
 
                     <button type="submit" class="btn btn-primary w-100">Simpan</button>
 
@@ -254,9 +268,7 @@
         </div>
     </div>
 </div>
-
-<!-- SCRIPT PREVIEW -->
-<script id="4h9zqp">
+<script>
     function previewGambar(event) {
         const img = document.getElementById('preview');
         img.src = URL.createObjectURL(event.target.files[0]);
