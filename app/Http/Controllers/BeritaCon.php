@@ -88,19 +88,26 @@ class BeritaCon extends BaseController
             }
 
             // =========================
-            // 🖼️ UPLOAD SEMUA GAMBAR
-            // =========================
-            $dataGambar = [];
+// 🖼️ UPLOAD GAMBAR
+// =========================
+            $data = [];
 
-            // gambar utama
+            // ✅ GAMBAR UTAMA (WAJIB DIPISAH)
             if ($request->hasFile('gambar')) {
-                $dataGambar['gambar'] = uploadGambar($request->file('gambar'), $request->judul, $uploadPath);
+                $data['gambar'] = uploadGambar(
+                    $request->file('gambar'),
+                    $request->judul,
+                    $uploadPath
+                );
+
+                // sekalian jadi thumbnail
+                $data['thumbnail'] = $data['gambar'];
             }
 
-            // gambar2 - gambar10
+            // ✅ GAMBAR 2 - 10
             for ($i = 2; $i <= 10; $i++) {
                 if ($request->hasFile('gambar' . $i)) {
-                    $dataGambar['gambar' . $i] = uploadGambar(
+                    $data['gambar' . $i] = uploadGambar(
                         $request->file('gambar' . $i),
                         $request->judul . '-' . $i,
                         $uploadPath
@@ -127,9 +134,8 @@ class BeritaCon extends BaseController
                 'judul' => $request->judul,
                 'isi' => $request->isi,
                 'penulis' => $penulis,
-                'thumbnail' => $dataGambar['gambar'] ?? null,
                 'slug' => $slug,
-            ], $dataGambar));
+            ], $data));
 
             return back()->with('success', 'Berita berhasil ditambahkan!');
 
