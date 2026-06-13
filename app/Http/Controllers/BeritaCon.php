@@ -95,6 +95,31 @@ class BeritaCon extends BaseController
                 $path = 'uploads/berita/' . $filename;
             }
 
+            if ($request->hasFile('gambar2')) {
+                $file = $request->file('gambar2');
+
+                $uploadPath = base_path('../public_html/uploads/berita');
+
+                if (!file_exists($uploadPath)) {
+                    mkdir($uploadPath, 0775, true);
+                }
+
+                // 🔥 nama file dari judul
+                $baseName = \Str::slug($request->judul);
+                $ext = $file->getClientOriginalExtension();
+                $filename = $baseName . '.' . $ext;
+
+                $counter = 1;
+                while (file_exists($uploadPath . '/' . $filename)) {
+                    $filename = $baseName . '-' . $counter . '.' . $ext;
+                    $counter++;
+                }
+
+                $file->move($uploadPath, $filename);
+
+                $path = 'uploads/berita/' . $filename;
+            }
+
             // =========================
             // 🔥 SLUG SEDERHANA
             // =========================

@@ -45,11 +45,11 @@
                     @forelse ($databerita as $db)
                         <div class="border-bottom p-3 d-flex align-items-start">
 
-                            <!-- THUMBNAIL
+                            <!-- THUMBNAIL -->
                             <div class="me-3">
                                 <img src="{{ asset($db->gambar) }}"
                                     style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
-                            </div> -->
+                            </div>
 
                             <!-- CONTENT -->
                             <div class="flex-grow-1">
@@ -131,76 +131,6 @@
     </div>
 </div>
 
-<!--div class="container-fluid py-4">
-  <div class="row">
-    <div class="col-12">
-      <div class="card mb-4">
-        <div class="card-header pb-0">
-          <div class="d-flex align-items-center">
-            <p class="mb-0">Daftar Berita</p>
-            <button class="btn btn-primary btn-sm ms-auto" data-bs-toggle="modal" data-bs-target="#tambahAdminModal">
-              Tambah Berita
-            </button>
-          </div>
-        </div>
-        <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
-            <table class="table align-items-center mb-0">
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Judul</th>
-                  <th>Penulis</th>
-                  <th>Tanggal Publish</th>
-              
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                @php $no = 1; @endphp
-    @forelse ($databerita as $db)
-<tr>
-            <td>{{ $no++ }}</td>
-            <td>{{ $db->judul }}</td>
-            <td>{{ $db->penulis }}</td>
-            <td>{{ $db->tanggal_publish }}</td>
-            
-            <td>
-               
-                <button class="btn btn-warning btn-sm"
-        data-bs-toggle="modal"
-        data-bs-target="#editAdminModal"
-        data-id="{{ $db->id_berita }}"
-        data-judul="{{ $db->judul }}"
-        data-isi="{{ $db->isi }}"
-        data-penulis="{{ $db->penulis }}">
-        Edit
-    </button>
-
-                
-                <form action="{{ route('berita.destroy', $db->id_berita) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus berita ini?')">
-                        Hapus
-                    </button>
-                </form>
-            </td>
-        </tr>
-@empty
-        <tr>
-            <td colspan="5">Belum ada Berita.</td>
-        </tr>
-@endforelse
-</tbody>
-
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div-->
 
 @include('footerbar')
 
@@ -222,41 +152,36 @@
                     <!-- JUDUL -->
                     <div class="mb-3">
                         <label class="form-label">Judul Berita</label>
-                        <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror"
-                            value="{{ old('judul') }}" required>
-                        @error('judul')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <input type="text" name="judul" class="form-control" required>
                     </div>
 
                     <!-- ISI -->
                     <div class="mb-3">
                         <label class="form-label">Isi Berita</label>
-                        <textarea rows="10" name="isi" class="form-control @error('isi') is-invalid @enderror">{{ old('isi') }}</textarea>
-                        @error('isi')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <textarea rows="10" name="isi" class="form-control"></textarea>
                     </div>
 
                     <!-- GAMBAR -->
                     <div class="mb-3">
-                        <label class="form-label">Foto Berita</label>
+                        <label class="form-label">Foto Utama</label>
 
-                        <input type="file" name="gambar"
-                            class="form-control @error('gambar') is-invalid @enderror" accept="image/*"
+                        <!-- input hidden -->
+                        <input type="file" name="gambar" id="gambarInput" class="d-none" accept="image/*"
                             onchange="previewGambar(event)" required>
 
-                        @error('gambar')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <!-- box -->
+                        <div id="uploadBox"
+                            class="border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
+                            style="cursor: pointer; aspect-ratio:1/1;"
+                            onclick="document.getElementById('gambarInput').click()">
 
-                        <!-- info -->
-                        @if (old('gambar'))
-                            <small class="text-danger">Gambar harus diupload ulang</small>
-                        @endif
+                            <!-- icon -->
+                            <i id="iconPlus" class="bi bi-plus-lg fs-1 text-secondary"></i>
 
-                        <!-- preview -->
-                        <img id="preview" style="width:100%; display:none; margin-top:10px;">
+                            <!-- preview -->
+                            <img id="preview"
+                                class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover d-none">
+                        </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100">Simpan</button>
@@ -270,9 +195,15 @@
 </div>
 <script>
     function previewGambar(event) {
-        const img = document.getElementById('preview');
-        img.src = URL.createObjectURL(event.target.files[0]);
-        img.style.display = 'block';
+        const file = event.target.files[0];
+        const preview = document.getElementById('preview');
+        const icon = document.getElementById('iconPlus');
+
+        if (file) {
+            preview.src = URL.createObjectURL(file);
+            preview.classList.remove('d-none');
+            icon.classList.add('d-none');
+        }
     }
 </script>
 
