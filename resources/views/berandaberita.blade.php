@@ -278,8 +278,13 @@
 
 @if ($errors->any())
     <script>
-        var myModal = new bootstrap.Modal(document.getElementById('tambahAdminModal'));
-        myModal.show();
+        document.addEventListener("DOMContentLoaded", function() {
+            var modalElement = document.getElementById('tambahAdminModal');
+            if (modalElement) {
+                var myModal = new bootstrap.Modal(modalElement);
+                myModal.show();
+            }
+        });
     </script>
 @endif
 
