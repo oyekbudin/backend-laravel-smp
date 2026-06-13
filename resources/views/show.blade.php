@@ -84,7 +84,7 @@
             </div>
 
             <div class="row g-3">
-                @for ($i = 2; $i <= 10; $i++)
+                @for ($i = 1; $i <= 10; $i++)
                     @php
                         $field = 'gambar' . $i;
                     @endphp
