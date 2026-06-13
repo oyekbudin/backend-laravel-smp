@@ -361,7 +361,7 @@
                     @endforeach
 
                 </div>
-                @endforeach
+                
             </div>
             <!-- end Berita -->
 
