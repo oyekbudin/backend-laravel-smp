@@ -147,7 +147,7 @@
             <!-- DOWNLOAD BUTTON -->
             <div class="position-relative">
                 <a id="downloadBtn" class="btn btn-light btn-sm position-absolute top-0 end-0 m-2" href="#">
-                    <i class="bi bi-download"></i>
+                    <i class="bi bi-download"></i> Download Foto
                 </a>
 
                 <!-- GAMBAR -->
