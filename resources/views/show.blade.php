@@ -90,8 +90,10 @@
                     @endphp
 
                     @if ($berita->$field)
-                        <div class="col-md-4">
-                            <img src="{{ asset($berita->$field) }}" class="img-fluid rounded" loading="lazy">
+                        <div class="col-md-6">
+                            <img src="{{ asset($berita->$field) }}" class="img-fluid rounded" style="cursor:pointer"
+                                data-bs-toggle="modal" data-bs-target="#modalGambar"
+                                onclick="setGambar('{{ asset($berita->$field) }}')">
                         </div>
                     @endif
                 @endfor
@@ -109,9 +111,8 @@
                         class="list-group-item list-group-item-action d-flex gap-3 py-3">
 
                         <!-- THUMBNAIL -->
-                        <img src="{{ $item->gambar ? asset(is_array(json_decode($item->gambar, true)) ? json_decode($item->gambar, true)[0] : $item->gambar) : asset('assets/img/default.webp') }}"
-                            class="flex-shrink-0" style="width:90px; height:70px; object-fit:cover; border-radius:8px;"
-                            loading="lazy">
+                        <img src="{{ $item->gambar1 ? asset($item->gambar1) : asset('assets/img/default.webp') }}"
+                            class="img-fluid w-100" loading="lazy" alt="{{ $item->judul }}">
 
                         <!-- CONTENT -->
                         <div class="flex-grow-1">
@@ -134,5 +135,19 @@
     </article>
 
 </main>
+
+<div class="modal fade" id="modalGambar" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-transparent border-0">
+            <img id="gambarModal" class="img-fluid rounded">
+        </div>
+    </div>
+</div>
+
+<script>
+    function setGambar(src) {
+        document.getElementById('gambarModal').src = src;
+    }
+</script>
 
 @include('footer')
