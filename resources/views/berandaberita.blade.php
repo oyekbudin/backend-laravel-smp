@@ -276,6 +276,13 @@
     }
 </script>
 
+@if ($errors->any())
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('tambahAdminModal'));
+        myModal.show();
+    </script>
+@endif
+
 <!-- MODAL EDIT berita -->
 <!-- MODAL EDIT BERITA (SAMA SEPERTI TAMBAH) -->
 <div class="modal fade" id="editAdminModal" tabindex="-1">
