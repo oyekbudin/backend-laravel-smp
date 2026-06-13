@@ -64,9 +64,7 @@ class BeritaCon extends BaseController
             // ✅ PENULIS
             $penulis = Auth::user()->nama_lengkap ?? 'Admin';
 
-            // =========================
-            // 🖼️ UPLOAD GAMBAR
-            // =========================
+            /*
             $path = null;
 
             if ($request->hasFile('gambar')) {
@@ -89,6 +87,48 @@ class BeritaCon extends BaseController
             // =========================
             // 🔥 SLUG
             // =========================
+            $baseSlug = \Str::slug($request->judul);
+            $slug = $baseSlug;
+            $counter = 1;
+
+            while (\App\Models\Beritas::where('slug', $slug)->exists()) {
+                $slug = $baseSlug . '-' . $counter;
+                $counter++;
+            } */
+
+            $path = null;
+
+            if ($request->hasFile('gambar')) {
+                $file = $request->file('gambar');
+
+                $uploadPath = base_path('../public_html/uploads/berita');
+
+                if (!file_exists($uploadPath)) {
+                    mkdir($uploadPath, 0775, true);
+                }
+
+                // =========================
+                // 🔥 NAMA FILE DARI JUDUL
+                // =========================
+                $baseName = \Str::slug($request->judul);
+                $ext = $file->getClientOriginalExtension();
+                $filename = $baseName . '.' . $ext;
+
+                $counter = 1;
+                while (file_exists($uploadPath . '/' . $filename)) {
+                    $filename = $baseName . '-' . $counter . '.' . $ext;
+                    $counter++;
+                }
+
+                // upload
+                $file->move($uploadPath, $filename);
+
+                $path = 'uploads/berita/' . $filename;
+            }
+
+            // =========================
+// 🔥 SLUG URL
+// =========================
             $baseSlug = \Str::slug($request->judul);
             $slug = $baseSlug;
             $counter = 1;

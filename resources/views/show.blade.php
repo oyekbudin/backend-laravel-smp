@@ -79,7 +79,7 @@
             <div class="d-flex flex-wrap mb-4">
                 @foreach ($images as $index => $img)
                     @if ($index != 0)
-                        <img src="{{ asset($img) }}" style="width:200px; margin:5px;" loading="lazy">
+                        <img src="{{ asset($img) }}" alt="{{ $berita->judul }}" style="width:200px; margin:5px;" loading="lazy">
                     @endif
                 @endforeach
             </div>
