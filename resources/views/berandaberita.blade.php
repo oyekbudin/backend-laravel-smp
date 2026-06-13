@@ -177,10 +177,21 @@
                                         class="border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
                                         style="cursor:pointer; aspect-ratio:1/1;">
 
+                                        <!-- ICON PLUS -->
                                         <span id="iconPlus{{ $i }}" class="fs-3 text-secondary">+</span>
 
+                                        <!-- PREVIEW -->
                                         <img id="preview{{ $i }}"
                                             class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover d-none">
+
+                                        <!-- TOMBOL X -->
+                                        <button type="button" id="removeBtn{{ $i }}"
+                                            onclick="removeGambar(event, {{ $i }})"
+                                            class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 d-none"
+                                            style="z-index:10; line-height:1;">
+                                            &times;
+                                        </button>
+
                                     </label>
 
                                 </div>
@@ -202,6 +213,7 @@
         const input = event.target;
         const preview = document.getElementById('preview' + index);
         const icon = document.getElementById('iconPlus' + index);
+        const removeBtn = document.getElementById('removeBtn' + index);
 
         if (input.files && input.files[0]) {
             const reader = new FileReader();
@@ -210,10 +222,30 @@
                 preview.src = e.target.result;
                 preview.classList.remove('d-none');
                 icon.classList.add('d-none');
+                removeBtn.classList.remove('d-none');
             }
 
             reader.readAsDataURL(input.files[0]);
         }
+    }
+
+    function removeGambar(event, index) {
+        event.preventDefault();
+        event.stopPropagation(); // biar tidak buka file picker
+
+        const input = document.getElementById('gambarInput' + index);
+        const preview = document.getElementById('preview' + index);
+        const icon = document.getElementById('iconPlus' + index);
+        const removeBtn = document.getElementById('removeBtn' + index);
+
+        // reset input file
+        input.value = "";
+
+        // reset tampilan
+        preview.src = "";
+        preview.classList.add('d-none');
+        icon.classList.remove('d-none');
+        removeBtn.classList.add('d-none');
     }
 </script>
 
