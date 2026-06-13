@@ -91,11 +91,14 @@
 
                     @if ($berita->$field)
                         <div class="col-md-6">
-                            <img src="{{ asset($berita->$field) }}" class="img-fluid rounded" style="cursor:pointer"
-                                data-bs-toggle="modal" data-bs-target="#modalGambar"
-                                onclick="setGambar('{{ asset($berita->$field) }}')">
+                            <div class="w-100 bg-light d-flex align-items-center justify-content-center rounded"
+                                style="aspect-ratio: 16/9; overflow:hidden;">
 
+                                <img src="{{ asset($berita->$field) }}" class="img-fluid"
+                                    style="cursor:pointer; max-height:100%; object-fit:contain;" data-bs-toggle="modal"
+                                    data-bs-target="#modalGambar" onclick="setGambar('{{ asset($berita->$field) }}')">
 
+                            </div>
                         </div>
                     @endif
                 @endfor
