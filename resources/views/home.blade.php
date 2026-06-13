@@ -441,9 +441,13 @@
                                         </div>
 
                                         <div class="text-muted small">
-                                            {{ \Carbon\Carbon::parse($item->mulai)->translatedFormat('l, j F Y') }}
-                                             s/d 
-                                            {{ \Carbon\Carbon::parse($item->selesai)->translatedFormat('l, j F Y') }}
+                                            @if ($item->mulai == $item->selesai)
+                                                {{ \Carbon\Carbon::parse($item->mulai)->translatedFormat('l, j F Y') }}
+                                            @else
+                                                {{ \Carbon\Carbon::parse($item->mulai)->translatedFormat('l, j F Y') }}
+                                                s/d
+                                                {{ \Carbon\Carbon::parse($item->selesai)->translatedFormat('l, j F Y') }}
+                                            @endif
                                         </div>
 
                                         @if (now()->between($item->mulai, $item->selesai))
