@@ -45,11 +45,11 @@
                     @forelse ($databerita as $db)
                         <div class="border-bottom p-3 d-flex align-items-start">
 
-                            <!-- THUMBNAIL -->
+                            <!-- THUMBNAIL
                             <div class="me-3">
                                 <img src="{{ asset($db->gambar) }}"
                                     style="width:80px;height:80px;object-fit:cover;border-radius:8px;">
-                            </div>
+                            </div>-->
 
                             <!-- CONTENT -->
                             <div class="flex-grow-1">
@@ -171,16 +171,47 @@
 
                         <!-- box -->
                         <div id="uploadBox"
-                            class="border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
+                            class="w-25 border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
                             style="cursor: pointer; aspect-ratio:1/1;"
                             onclick="document.getElementById('gambarInput').click()">
 
-                            <!-- icon -->
-                            <i id="iconPlus" class="bi bi-plus-lg fs-1 text-secondary"></i>
+                            <span id="iconPlus" class="fs-1 text-secondary">+</span>
 
                             <!-- preview -->
                             <img id="preview"
                                 class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover d-none">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Album Foto</label>
+
+                        <div class="row g-2">
+
+                            @for ($i = 2; $i <= 10; $i++)
+                                <div class="col-4 col-md-3">
+
+                                    <!-- input hidden -->
+                                    <input type="file" name="gambar{{ $i }}"
+                                        id="gambarInput{{ $i }}" class="d-none" accept="image/*"
+                                        onchange="previewGambar(event, {{ $i }})">
+
+                                    <!-- box -->
+                                    <div onclick="document.getElementById('gambarInput{{ $i }}').click()"
+                                        class="border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
+                                        style="cursor:pointer; aspect-ratio:1/1;">
+
+                                        <!-- icon + -->
+                                        <span id="iconPlus{{ $i }}" class="fs-3 text-secondary">+</span>
+
+                                        <!-- preview -->
+                                        <img id="preview{{ $i }}"
+                                            class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover d-none">
+                                    </div>
+
+                                </div>
+                            @endfor
+
                         </div>
                     </div>
 
@@ -203,6 +234,25 @@
             preview.src = URL.createObjectURL(file);
             preview.classList.remove('d-none');
             icon.classList.add('d-none');
+        }
+    }
+</script>
+<script>
+    function previewGambar(event, index) {
+        const input = event.target;
+        const preview = document.getElementById('preview' + index);
+        const icon = document.getElementById('iconPlus' + index);
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.classList.remove('d-none');
+                icon.classList.add('d-none');
+            }
+
+            reader.readAsDataURL(input.files[0]);
         }
     }
 </script>
