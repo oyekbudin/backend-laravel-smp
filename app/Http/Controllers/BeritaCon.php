@@ -55,11 +55,11 @@ class BeritaCon extends BaseController
 
             // ✅ VALIDASI (judul harus unik)
             $request->validate([
-                'judul' => 'required|unique:beritas,judul',
+                'judul' => 'required',
                 'isi' => 'required',
                 'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
             ], [
-                'judul.unique' => 'Judul sudah digunakan, silakan ganti.',
+                
             ]);
 
             // ✅ PENULIS
