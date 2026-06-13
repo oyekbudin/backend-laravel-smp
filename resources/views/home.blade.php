@@ -32,9 +32,9 @@
     }
 
     #headline-berita-home {
-        font-size: 24px;
+        font-size: 55px;
         font-family: "Crimson Text", "Times New Roman", Times, serif;
-        font-weight: 700;
+        font-weight: 400;
         color: #016fba;
     }
 
