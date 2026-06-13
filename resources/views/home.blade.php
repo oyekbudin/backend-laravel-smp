@@ -302,116 +302,118 @@
                         </div>
                         <!-- end Berita -->
                     </div>
-                    <!-- sidebar -->
-                    <div class="col-lg-4">
-                        <section id="mpls-ramah-anak" class="py-5 bg-light">
-                            <div class="container">
-
-                                <!-- Heading jelas (SEO penting) -->
-                                <header class="text-center mb-5">
-                                    <h1 class="h2 fw-bold">
-                                        Pesan & Kesan MPLS Ramah Anak SMP Ma'arif NU 01 Wanareja Tahun 2026
-                                    </h1>
-                                    <p class="text-muted">
-                                        Kumpulan pengalaman dan kesan siswa selama kegiatan MPLS.
-                                    </p>
-                                </header>
-
-                                <!-- Konten utama -->
-                                <div class="row g-4" itemscope itemtype="https://schema.org/ItemList">
-                                    @forelse($pesankesan as $item)
-                                        <!-- ITEM -->
-                                        <article class="col-md-3" itemprop="itemListElement" itemscope
-                                            itemtype="https://schema.org/CreativeWork">
-
-                                            <div class="card shadow-sm h-100 border-0 mading-card">
-
-                                                <!-- Image -->
-                                                <div class="card-header">
-                                                    <p class="card-text" itemprop="text">
-                                                        <i class="bi bi-person"></i> {{ $item->penulis }}
-                                                    </p>
-                                                </div>
-                                                <div class="card-body">
-                                                    <!-- Isi pesan -->
-                                                    <p class="card-text" itemprop="text">
-                                                        {{ $item->konten }}
-                                                    </p>
-
-                                                    <!-- Author -->
-
-                                                </div>
-
-                                                <div class="card-footer">
-                                                    <footer>
-                                                        <p class="mb-1 text-muted small">
+                </section>
+            </div>
 
 
-                                                            <i class="bi bi-calendar"></i>
-                                                            {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('j F Y') }}
-                                                            &nbsp; | &nbsp;
-                                                            <i class="bi bi-clock"></i>
-                                                            {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('H.i') }}
-                                                        </p>
-                                                    </footer>
-                                                </div>
+            <!-- sidebar -->
+            <div class="col-lg-4">
+                <section id="mpls-ramah-anak" class="py-5 bg-light">
+                    <div class="container">
 
-                                            </div>
-                                        </article>
-                                    @empty
+                        <!-- Heading jelas (SEO penting) -->
+                        <header class="text-center mb-5">
+                            <h1 class="h2 fw-bold">
+                                Pesan & Kesan MPLS Ramah Anak SMP Ma'arif NU 01 Wanareja Tahun 2026
+                            </h1>
+                            <p class="text-muted">
+                                Kumpulan pengalaman dan kesan siswa selama kegiatan MPLS.
+                            </p>
+                        </header>
 
-                                        <div class="col-12 text-center py-5">
-                                            <div class="alert alert-light border">
-                                                <h5 class="mb-2">Belum Ada Pesan</h5>
-                                                <p class="mb-0 text-muted">
-                                                    Pesan & Kesan akan ditampilkan disini
-                                                </p>
-                                            </div>
+                        <!-- Konten utama -->
+                        <div class="row g-4" itemscope itemtype="https://schema.org/ItemList">
+                            @forelse($pesankesan as $item)
+                                <!-- ITEM -->
+                                <article class="col-md-3" itemprop="itemListElement" itemscope
+                                    itemtype="https://schema.org/CreativeWork">
+
+                                    <div class="card shadow-sm h-100 border-0 mading-card">
+
+                                        <!-- Image -->
+                                        <div class="card-header">
+                                            <p class="card-text" itemprop="text">
+                                                <i class="bi bi-person"></i> {{ $item->penulis }}
+                                            </p>
                                         </div>
-                                    @endforelse
+                                        <div class="card-body">
+                                            <!-- Isi pesan -->
+                                            <p class="card-text" itemprop="text">
+                                                {{ $item->konten }}
+                                            </p>
 
-                                    <!-- COPY ITEM DI ATAS UNTUK DATA LAIN -->
+                                            <!-- Author -->
 
+                                        </div>
+
+                                        <div class="card-footer">
+                                            <footer>
+                                                <p class="mb-1 text-muted small">
+
+
+                                                    <i class="bi bi-calendar"></i>
+                                                    {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('j F Y') }}
+                                                    &nbsp; | &nbsp;
+                                                    <i class="bi bi-clock"></i>
+                                                    {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('H.i') }}
+                                                </p>
+                                            </footer>
+                                        </div>
+
+                                    </div>
+                                </article>
+                            @empty
+
+                                <div class="col-12 text-center py-5">
+                                    <div class="alert alert-light border">
+                                        <h5 class="mb-2">Belum Ada Pesan</h5>
+                                        <p class="mb-0 text-muted">
+                                            Pesan & Kesan akan ditampilkan disini
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
+                            @endforelse
+
+                            <!-- COPY ITEM DI ATAS UNTUK DATA LAIN -->
+
+                        </div>
                     </div>
+                </section>
             </div>
         </div>
+    </div>
 
-        <!-- end pembagian -->
+    <!-- end pembagian -->
 
 
 
 
-        <div class="row mt-5 pt-4 certifications-row" data-aos="fade-up" data-aos-delay="600">
-            <div class="col-12 text-center mb-4">
-                <h4 class="certification-title"></h4>
-            </div>
-            <div class="col-12">
-                <div class="certifications"> <!-- logo logo -->
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="700">
-                        <img src="assets/img/lazisnu.png" alt="Certification">
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="800">
-                        <img src="assets/img/tutwuri.png" alt="Certification">
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="900">
-                        <img src="assets/img/ipnuippnu.png" alt="Certification">
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
-                        <img src="assets/img/tunaskelapa.png" alt="Certification">
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
-                        <img src="assets/img/logo_pmi.png" style="height:70px" alt="Certification">
-                    </div>
+    <div class="row mt-5 pt-4 certifications-row" data-aos="fade-up" data-aos-delay="600">
+        <div class="col-12 text-center mb-4">
+            <h4 class="certification-title"></h4>
+        </div>
+        <div class="col-12">
+            <div class="certifications"> <!-- logo logo -->
+                <div class="certification-item" data-aos="zoom-in" data-aos-delay="700">
+                    <img src="assets/img/lazisnu.png" alt="Certification">
+                </div>
+                <div class="certification-item" data-aos="zoom-in" data-aos-delay="800">
+                    <img src="assets/img/tutwuri.png" alt="Certification">
+                </div>
+                <div class="certification-item" data-aos="zoom-in" data-aos-delay="900">
+                    <img src="assets/img/ipnuippnu.png" alt="Certification">
+                </div>
+                <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
+                    <img src="assets/img/tunaskelapa.png" alt="Certification">
+                </div>
+                <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
+                    <img src="assets/img/logo_pmi.png" style="height:70px" alt="Certification">
                 </div>
             </div>
         </div>
-
     </div>
 
-    </section><!-- /Home About Section -->
+
 
     <!-- Featured Departments Section -->
     <section id="featured-departments" class="featured-departments section">
