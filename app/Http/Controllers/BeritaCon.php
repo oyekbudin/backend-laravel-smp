@@ -67,9 +67,7 @@ class BeritaCon extends BaseController
                 mkdir($uploadPath, 0775, true);
             }
 
-            // =========================
-            // 🔥 FUNCTION UPLOAD (BIAR RINGKAS)
-            // =========================
+            // function upload
             function uploadGambar($file, $judul, $uploadPath)
             {
                 $baseName = \Str::slug($judul);
@@ -87,12 +85,12 @@ class BeritaCon extends BaseController
                 return 'uploads/berita/' . $filename;
             }
 
-            // =========================
-// 🖼️ UPLOAD GAMBAR
-// =========================
+            // =====================
+            // UPLOAD
+            // =====================
             $data = [];
 
-            // ✅ GAMBAR UTAMA (WAJIB DIPISAH)
+            // gambar utama
             if ($request->hasFile('gambar')) {
                 $data['gambar'] = uploadGambar(
                     $request->file('gambar'),
@@ -100,11 +98,10 @@ class BeritaCon extends BaseController
                     $uploadPath
                 );
 
-                // sekalian jadi thumbnail
                 $data['thumbnail'] = $data['gambar'];
             }
 
-            // ✅ GAMBAR 2 - 10
+            // album
             for ($i = 2; $i <= 10; $i++) {
                 if ($request->hasFile('gambar' . $i)) {
                     $data['gambar' . $i] = uploadGambar(
@@ -115,9 +112,7 @@ class BeritaCon extends BaseController
                 }
             }
 
-            // =========================
-            // 🔥 SLUG UNIQUE
-            // =========================
+            // slug unik
             $baseSlug = Str::slug($request->judul);
             $slug = $baseSlug;
             $counter = 1;
@@ -127,9 +122,7 @@ class BeritaCon extends BaseController
                 $counter++;
             }
 
-            // =========================
-            // 💾 SIMPAN
-            // =========================
+            // simpan
             \App\Models\Beritas::create(array_merge([
                 'judul' => $request->judul,
                 'isi' => $request->isi,

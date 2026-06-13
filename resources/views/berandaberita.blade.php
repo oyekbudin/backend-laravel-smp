@@ -161,53 +161,48 @@
                         <textarea rows="10" name="isi" class="form-control"></textarea>
                     </div>
 
-                    <!-- GAMBAR -->
                     <div class="mb-3">
                         <label class="form-label">Foto Utama</label>
 
+                        <!-- input -->
                         <input type="file" name="gambar" id="gambarInput1" class="d-none" accept="image/*"
                             onchange="previewGambar(event, 1)" required>
 
-                        <div onclick="document.getElementById('gambarInput1').click()"
-                            class="w-25 border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
-                            style="cursor: pointer; aspect-ratio:1/1;">
+                        <!-- box -->
+                        <label for="gambarInput1"
+                            class="border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
+                            style="width:120px; aspect-ratio:1/1; cursor:pointer;">
 
                             <span id="iconPlus1" class="fs-3 text-secondary">+</span>
 
                             <img id="preview1"
                                 class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover d-none">
-                        </div>
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Album Foto</label>
 
                         <div class="row g-2">
-
                             @for ($i = 2; $i <= 10; $i++)
                                 <div class="col-4 col-md-3">
 
-                                    <!-- input hidden -->
                                     <input type="file" name="gambar{{ $i }}"
                                         id="gambarInput{{ $i }}" class="d-none" accept="image/*"
                                         onchange="previewGambar(event, {{ $i }})">
 
-                                    <!-- box -->
-                                    <div onclick="document.getElementById('gambarInput{{ $i }}').click()"
+                                    <label for="gambarInput{{ $i }}"
                                         class="border border-2 border-secondary rounded d-flex align-items-center justify-content-center position-relative overflow-hidden"
                                         style="cursor:pointer; aspect-ratio:1/1;">
 
-                                        <!-- icon + -->
                                         <span id="iconPlus{{ $i }}" class="fs-3 text-secondary">+</span>
 
-                                        <!-- preview -->
                                         <img id="preview{{ $i }}"
                                             class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover d-none">
-                                    </div>
+                                    </label>
 
                                 </div>
                             @endfor
-
                         </div>
                     </div>
 
