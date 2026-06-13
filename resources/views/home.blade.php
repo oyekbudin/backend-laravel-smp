@@ -32,10 +32,11 @@
     }
 
     #headline-berita-home {
-        font-size: 55px;
+        font-size: 30px;
         font-family: "Crimson Text", "Times New Roman", Times, serif;
         font-weight: 400;
         color: #016fba;
+        text-align: left;
     }
 
     .tanggal-berita-home {
@@ -70,6 +71,14 @@
 
     .berita-card:hover img {
         transform: scale(1.1);
+    }
+
+    #isi-berita {
+        font-size: 17px;
+        line-height: 160%;
+        font-family: Karla, sans-serif;
+        color: #323233;
+        background-color: #fefefe;
     }
 </style>
 
@@ -211,7 +220,8 @@
                             <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
                                 <div class="about-image">
                                     <div
-                                        style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                        style="position: relative; width: 100%; max-width: 720px; padding-bottom: 177.78%; height: 0; overflow: hidden; margin:auto;">
+
                                         <iframe
                                             src="https://www.youtube.com/embed/3P2fzU8sojA?autoplay=1&mute=1&loop=1&playlist=3P2fzU8sojA"
                                             frameborder="0"
@@ -219,6 +229,7 @@
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen>
                                         </iframe>
+
                                     </div>
 
                                     <div class="experience-badge">
@@ -231,24 +242,27 @@
                             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
                                 <div class="about-card">
 
-                                    <h2 class="about-title">Marching Band Garuda Nusantara</h2>
+                                    <h2 id="headline-berita-home">Marching Band Garuda Nusantara</h2>
+                                    <div id="isi-berita">
+                                        <p class="about-text">
+                                            Garuda Nusantara adalah Marching Band yang diikuti oleh siswa-siswi SMP
+                                            Ma'arif
+                                            NU 01
+                                            Wanareja.
+                                        </p>
 
-                                    <p class="about-text">
-                                        Garuda Nusantara adalah Marching Band yang diikuti oleh siswa-siswi SMP Ma'arif
-                                        NU 01
-                                        Wanareja.
-                                    </p>
+                                        <p class="about-text">
+                                            Garuda Nusantara telah mengepakkan sayapnya di berbagai acara:
+                                        </p>
 
-                                    <p class="about-text">
-                                        Garuda Nusantara telah mengepakkan sayapnya di berbagai acara:
-                                    </p>
+                                        <ul class="about-list">
+                                            <li>Hari Santri Nasional ke-9 tingkat kecamatan Wanareja tahun 2023</li>
+                                            <li>HUT RI Ke-79 tingkat desa Bantar tahun 2024</li>
+                                            <li>Hari Santri Nasional ke-10 tingkat kecamatan Wanareja tahun 2024</li>
+                                            <li>Acara Maulid Nabi dan Khatmil Qur'an di seluruh kecamatan Wanareja</li>
+                                        </ul>
+                                    </div>
 
-                                    <ul class="about-list">
-                                        <li>Hari Santri Nasional ke-9 tingkat kecamatan Wanareja tahun 2023</li>
-                                        <li>HUT RI Ke-79 tingkat desa Bantar tahun 2024</li>
-                                        <li>Hari Santri Nasional ke-10 tingkat kecamatan Wanareja tahun 2024</li>
-                                        <li>Acara Maulid Nabi dan Khatmil Qur'an di seluruh kecamatan Wanareja</li>
-                                    </ul>
 
                                 </div>
                             </div>
@@ -313,12 +327,10 @@
 
                         <!-- Heading jelas (SEO penting) -->
                         <header class="text-center mb-5">
-                            <h1 class="h2 fw-bold">
-                                Pesan & Kesan MPLS Ramah Anak SMP Ma'arif NU 01 Wanareja Tahun 2026
+                            <h1 id="headline-berita-home">
+                                Pesan & Kesan MPLS Tahun 2026
                             </h1>
-                            <p class="text-muted">
-                                Kumpulan pengalaman dan kesan siswa selama kegiatan MPLS.
-                            </p>
+
                         </header>
 
                         <!-- Konten utama -->
