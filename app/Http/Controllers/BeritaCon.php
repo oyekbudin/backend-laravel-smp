@@ -51,6 +51,33 @@ class BeritaCon extends BaseController
 
     public function tambahberita(Request $request)
     {
+        // DEBUG DULU
+        dd($request->all(), $request->file());
+
+        $data = [];
+
+        // FOTO UTAMA
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $nama = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('upload'), $nama);
+            $data['gambar'] = $nama;
+        }
+
+        // ALBUM
+        for ($i = 2; $i <= 10; $i++) {
+            if ($request->hasFile('gambar' . $i)) {
+                $file = $request->file('gambar' . $i);
+                $nama = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('upload'), $nama);
+                $data['gambar' . $i] = $nama;
+            }
+        }
+
+        dd($data);
+    }
+    public function oldtambahberita(Request $request)
+    {
         try {
 
             $request->validate([
