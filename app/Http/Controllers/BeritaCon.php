@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Beritas;
+use App\Models\Kaldik;
 use App\Models\Pesan_kesan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -33,8 +34,9 @@ class BeritaCon extends BaseController
     public function home()
     {
         $databerita = Beritas::orderBy('tanggal_publish', 'desc')->get(); // Ambil semua data dari tabel Siswa
+        $datakaldik = Kaldik::orderBy('mulai','desc')->get();
         $pesankesan = Pesan_kesan::orderBy('tanggal', 'desc')->get();
-        return view('home', compact('databerita', 'pesankesan'));
+        return view('home', compact('databerita', 'pesankesan','datakaldik'));
     }
 
     public function show($slug)

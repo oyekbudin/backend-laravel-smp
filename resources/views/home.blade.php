@@ -417,6 +417,50 @@
                         </div>
                     </div>
                 </section>
+                <section>
+                    <div class="card mt-3">
+                        <div class="card-body">
+
+                            <h5 class="mb-3" id="headline-berita-home">
+                                <i class="bi bi-calendar-event text-primary"></i>
+                                Kalender Pendidikan
+                            </h5>
+
+                            @forelse($datakaldik as $item)
+                                <div class="d-flex align-items-start mb-3 pb-2 border-bottom">
+
+                                    <!-- ICON -->
+                                    <div class="me-3">
+                                        <i class="bi bi-calendar-event fs-4 text-primary"></i>
+                                    </div>
+
+                                    <!-- CONTENT -->
+                                    <div>
+                                        <div class="fw-semibold">
+                                            {{ $item->agenda }}
+                                        </div>
+
+                                        <div class="text-muted small">
+                                            {{ \Carbon\Carbon::parse($item->mulai)->format('d M Y') }}
+                                            -
+                                            {{ \Carbon\Carbon::parse($item->selesai)->format('d M Y') }}
+                                        </div>
+
+                                        @if (now()->between($item->mulai, $item->selesai))
+                                            <span class="badge bg-success mt-1">Sedang Berlangsung</span>
+                                        @endif
+
+                                    </div>
+
+                                </div>
+
+                            @empty
+                                <div class="text-muted">Tidak ada kegiatan</div>
+                            @endforelse
+
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
