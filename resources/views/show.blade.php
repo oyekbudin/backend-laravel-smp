@@ -62,7 +62,7 @@
         <!-- Thumbnail -->
         <figure class="mb-4">
             <img src="{{ $berita->gambar ? asset(is_array(json_decode($berita->gambar, true)) ? json_decode($berita->gambar, true)[0] : $berita->gambar) : asset('assets/img/default.webp') }}"
-                class="img-fluid w-100" loading="lazy">
+                class="img-fluid w-100" loading="lazy" alt="{{ $berita->judul }}">
         </figure>
 
         <!-- Content -->
