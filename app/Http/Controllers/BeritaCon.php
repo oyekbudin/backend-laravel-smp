@@ -53,7 +53,6 @@ class BeritaCon extends BaseController
     {
         try {
 
-
             // ✅ VALIDASI
             $request->validate([
                 'judul' => 'required',
@@ -64,7 +63,9 @@ class BeritaCon extends BaseController
             // ✅ PENULIS
             $penulis = Auth::user()->nama_lengkap ?? 'Admin';
 
-            /*
+            // =========================
+            // 🖼️ UPLOAD GAMBAR
+            // =========================
             $path = null;
 
             if ($request->hasFile('gambar')) {
@@ -76,40 +77,6 @@ class BeritaCon extends BaseController
                     mkdir($uploadPath, 0775, true);
                 }
 
-                $filename = \Str::uuid() . '.' . $file->getClientOriginalExtension();
-
-                // ✅ pakai move (normal)
-                $file->move($uploadPath, $filename);
-
-                $path = 'uploads/berita/' . $filename;
-            }
-
-            // =========================
-            // 🔥 SLUG
-            // =========================
-            $baseSlug = \Str::slug($request->judul);
-            $slug = $baseSlug;
-            $counter = 1;
-
-            while (\App\Models\Beritas::where('slug', $slug)->exists()) {
-                $slug = $baseSlug . '-' . $counter;
-                $counter++;
-            } */
-
-            $path = null;
-
-            if ($request->hasFile('gambar')) {
-                $file = $request->file('gambar');
-
-                $uploadPath = base_path('../public_html/uploads/berita');
-
-                if (!file_exists($uploadPath)) {
-                    mkdir($uploadPath, 0775, true);
-                }
-
-                // =========================
-                // 🔥 NAMA FILE DARI JUDUL
-                // =========================
                 $baseName = \Str::slug($request->judul);
                 $ext = $file->getClientOriginalExtension();
                 $filename = $baseName . '.' . $ext;
@@ -120,43 +87,49 @@ class BeritaCon extends BaseController
                     $counter++;
                 }
 
-                // upload
                 $file->move($uploadPath, $filename);
 
                 $path = 'uploads/berita/' . $filename;
             }
 
             // =========================
-// 🔥 SLUG URL
-// =========================
+            // 🔥 SLUG + INSERT AMAN
+            // =========================
             $baseSlug = \Str::slug($request->judul);
             $slug = $baseSlug;
             $counter = 1;
 
-            while (\App\Models\Beritas::where('slug', $slug)->exists()) {
-                $slug = $baseSlug . '-' . $counter;
-                $counter++;
-            }
+            do {
+                try {
 
-            // =========================
-            // 💾 SIMPAN
-            // =========================
-            \App\Models\Beritas::create([
-                'judul' => $request->judul,
-                'isi' => $request->isi,
-                'penulis' => $penulis,
-                'gambar' => $path,
-                'thumbnail' => $path,
-                'slug' => $slug,
-            ]);
+                    \App\Models\Beritas::create([
+                        'judul' => $request->judul,
+                        'isi' => $request->isi,
+                        'penulis' => $penulis,
+                        'gambar' => $path,
+                        'thumbnail' => $path,
+                        'slug' => $slug,
+                    ]);
+
+                    break;
+
+                } catch (\Illuminate\Database\QueryException $e) {
+
+                    if ($e->errorInfo[1] == 1062) {
+                        $slug = $baseSlug . '-' . $counter;
+                        $counter++;
+                    } else {
+                        throw $e;
+                    }
+                }
+
+            } while (true);
 
             return back()->with('success', 'Berita berhasil ditambahkan!');
 
         } catch (\Exception $e) {
             return back()->with('error', 'Gagal: ' . $e->getMessage());
         }
-
-
     }
 
     /*
