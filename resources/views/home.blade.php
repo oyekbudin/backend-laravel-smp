@@ -422,7 +422,7 @@
                         <div class="card-body">
 
                             <h5 class="mb-3" id="headline-berita-home">
-                                
+
                                 Kalender Pendidikan
                             </h5>
 
@@ -441,9 +441,9 @@
                                         </div>
 
                                         <div class="text-muted small">
-                                            {{ \Carbon\Carbon::parse($item->mulai)->format('d M Y') }}
-                                            -
-                                            {{ \Carbon\Carbon::parse($item->selesai)->format('d M Y') }}
+                                            {{ \Carbon\Carbon::parse($item->mulai)->translatedFormat('l, j F Y') }}
+                                             s/d 
+                                            {{ \Carbon\Carbon::parse($item->selesai)->translatedFormat('l, j F Y') }}
                                         </div>
 
                                         @if (now()->between($item->mulai, $item->selesai))
