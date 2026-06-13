@@ -90,7 +90,7 @@ class BeritaCon extends BaseController
         // =====================
         // INSERT
         // =====================
-        \App\Models\Berita::create($data);
+        \App\Models\Beritas::create($data);
 
         return redirect()->back();
     }
