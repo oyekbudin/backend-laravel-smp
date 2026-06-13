@@ -145,16 +145,18 @@
 </main>
 <div class="modal fade" id="modalGambar" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content bg-transparent border-0 text-center">
+        <div class="modal-content bg-transparent border-0 text-center d-flex align-items-center justify-content-center"
+            style="height:100vh;">
 
-            <!-- DOWNLOAD BUTTON -->
-            <div class="position-relative">
+            <div class="position-relative w-100">
+
                 <a id="downloadBtn" class="btn btn-light btn-sm position-absolute top-0 end-0 m-2" href="#">
                     <i class="bi bi-download"></i> Download Foto
                 </a>
 
-                <!-- GAMBAR -->
-                <img id="gambarModal" class="img-fluid rounded">
+                <img id="gambarModal" class="img-fluid rounded"
+                    style="max-height: 100vh; width: 100%; object-fit: contain;">
+
             </div>
 
         </div>
