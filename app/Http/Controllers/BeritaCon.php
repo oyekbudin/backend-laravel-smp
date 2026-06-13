@@ -34,7 +34,7 @@ class BeritaCon extends BaseController
     public function home()
     {
         $databerita = Beritas::orderBy('tanggal_publish', 'desc')->get(); // Ambil semua data dari tabel Siswa
-        $datakaldik = Kaldik::orderBy('mulai','desc')->get();
+        $datakaldik = Kaldik::orderBy('mulai','asc')->get();
         $pesankesan = Pesan_kesan::orderBy('tanggal', 'desc')->get();
         return view('home', compact('databerita', 'pesankesan','datakaldik'));
     }
