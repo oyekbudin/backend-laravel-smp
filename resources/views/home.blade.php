@@ -220,12 +220,12 @@
                             <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
                                 <div class="about-image">
                                     <div
-                                        style="position: relative; width: 100%; max-width: 720px; padding-bottom: 177.78%; height: 0; overflow: hidden; margin:auto;">
+                                        style="position: relative; width: 100%; max-width: 720px; padding-bottom: 177.78%; height: 0; overflow: hidden; margin:auto; border-radius:16px;">
 
                                         <iframe
                                             src="https://www.youtube.com/embed/3P2fzU8sojA?autoplay=1&mute=1&loop=1&playlist=3P2fzU8sojA"
                                             frameborder="0"
-                                            style="position: absolute; top:0; left:0; width:100%; height:100%;"
+                                            style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen>
                                         </iframe>
