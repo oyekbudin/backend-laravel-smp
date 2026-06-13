@@ -287,7 +287,7 @@
 
                                             <a href="{{ route('show', $db->slug) }}" class="text-decoration-none">
                                                 <!-- IMAGE -->
-                                                <img src="{{ $db->gambar ? asset($db->gambar) : asset('assets/img/health/cardiology-2.webp') }}"
+                                                <img src="{{ $db->gambar1 ? asset($db->gambar1) : asset('assets/img/health/cardiology-2.webp') }}"
                                                     class="berita-img" alt="{{ $db->judul }}" loading="lazy">
 
                                                 <!-- CONTENT -->

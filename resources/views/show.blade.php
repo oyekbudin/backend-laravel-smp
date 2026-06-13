@@ -20,6 +20,14 @@
         color: #000;
     }
 
+    #dok-berita {
+        font-size: 20px;
+        letter-spacing: -1.5px;
+        line-height: 1.1;
+        font-family: "Crimson Text", "Times New Roman", Times, serif;
+        color: #000;
+    }
+
     #isi-berita {
         font-size: 17px;
         line-height: 160%;
@@ -61,27 +69,32 @@
 
         <!-- Thumbnail -->
         <figure class="mb-4">
-            <img src="{{ $berita->gambar ? asset(is_array(json_decode($berita->gambar, true)) ? json_decode($berita->gambar, true)[0] : $berita->gambar) : asset('assets/img/default.webp') }}"
+            <img src="{{ $berita->gambar1 ? asset($berita->gambar1) : asset('assets/img/default.webp') }}"
                 class="img-fluid w-100" loading="lazy" alt="{{ $berita->judul }}">
         </figure>
 
         <!-- Content -->
-        <section id="isi-berita" class="content mb-4 p-0">
+        <section id="isi-berita" class="content mb-3 p-0">
             {!! $berita->isi !!}
         </section>
 
-        <!-- Gallery -->
-        @php
-            $images = json_decode($berita->gambar, true);
-        @endphp
+        @if ($berita->gambar2)
+            <div id="dok-berita" class="mb-3">
+                Dokumentasi Kegiatan
+            </div>
 
-        @if (is_array($images) && count($images) > 1)
-            <div class="d-flex flex-wrap mb-4">
-                @foreach ($images as $index => $img)
-                    @if ($index != 0)
-                        <img src="{{ asset($img) }}" alt="{{ $berita->judul }}" style="width:200px; margin:5px;" loading="lazy">
+            <div class="row g-3">
+                @for ($i = 2; $i <= 10; $i++)
+                    @php
+                        $field = 'gambar' . $i;
+                    @endphp
+
+                    @if ($berita->$field)
+                        <div class="col-md-4">
+                            <img src="{{ asset($berita->$field) }}" class="img-fluid rounded" loading="lazy">
+                        </div>
                     @endif
-                @endforeach
+                @endfor
             </div>
         @endif
 
