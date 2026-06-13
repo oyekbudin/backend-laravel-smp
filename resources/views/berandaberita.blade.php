@@ -166,7 +166,7 @@
 
                         <div class="row g-2">
                             @for ($i = 1; $i <= 10; $i++)
-                                <div class="col-4 col-md-2">
+                                <div class="col-3 col-md-3">
 
                                     <input type="file" name="gambar{{ $i }}"
                                         id="gambarInput{{ $i }}" class="d-none" accept="image/*"
