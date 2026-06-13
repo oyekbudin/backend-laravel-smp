@@ -21,11 +21,11 @@
     }
 
     #dok-berita {
-        font-size: 20px;
-        letter-spacing: -1.5px;
+        font-size: 30px;
         line-height: 1.1;
         font-family: "Crimson Text", "Times New Roman", Times, serif;
         color: #000;
+        color: #016fba;
     }
 
     #isi-berita {
@@ -102,17 +102,19 @@
 
         <!-- 🔥 BERITA LAINNYA -->
         <section class="mt-5">
-            <h5 class="mb-3">Berita Lainnya</h5>
+            <h5 id="dok-berita" class="mb-3">Berita Lainnya</h5>
 
             <div class="list-group list-group-flush">
 
                 @foreach ($lainnya->take(10) as $item)
                     <a href="/berita/{{ $item->slug }}"
-                        class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                        class="list-group-item list-group-item-action d-flex gap-3 align-items-start py-3">
 
                         <!-- THUMBNAIL -->
-                        <img src="{{ $item->gambar1 ? asset($item->gambar1) : asset('assets/img/default.webp') }}"
-                            class="img-fluid w-100" loading="lazy" alt="{{ $item->judul }}">
+                        <div style="width: 100px; height: 80px; overflow: hidden; flex-shrink: 0;">
+                            <img src="{{ $item->gambar1 ? asset($item->gambar1) : asset('assets/img/default.webp') }}"
+                                class="w-100 h-100 object-fit-cover rounded" loading="lazy" alt="{{ $item->judul }}">
+                        </div>
 
                         <!-- CONTENT -->
                         <div class="flex-grow-1">
