@@ -18,12 +18,14 @@ use App\Http\Controllers\AdminsCon;
 use App\Http\Controllers\SiswaCon;
 use App\Http\Controllers\AbsensiCon;
 use App\Http\Controllers\BeritaCon;
+use App\Http\Controllers\KaldikCon;
 use App\Http\Controllers\ApiSiswaCon;
 use App\Models\Absensis;
 use Illuminate\Http\Request;   
 use App\Models\Siswas;
 use App\Models\Admins;
 use App\Models\Beritas;
+use App\Models\Kaldik;
 //use App\Models\Absensis;
 
 Route::middleware('auth')->group(function () {
@@ -89,6 +91,14 @@ Route::delete('/berita/{id}', [BeritaCon::class, 'destroy'])->name('berita.destr
 Route::put('/berita/{id}', [BeritaCon::class, 'update'])->name('berita.update');
 
 Route::post('/upload-image', [BeritaCon::class, 'uploadImage'])->name('upload.image');
+
+
+// KaldikCon
+Route::get('/kaldik', [KaldikCon::class, 'index']);
+Route::post('/kaldik/tambahkaldik', [KaldikCon::class, 'tambahkaldik'])->name('kaldik.tambahkaldik'); 
+Route::get('/kaldik/{id}/edit', [KaldikCon::class, 'edit'])->name('kaldik.edit');
+Route::delete('/kaldik/{id}', [KaldikCon::class, 'destroy'])->name('kaldik.destroy'); 
+Route::put('/kaldik/{id}', [KaldikCon::class, 'update'])->name('kaldik.update');
 
 });
 

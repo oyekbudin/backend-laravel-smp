@@ -1,29 +1,33 @@
-
 @include('head')
 
 <body class="g-sidenav-show   bg-gray-100">
-  <div class="min-height-300 bg-dark position-absolute w-100"></div>
-  <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="#" >
-        <img src="{{ asset('assets/img/logosmp.png') }}" height="75px" class="navbar-brand-img h-100" alt="main_logo">
-        
-      </a>
-    </div>
-    <hr class="horizontal dark mt-0">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-    <li class="nav-item">
-        <a class="nav-link {{ Request::is('_dashboard') ? 'active' : '' }}" href="/_dashboard">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-        </a>
-    </li>
+    <div class="min-height-300 bg-dark position-absolute w-100"></div>
+    <aside
+        class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" href="#">
+                <img src="{{ asset('assets/img/logosmp.png') }}" height="75px" class="navbar-brand-img h-100"
+                    alt="main_logo">
 
-    <!--li class="nav-item">
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('_dashboard') ? 'active' : '' }}" href="/_dashboard">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Dashboard</span>
+                    </a>
+                </li>
+
+                <!--li class="nav-item">
         <a class="nav-link {{ Request::is('siswa*') ? 'active' : '' }}" href="/siswa">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
@@ -41,25 +45,38 @@
         </a>
     </li-->
 
-    <li class="nav-item">
-        <a class="nav-link {{ Request::is('admins*') ? 'active' : '' }}" href="/admins">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-credit-card text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Kelola Admin</span>
-        </a>
-    </li>
 
-    <li class="nav-item">
-        <a class="nav-link {{ Request::is('berita*') ? 'active' : '' }}" href="/berita">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-credit-card text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Kelola Berita</span>
-        </a>
-    </li>
 
-    <!--li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('berita*') ? 'active' : '' }}" href="/berita">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-credit-card text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Kelola Berita</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('admins*') ? 'active' : '' }}" href="/admins">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-credit-card text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Tambah Pengguna</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('kaldik*') ? 'active' : '' }}" href="/kaldik">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-calendar text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Kalender Pendidikan</span>
+                    </a>
+                </li>
+                <!--li class="nav-item">
         <a class="nav-link {{ Request::is('modestandby') ? 'active' : '' }}" href="/modestandby">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-app text-dark text-sm opacity-10"></i>
@@ -68,19 +85,20 @@
         </a>
     </li-->
 
-    <li class="nav-item">
-        <a class="nav-link" href="/logout">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-collection text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Keluar</span>
-        </a>
-    </li>
-</ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-collection text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Keluar</span>
+                    </a>
+                </li>
+            </ul>
 
-    </div>
-    
-    <!--div class="sidenav-footer mx-3 ">
+        </div>
+
+        <!--div class="sidenav-footer mx-3 ">
       <div class="card card-plain shadow-none" id="sidenavCard">
         <img class="w-50 mx-auto" src="{{ asset('dashboard/assets/img/illustrations/icon-documentation.svg') }}" alt="sidebar_illustration">
         <div class="card-body text-center p-3 w-100 pt-0">
@@ -93,4 +111,4 @@
       <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/argon-dashboard" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
       <a class="btn btn-primary btn-sm mb-0 w-100" href="https://www.creative-tim.com/product/argon-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
     </div-->
-  </aside>
+    </aside>
