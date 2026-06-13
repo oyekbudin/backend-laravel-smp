@@ -84,6 +84,17 @@ class BeritaCon extends BaseController
         // =====================
         // FIELD LAIN
         // =====================
+        $baseSlug = Str::slug($request->judul);
+        $slug = $baseSlug;
+        $counter = 1;
+
+        while (Beritas::where('slug', $slug)->exists()) {
+            $slug = $baseSlug . '-' . $counter;
+            $counter++;
+        }
+
+
+        $data['slug'] = $slug;
         $data['judul'] = $request->judul;
         $data['isi'] = $request->isi;
 
