@@ -57,7 +57,7 @@
                 <div class="card-body p-0">
 
                     @forelse ($data['guru'] as $guru)
-                        <div class="border-bottom p-3 d-flex align-items-start gap-3">
+                        <div class="border-bottom p-3 d-flex flex-column align-items-start gap-3">
                             @php
                                 $totalJP = $data['jadwal']
                                     ->where('id_guru', $guru->id)
