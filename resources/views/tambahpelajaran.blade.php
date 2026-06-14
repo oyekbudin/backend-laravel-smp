@@ -63,6 +63,13 @@
 
                 </div>
                 <div class="card-body p-0">
+                    @php
+                        $nama_guru = $data['guru']->firstWhere('id', $data['id_guru']);
+                    @endphp
+
+                    <div class="mb-3">
+                        <span>Menambahkan pelajaran untuk : {{ $nama_guru }}</span>
+                    </div>
 
                     <form action="{{ route('savepelajaran') }}" method="POST">
                         @csrf
@@ -70,13 +77,13 @@
                         <!-- hidden id guru -->
                         <input type="hidden" name="id_guru" value="{{ $data['id_guru'] }}">
 
-                        <div>
+                        <div class="p-3 border-bottom">
 
                             <!-- Pilih Pelajaran -->
-                            <div>
-                                <label>Pilih Pelajaran</label>
+                            <div class="mb-2">
+                                <label class="fw-bold">Pilih Pelajaran</label>
 
-                                <select name="id_pelajaran" required>
+                                <select name="id_pelajaran" class="form-control" required>
                                     <option value="">-- Pilih Pelajaran --</option>
 
                                     @foreach ($data['pelajaran'] as $pelajaran)
@@ -87,13 +94,13 @@
                                 </select>
                             </div>
 
-                            <br>
+
 
                             <!-- Pilih Kelas -->
-                            <div>
-                                <label>Pilih Kelas</label>
+                            <div class="mb-2">
+                                <label class="fw-bold">Pilih Kelas</label>
 
-                                <select name="id_kelas" required>
+                                <select name="id_kelas" class="form-control" required>
                                     <option value="">-- Pilih Kelas --</option>
 
                                     @foreach ($data['kelas'] as $kelas)
