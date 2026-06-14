@@ -53,8 +53,18 @@
                         <!-- Content -->
                         <div class="flex-grow-1">
 
-                            <h5 class="mb-2 fw-bold">Ibnu Sadun</h5>
+                            <!-- Header nama + tombol edit -->
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="mb-0 fw-bold">Ibnu Sadun</h5>
 
+                                <button
+                                    class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1">
+                                    <i class="bi bi-pencil" style="font-size: 16px;"></i>
+                                    <span>Edit</span>
+                                </button>
+                            </div>
+
+                            <!-- List pelajaran -->
                             <div class="d-flex flex-wrap gap-2 align-items-center">
 
                                 <!-- Item -->
@@ -67,19 +77,14 @@
                                         <i class="bi bi-trash" style="font-size: 20px;"></i>
                                     </button>
                                 </div>
-                                
-                                
 
                                 <!-- Tombol tambah -->
-                                <button
-                                    class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                <button class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
                                     <i class="bi bi-plus" style="font-size: 20px;"></i>
                                     <span class="fw-bold">Tambah Pelajaran</span>
                                 </button>
 
                             </div>
-
-
 
                         </div>
 
