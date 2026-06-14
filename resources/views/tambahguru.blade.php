@@ -18,6 +18,31 @@
         font-family: Arial, sans-serif;
         line-height: 1.6;
     }
+
+    <style>.color-option input {
+        display: none;
+    }
+
+    .color-box {
+        width: 35px;
+        height: 35px;
+        border: 2px solid #ccc;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    /* hover */
+    .color-box:hover {
+        transform: scale(1.1);
+    }
+
+    /* saat dipilih */
+    .color-option input:checked+.color-box {
+        border: 3px solid black;
+        transform: scale(1.15);
+        box-shadow: 0 0 0 2px white, 0 0 8px rgba(0, 0, 0, 0.4);
+    }
+</style>
 </style>
 <!-- Pell CSS -->
 <link rel="stylesheet" href="https://unpkg.com/pell/dist/pell.min.css">
@@ -72,7 +97,6 @@
 
                                 <div class="d-flex flex-wrap gap-2 mt-2">
 
-                                    <!-- warna pilihan -->
                                     @php
                                         $colors = [
                                             '#A8E6CF', // hijau muda
@@ -94,18 +118,10 @@
                                     @endphp
 
                                     @foreach ($colors as $color)
-                                        <label style="cursor:pointer;">
-                                            <input type="radio" name="kode_warna" value="{{ $color }}" hidden
+                                        <label class="color-option">
+                                            <input type="radio" name="kode_warna" value="{{ $color }}"
                                                 required>
-
-                                            <div
-                                                style="
-                            width: 35px;
-                            height: 35px;
-                            background: {{ $color }};
-                            border: 2px solid #ccc;
-                        ">
-                                            </div>
+                                            <div class="color-box" style="background: {{ $color }}"></div>
                                         </label>
                                     @endforeach
 
