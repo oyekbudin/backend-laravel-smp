@@ -99,7 +99,7 @@
 
                                 </div>
 
-                                <div class="row flex-nowrap overflow-hidden overflow-auto m-1 p-2 gap-2"
+                                <div class="d-flex flex-nowrap overflow-auto m-1 p-2 gap-2"
                                     style="scroll-behavior: smooth;">
 
                                     @php
@@ -116,7 +116,7 @@
 
 
                                         <div
-                                            class="col-lg-2 rounded border p-1 d-flex align-items-center gap-2 bg-white flex-column shadow">
+                                            class="flex-shrink-0 rounded border p-1 d-flex flex-column align-items-center gap-2 bg-white shadow">
                                             <span class="badge text-dark"
                                                 style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
                                             <div class="fw-bold text-center">{{ $pelajaran->nama ?? '-' }}</div>
