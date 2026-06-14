@@ -88,7 +88,7 @@
 
                                     @foreach ($data['pelajaran'] as $pelajaran)
                                         <option value="{{ $pelajaran->id }}">
-                                            {{ $pelajaran->nama }}
+                                            {{ $pelajaran->kode }} {{ $pelajaran->nama }}
                                         </option>
                                     @endforeach
                                 </select>
