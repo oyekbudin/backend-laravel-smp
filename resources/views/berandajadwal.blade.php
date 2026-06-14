@@ -110,44 +110,41 @@
                                         @php
                                             $kelas = $data['kelas']->firstWhere('id', $jd->id_kelas);
                                             $pelajaran = $data['pelajaran']->firstWhere('id', $jd->id_pelajaran);
-
                                         @endphp
 
+                                        <div class="flex-shrink-0 bg-white border rounded shadow-sm p-2 d-flex flex-column align-items-center gap-2"
+                                            style="width: 160px; min-width: 160px;">
 
+                                            <span class="badge text-dark" style="background: {{ $guru->kode_warna }};">
+                                                {{ $guru->kode }}.{{ $pelajaran->kode }}
+                                            </span>
 
-                                        <div
-                                            class="flex-shrink-0 rounded border p-1 d-flex flex-column align-items-center gap-2 bg-white shadow">
-                                            <span class="badge text-dark"
-                                                style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
-                                            <div class="fw-bold text-center">{{ $pelajaran->nama ?? '-' }}</div>
-                                            <div class="text-muted">{{ $kelas->nama ?? '-' }}</div>
+                                            <div class="fw-bold text-center small">
+                                                {{ $pelajaran->nama ?? '-' }}
+                                            </div>
 
-                                            <!--button
-                                                class="btn btn-danger d-flex align-items-center justify-content-center m-0 p-1 rounded-2"
-                                                title="Hapus">
-                                                Hapus
-                                            </button-->
+                                            <div class="text-muted small">
+                                                {{ $kelas->nama ?? '-' }}
+                                            </div>
+
                                             <form action="{{ route('kaldik.destroypelajaran', $jd->id) }}"
-                                                method="POST">
+                                                method="POST" class="mt-auto">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"
+
+                                                <button type="submit" class="btn btn-danger btn-sm w-100"
                                                     onclick="return confirm('Yakin hapus?')">
                                                     Hapus
                                                 </button>
                                             </form>
+
                                         </div>
 
-
                                     @empty
-                                        <div class="p-4 text-center text-muted">
+                                        <div class="p-4 text-center text-muted w-100">
                                             Belum ada pelajaran
                                         </div>
                                     @endforelse
-
-
-
-
 
                                 </div>
 
