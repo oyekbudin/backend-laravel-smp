@@ -483,23 +483,23 @@
 
         <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 certifications">
 
-            <div class="certification-item" >
+            <div class="certification-item animate-float" >
                 <img src="assets/img/lazisnu.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item" >
+            <div class="certification-item animate-float" >
                 <img src="assets/img/tutwuri.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item" >
+            <div class="certification-item animate-float" >
                 <img src="assets/img/ipnuippnu.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item" >
+            <div class="certification-item animate-float" >
                 <img src="assets/img/tunaskelapa.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item" >
+            <div class="certification-item animate-float" >
                 <img src="assets/img/logo_pmi.png" class="cert-img" alt="Certification">
             </div>
 
@@ -522,7 +522,7 @@
 
             <div class="row gy-4">
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-4 col-md-6">
                     <div class="department-card">
                         <div class="department-image">
                             <img src="uploads/berita/d89f866f-9b8b-44eb-9a76-4453e83527f8.png"
