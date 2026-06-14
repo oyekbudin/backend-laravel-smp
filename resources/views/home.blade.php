@@ -51,6 +51,60 @@
 <main class="main">
 
     <!-- HERO (cukup 1 animasi saja) -->
+    <section id="hero" class="hero section dark-background">
+        <div class="container-fluid p-0">
+
+            <div class="hero-wrapper">
+                <div class="hero-image">
+                    <img src="assets/img/cover_smp.webp" class="img-fluid">
+                </div>
+
+                <div class="hero-content">
+                    <div class="container">
+
+                        <div class="col-lg-7 col-md-10" data-aos="fade-up">
+                            <span class="badge-neon">Sekolah Unggul, Berakhlak Mulia</span>
+
+                            <h1 class="text-gradient">
+                                SPMB SMP Ma'arif NU 01 Wanareja
+                            </h1>
+
+                            <h2 class="text-gradient-small">
+                                Tahun Ajaran 2026/2027
+                            </h2>
+
+                            <div class="cta-group">
+                                <a href="https://spmb.smpmaarifnuwanareja.sch.id" class="btn-zoom">
+                                    Website SPMB Klik Disini!
+                                </a>
+                            </div>
+
+                            <div class="info-badges">
+                                <div class="badge-item">
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <div>
+                                        <span>Kontak</span>
+                                        <strong>082358767313</strong>
+                                    </div>
+                                </div>
+
+                                <div class="badge-item">
+                                    <i class="bi bi-clock-fill"></i>
+                                    <div>
+                                        <span>Jam Operasional</span>
+                                        <strong>Senin-Sabtu: 07.00-13.00 WIB</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <!-- SPMB SECTION -->
     <section class="py-5">
 
@@ -58,7 +112,7 @@
 
             <div class="text-center mb-4">
                 <h2 class="fw-bold text-primary">
-                    SPMB SMP Ma'arif NU 01 Wanareja
+                    Jadwal SPMB SMP Ma'arif NU 01 Wanareja
                 </h2>
                 <p class="text-muted">
                     Tahun Ajaran 2026/2027
