@@ -61,15 +61,16 @@
                                     <span class="badge bg-primary">A.1</span>
                                     <span class="fw-bold">Ke-NU-an Kelas 9</span>
                                 </div>
+
+                                <div class="border px-2 py-1 d-flex align-items-center gap-2" style="cursor: pointer;">
+
+                                    <i class="bi bi-plus" style="font-size: 20px;"></i>
+                                    <span class="fw-bold">Tambah Pelajaran</span>
+
+                                </div>
                             </div>
 
-                            <div class="border px-2 py-1 d-flex align-items-center gap-2"
-                                style="cursor: pointer;">
 
-                                <i class="bi bi-plus" style="font-size: 20px;"></i>
-                                <span class="fw-bold">Tambah Pelajaran</span>
-
-                            </div>
 
                         </div>
 
