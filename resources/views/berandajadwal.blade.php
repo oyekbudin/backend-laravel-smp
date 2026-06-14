@@ -55,19 +55,26 @@
 
                             <h5 class="mb-2 fw-bold">Ibnu Sadun</h5>
 
-                            <div class="d-flex flex-wrap gap-2">
+                            <div class="d-flex flex-wrap gap-2 align-items-center">
 
+                                <!-- Item -->
                                 <div class="border px-2 py-1 d-flex align-items-center gap-2">
-                                    <span class="bg-primary text-white p-1">A.1</span>
+                                    <span class="bg-primary text-white px-2 py-0">A.1</span>
                                     <span class="fw-bold">Ke-NU-an Kelas 9</span>
+
+                                    <button
+                                        class="btn btn-outline-danger btn-sm p-1 d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
                                 </div>
 
-                                <div class="btn btn-primary-outline" >
-
-                                    <i class="bi bi-plus" style="font-size: 20px;"></i>
+                                <!-- Tombol tambah -->
+                                <button
+                                    class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1">
+                                    <i class="bi bi-plus" style="font-size: 18px;"></i>
                                     <span class="fw-bold">Tambah Pelajaran</span>
+                                </button>
 
-                                </div>
                             </div>
 
 
