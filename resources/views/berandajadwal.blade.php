@@ -49,14 +49,14 @@
 
                             <div class="d-flex flex-wrap gap-2">
 
-                                <div class="badge bg-primary text-start p-3">
-                                    <div class="fw-bold">PAI - Kelas 7</div>
-                                    <div class="fw-bold">A.1</div>
+                                <div class="border rounded p-2 d-flex align-items-center gap-2">
+                                    <span class="badge rounded-pill bg-primary">A.1</span>
+                                    <span class="fw-bold">Ke-NU-an Kelas 9</span>
                                 </div>
 
-                                <div class="badge bg-success text-start p-3">
-                                    <div class="fw-bold">Ke-NU-an - Kelas 9</div>
-                                    <div class="fw-bold">A.13</div>
+                                <div class="border rounded p-2 d-flex align-items-center gap-2">
+                                    <span class="badge rounded-pill bg-primary">A.1</span>
+                                    <span class="fw-bold">Ke-NU-an Kelas 9</span>
                                 </div>
 
                             </div>
