@@ -57,44 +57,31 @@
 
                             <div class="d-flex flex-wrap gap-2">
 
-                                <div class="position-relative d-inline-block">
-    
-    <!-- Konten utama -->
-    <div class="border px-2 py-1 d-flex align-items-center gap-2">
-        <span class="badge bg-primary">A.1</span>
-        <span class="fw-bold">Ke-NU-an Kelas 9</span>
-    </div>
-
-    <!-- Tombol X bulat -->
-    <div class="position-absolute top-0 end-0 translate-middle"
-         style="cursor:pointer;">
-        <div class="bg-danger text-white d-flex align-items-center justify-content-center rounded-circle"
-             style="width: 24px; height: 24px; font-size: 12px;">
-            <i class="bi bi-x"></i>
-        </div>
-    </div>
-
-</div>
-
-                                <div class="border rounded-pill px-3 py-2 d-flex align-items-center gap-2"
-                                    style="cursor: pointer;">
-
-                                    <i class="bi bi-plus" style="font-size: 20px;"></i>
-                                    <span class="fw-bold">Tambah Pelajaran</span>
-
+                                <div class="border px-2 py-1 d-flex align-items-center gap-2">
+                                    <span class="badge bg-primary">A.1</span>
+                                    <span class="fw-bold">Ke-NU-an Kelas 9</span>
                                 </div>
+                            </div>
+
+                            <div class="border px-2 py-1 d-flex align-items-center gap-2"
+                                style="cursor: pointer;">
+
+                                <i class="bi bi-plus" style="font-size: 20px;"></i>
+                                <span class="fw-bold">Tambah Pelajaran</span>
 
                             </div>
 
                         </div>
 
                     </div>
-                    <!-- END ITEM -->
 
                 </div>
+                <!-- END ITEM -->
+
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
