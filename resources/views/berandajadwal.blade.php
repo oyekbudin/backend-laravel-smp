@@ -28,6 +28,19 @@
 
 <div class="container-fluid py-4">
     <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h6 class="mb-0 fw-bold">Jadwal Pelajaran</h6>
+
+                    <a class="btn btn-primary ms-auto" href="/aturhari">
+                        Berikutnya : Pembagian Hari Mengajar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
