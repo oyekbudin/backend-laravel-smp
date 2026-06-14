@@ -146,7 +146,7 @@
 </div>
 
 <script>
-    const jadwal = @json($jadwal);
+    const jadwal = @json($data['jadwal']);
     const semuaKelas = @json($data['kelas']);
 
     const pelajaranSelect = document.getElementById('pelajaran');
