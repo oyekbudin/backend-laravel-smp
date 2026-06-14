@@ -475,7 +475,7 @@
 
 
 
-    <div class="container mt-5 pt-4 certifications-row" data-aos="fade-up">
+    <div class="container mt-5 pt-4 certifications-row" >
 
         <div class="text-center mb-4">
             <h4 class="certification-title"></h4>
@@ -483,23 +483,23 @@
 
         <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 certifications">
 
-            <div class="certification-item" data-aos="zoom-in" data-aos-delay="100">
+            <div class="certification-item" >
                 <img src="assets/img/lazisnu.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="certification-item" >
                 <img src="assets/img/tutwuri.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item" data-aos="zoom-in" data-aos-delay="300">
+            <div class="certification-item" >
                 <img src="assets/img/ipnuippnu.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
+            <div class="certification-item" >
                 <img src="assets/img/tunaskelapa.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item" data-aos="zoom-in" data-aos-delay="500">
+            <div class="certification-item" >
                 <img src="assets/img/logo_pmi.png" class="cert-img" alt="Certification">
             </div>
 
@@ -513,12 +513,12 @@
     <section id="featured-departments" class="featured-departments section">
 
         <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
+        <div class="container section-title" >
             <h2>Ekstrakurikuler </h2>
 
         </div><!-- End Section Title -->
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" >
 
             <div class="row gy-4">
 
@@ -545,7 +545,7 @@
                     </div>
                 </div><!-- End Department Card -->
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 col-md-6" >
                     <div class="department-card">
                         <div class="department-image">
                             <img src="uploads/berita/54dfd5cd-5dde-4f9a-ad31-294a1687a6a8.jpeg"
@@ -565,7 +565,7 @@
                     </div>
                 </div><!-- End Department Card -->
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-4 col-md-6" >
                     <div class="department-card">
                         <div class="department-image">
                             <img src="uploads/berita/39bec5e8-3dbe-4748-9367-420c9fa395d4.png"
