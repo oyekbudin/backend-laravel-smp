@@ -45,7 +45,7 @@
                     @forelse ($dataplang as $dk)
                         <div class="border-bottom p-3 d-flex align-items-start">
 
-                            
+
 
                             <!-- CONTENT -->
                             <div class="flex-grow-1">
@@ -59,7 +59,7 @@
 
                             <!-- ACTION -->
                             <div class="text-end ms-3">
-                                
+
                                 <!--button class="btn btn-warning btn-sm mb-1" data-bs-toggle="modal"
                                     data-bs-target="#editAdminModal" data-id="{{ $dk->id }}"
                                     data-nama="{{ $dk->nama }}" data-gambar="{{ $dk->gambar }}"
@@ -145,14 +145,18 @@
                     <!-- ISI -->
                     <div class="mb-3">
                         <label class="form-label">Gambar Papan Nama</label>
-                        <input type="file" name="gambar" id="" class="form-control">
+                        <input type="file" name="gambar" id="gambarInput" class="form-control" accept="image/*">
+                    </div>
+                    <div class="mb-3">
+                        <img id="previewImage" src="#" alt="Preview Gambar"
+                            class="img-fluid rounded border d-none" style="max-height: 200px; object-fit: cover;">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Link Halaman Informasi</label>
                         <input type="text" name="halaman" id="" class="form-control">
                     </div>
 
-                    
+
 
                     <button type="submit" class="btn btn-primary w-100">Simpan</button>
 
@@ -165,7 +169,7 @@
 </div>
 
 
-<!-- MODAL EDIT 
+<!-- MODAL EDIT
 <div class="modal fade" id="editAdminModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -204,7 +208,26 @@
         </div>
     </div>
 </div>-->
+<script>
+    document.getElementById('gambarInput').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('previewImage');
 
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.classList.remove('d-none');
+            }
+
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '#';
+            preview.classList.add('d-none');
+        }
+    });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -228,4 +251,3 @@
         });
     });
 </script>
-
