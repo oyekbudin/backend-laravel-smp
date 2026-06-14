@@ -82,13 +82,13 @@
                                         <h5 class="mb-0 fw-bold">{{ $guru->nama }}</h5>
 
                                         <button
-                                            class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                            class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
                                             <i class="bi bi-pencil" style="font-size: 16px;"></i>
                                             <span>Ubah Nama</span>
                                         </button>
 
                                         <a href="/tambahpelajaran/{{ $guru->id }}"
-                                            class="btn btn-outline-success btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                            class="btn btn-success btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
                                             <i class="bi bi-plus" style="font-size: 20px;"></i>
                                             <span class="fw-bold">Tambah Pelajaran</span>
                                         </a>
@@ -99,7 +99,7 @@
 
                                 </div>
 
-                                <div class="row flex-nowrap overflow-auto p-3 border rounded"  style="scroll-behavior: smooth;">
+                                <div class="row flex-nowrap overflow-auto m-1 p-2 gap-2 bg-dark border rounded"  style="scroll-behavior: smooth;">
 
                                     @php
                                         $jadwalGuru = $data['jadwal']->where('id_guru', $guru->id);
@@ -122,7 +122,7 @@
                                             <div class="text-muted">({{ $kelas->nama ?? '-' }})</div>
 
                                             <button
-                                                class="btn btn-outline-danger d-flex align-items-center justify-content-center m-0 p-1 rounded-2"
+                                                class="btn btn-danger d-flex align-items-center justify-content-center m-0 p-1 rounded-2"
                                                 title="Hapus">
                                                 Hapus
                                             </button>
