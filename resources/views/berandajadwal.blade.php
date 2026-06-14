@@ -80,7 +80,8 @@
                                         <div class="border px-2 py-1 d-flex align-items-center gap-2">
                                             <span class="bg-primary text-white px-2 py-0">A.1</span>
                                             <span class="fw-bold">{{ $pelajaran->nama ?? '-' }}
-                                                ({{ $kelas->nama ?? '-' }})</span>
+                                                ({{ $kelas->nama ?? '-' }})
+                                            </span>
 
                                             <button
                                                 class="btn btn-danger btn-sm p-1 d-flex align-items-center justify-content-center m-0">
@@ -97,11 +98,11 @@
 
 
 
-                                    <button
+                                    <a href="/tambahpelajaran/{{ $guru->id }}"
                                         class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
                                         <i class="bi bi-plus" style="font-size: 20px;"></i>
                                         <span class="fw-bold">Tambah Pelajaran</span>
-                                    </button>
+                                    </a>
 
                                 </div>
 

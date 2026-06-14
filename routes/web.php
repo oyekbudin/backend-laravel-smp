@@ -112,6 +112,9 @@ Route::get('/jadwal', [KaldikCon::class, 'jadwal'])->name('jadwal');
 Route::get('/tambahguru', [KaldikCon::class, 'tambahguru']);
 Route::post('/saveguru', [KaldikCon::class, 'saveguru'])->name('saveguru');
 
+Route::get('/tambahpelajaran/{id}', [KaldikCon::class, 'tambahpelajaran']);
+Route::post('/savepelajaran', [KaldikCon::class, 'savepelajaran'])->name('savepelajaran');
+
 });
 
 //frontpage

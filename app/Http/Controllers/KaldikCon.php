@@ -210,7 +210,7 @@ class KaldikCon extends BaseController
         return view('tambahguru', [
             'kodeTerpakai' => $kodeTerpakai,
             'warnaTerpakai' => $warnaTerpakai,
-            ]);
+        ]);
     }
 
     public function saveguru(Request $request)
@@ -230,4 +230,31 @@ class KaldikCon extends BaseController
         return redirect()->route('jadwal')->with('success', 'Guru berhasil ditambahkan');
     }
 
+
+    public function tambahpelajaran($id)
+    {
+        $id_guru = $id;
+
+
+        return view('tambahpelajaran', [
+            'id_guru' => $id_guru,
+        ]);
+    }
+
+    public function savepelajaran(Request $request)
+    {
+        $request->validate([
+            'id_guru' => 'required',
+            'id_pelajaran' => 'required',
+            'id_kelas' => 'required',
+        ]);
+
+        Pelajaran::create([
+            'id_guru' => $request->id_guru,
+            'id_pelajaran' => $request->id_pelajaran,
+            'id_kelas' => $request->id_kelas,
+        ]);
+
+        return redirect()->route('jadwal')->with('success', 'Pelajaran berhasil ditambahkan');
+    }
 }
