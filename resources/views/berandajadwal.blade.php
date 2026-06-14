@@ -34,7 +34,7 @@
                     <h6 class="mb-0 fw-bold">Jadwal Pelajaran</h6>
 
                     <a class="btn btn-primary m-0" href="/aturhari">
-                        
+
                         Lanjutkan <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -84,14 +84,22 @@
                                         <button
                                             class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
                                             <i class="bi bi-pencil" style="font-size: 16px;"></i>
-                                            <span>Edit Guru</span>
+                                            <span>Ubah Nama</span>
                                         </button>
+
+                                        <a href="/tambahpelajaran/{{ $guru->id }}"
+                                            class="btn btn-outline-success btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                            <i class="bi bi-plus" style="font-size: 20px;"></i>
+                                            <span class="fw-bold">Tambah Pelajaran</span>
+                                        </a>
+
                                     </div>
 
                                     <span class="fw-bold text-muted">Total: {{ $totalJP }} JP</span>
 
                                 </div>
-                                <div class="d-flex flex-wrap gap-2 align-items-center">
+
+                                <div class="row flex-nowrap overflow-auto p-3 border rounded"  style="scroll-behavior: smooth;">
 
                                     @php
                                         $jadwalGuru = $data['jadwal']->where('id_guru', $guru->id);
@@ -106,7 +114,8 @@
 
 
 
-                                        <div class="rounded border p-1 d-flex align-items-center gap-2 bg-white flex-column">
+                                        <div
+                                            class="col-lg-2 rounded border p-1 d-flex align-items-center gap-2 bg-white flex-column">
                                             <span class="badge text-dark"
                                                 style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
                                             <div class="fw-bold">{{ $pelajaran->nama ?? '-' }}</div>
@@ -128,11 +137,7 @@
 
 
 
-                                    <a href="/tambahpelajaran/{{ $guru->id }}"
-                                        class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
-                                        <i class="bi bi-plus" style="font-size: 20px;"></i>
-                                        <span class="fw-bold">Tambah Pelajaran</span>
-                                    </a>
+
 
                                 </div>
 
