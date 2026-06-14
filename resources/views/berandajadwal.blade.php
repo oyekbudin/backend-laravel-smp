@@ -115,10 +115,10 @@
 
 
                                         <div
-                                            class="col-lg-2 rounded border p-1 d-flex align-items-center gap-2 bg-white flex-column">
+                                            class="col-lg-3 rounded border p-1 d-flex align-items-center gap-2 bg-white flex-column">
                                             <span class="badge text-dark"
                                                 style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
-                                            <div class="fw-bold">{{ $pelajaran->nama ?? '-' }}</div>
+                                            <div class="fw-bold text-center">{{ $pelajaran->nama ?? '-' }}</div>
                                             <div class="text-muted">({{ $kelas->nama ?? '-' }})</div>
 
                                             <button
