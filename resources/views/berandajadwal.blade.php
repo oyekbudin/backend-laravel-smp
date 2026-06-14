@@ -54,13 +54,13 @@
                         <div class="flex-grow-1">
 
                             <!-- Header nama + tombol edit -->
-                            <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex justify-content-start gap-3 align-items-center mb-2">
                                 <h5 class="mb-0 fw-bold">Ibnu Sadun</h5>
 
                                 <button
                                     class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1">
                                     <i class="bi bi-pencil" style="font-size: 16px;"></i>
-                                    <span>Edit</span>
+                                    <span>Edit Guru</span>
                                 </button>
                             </div>
 
