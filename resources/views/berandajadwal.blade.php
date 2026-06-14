@@ -85,7 +85,7 @@
                                             </span>
 
                                             <button
-                                                class="btn btn-danger btn-sm d-flex align-items-center justify-content-center m-0 p-0">
+                                                class="btn btn-danger btn-sm d-flex align-items-center justify-content-center m-0 p-0" title="Hapus">
                                                 <i class="bi bi-x"></i>
                                             </button>
                                         </div>
