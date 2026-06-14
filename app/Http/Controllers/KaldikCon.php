@@ -91,23 +91,49 @@ class KaldikCon extends BaseController
         return view('berandaplang', compact('dataplang'));
     }
 
+    use Illuminate\Support\Str;
+
     public function tambahplang(Request $request)
     {
-
-
         $request->validate([
             'nama' => 'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
         ]);
+
+        $uploadPath = base_path('../public_html/uploads/papan_nama');
+
+        if (!file_exists($uploadPath)) {
+            mkdir($uploadPath, 0777, true);
+        }
+
+        $file = $request->file('gambar');
+
+        // bikin slug dari nama
+        $slug = Str::slug($request->nama);
+
+        // ambil extension asli
+        $extension = $file->getClientOriginalExtension();
+
+        // filename dari nama
+        $filename = $slug . '.' . $extension;
+
+        // kalau file sudah ada, tambahkan angka biar tidak overwrite
+        $counter = 1;
+        while (file_exists($uploadPath . '/' . $filename)) {
+            $filename = $slug . '-' . $counter . '.' . $extension;
+            $counter++;
+        }
+
+        // upload file
+        $file->move($uploadPath, $filename);
 
         Plang::create([
             'nama' => $request->nama,
-            'gambar' => $request->gambar,
+            'gambar' => 'uploads/papan_nama/' . $filename,
             'halaman' => $request->halaman,
         ]);
 
         return redirect()->back()->with('success', 'Papan Nama berhasil ditambahkan!');
-
     }
 
 
@@ -130,7 +156,7 @@ class KaldikCon extends BaseController
         $request->validate([
             'nama' => 'required',
             'gambar' => 'required',
-            
+
 
         ]);
 
