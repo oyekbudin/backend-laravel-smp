@@ -45,8 +45,8 @@
                         <div class="border-bottom p-3 d-flex align-items-start gap-3">
 
 
-                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
-                                style="width:45px; height:45px; font-size:18px;">
+                            <div class="text-white rounded-circle d-flex align-items-center justify-content-center"
+                                style="width:45px; height:45px; font-size:18px; background: {{ $guru->kode_warna }};">
                                 <span class="fw-bold">{{ $guru->kode }}</span>
                             </div>
 
