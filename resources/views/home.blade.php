@@ -89,6 +89,27 @@
         border-left: 4px solid #198754;
         padding-left: 10px;
     }
+
+    .kaldik-box {
+        max-height: 420px;
+        /* ± 5 item */
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+
+    /* biar scrollnya halus & clean */
+    .kaldik-box::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .kaldik-box::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+    }
+
+    .kaldik-box::-webkit-scrollbar-thumb:hover {
+        background: #999;
+    }
 </style>
 
 
