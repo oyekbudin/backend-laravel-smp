@@ -57,7 +57,7 @@
 
                             <div class="d-flex flex-wrap gap-2">
 
-                                <div class="d-flex align-items-center">
+                                <div class="position-relative d-inline-block">
     
     <!-- Konten utama -->
     <div class="border px-2 py-1 d-flex align-items-center gap-2">
@@ -65,40 +65,13 @@
         <span class="fw-bold">Ke-NU-an Kelas 9</span>
     </div>
 
-    <!-- Tombol hapus -->
-    <div class="bg-danger text-white d-flex align-items-center justify-content-center px-2"
-         style="cursor: pointer;">
-        <i class="bi bi-x-lg"></i>
-    </div>
-
-</div>
-<div class="d-flex align-items-center">
-    
-    <!-- Konten utama -->
-    <div class="border px-2 py-1 d-flex align-items-center gap-2">
-        <span class="badge bg-primary">A.1</span>
-        <span class="fw-bold">Ke-NU-an Kelas 9</span>
-    </div>
-
-    <!-- Tombol hapus -->
-    <div class="bg-danger text-white d-flex align-items-center justify-content-center px-2"
-         style="cursor: pointer;">
-        <i class="bi bi-x-lg"></i>
-    </div>
-
-</div>
-<div class="d-flex align-items-center">
-    
-    <!-- Konten utama -->
-    <div class="border px-2 py-1 d-flex align-items-center gap-2">
-        <span class="badge bg-primary">A.1</span>
-        <span class="fw-bold">Ke-NU-an Kelas 9</span>
-    </div>
-
-    <!-- Tombol hapus -->
-    <div class="bg-danger text-white d-flex align-items-center justify-content-center px-2"
-         style="cursor: pointer;">
-        <i class="bi bi-x-lg"></i>
+    <!-- Tombol X bulat -->
+    <div class="position-absolute top-0 end-0 translate-middle"
+         style="cursor:pointer;">
+        <div class="bg-danger text-white d-flex align-items-center justify-content-center rounded-circle"
+             style="width: 24px; height: 24px; font-size: 12px;">
+            <i class="bi bi-x"></i>
+        </div>
     </div>
 
 </div>
