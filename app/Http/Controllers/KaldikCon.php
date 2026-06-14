@@ -8,6 +8,10 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\Beritas;
 use App\Models\Kaldik;
 use App\Models\Plang;
+use App\Models\Guru;
+use App\Models\Jadwal;
+use App\Models\Kelas;
+use App\Models\Pelajaran;
 use App\Models\Pesan_kesan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -26,13 +30,7 @@ class KaldikCon extends BaseController
 
         return view('berandakaldik', compact('datakaldik'));
     }
-    public function jadwal()
-    {
-        /*$datakaldik = Kaldik::orderBy('mulai', 'desc')->get();*/
 
-        //return view('berandakaldik', compact('datakaldik'));
-        return view('berandajadwal');
-    }
 
 
     public function tambahkaldik(Request $request)
@@ -177,6 +175,53 @@ class KaldikCon extends BaseController
         $plang->save();
 
         return redirect()->back()->with('success', 'Papan Nama berhasil diperbarui!');
+    }
+
+    public function jadwal()
+    {
+        /*$datakaldik = Kaldik::orderBy('mulai', 'desc')->get();*/
+
+        //return view('berandakaldik', compact('datakaldik'));
+        $data = ([
+            'guru' => Guru::all(),
+            'jadwal' => Jadwal::all(),
+            'kelas' => Kelas::all(),
+            'pelajaran' => Pelajaran::all(),
+        ]);
+
+        return view('berandajadwal', compact('data'));
+    }
+
+    public function tambahguru()
+    {
+        /*$datakaldik = Kaldik::orderBy('mulai', 'desc')->get();
+
+        //return view('berandakaldik', compact('datakaldik'));
+        $data = ([
+            'guru' => Guru::all(),
+            'jadwal' => Jadwal::all(),
+            'kelas' => Kelas::all(),
+            'pelajaran' => Pelajaran::all(),
+        ]);*/
+
+        return view('tambahguru');
+    }
+
+    public function saveguru(Request $request)
+    {
+        $request->validate([
+            'kode' => 'required|max:2',
+            'nama' => 'required',
+            'kode_warna' => 'required',
+        ]);
+
+        Guru::create([
+            'kode' => strtoupper($request->kode),
+            'nama' => $request->nama,
+            'kode_warna' => $request->kode_warna,
+        ]);
+
+        return redirect()->route('jadwal')->with('success', 'Guru berhasil ditambahkan');
     }
 
 }

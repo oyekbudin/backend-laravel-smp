@@ -34,26 +34,83 @@
 
                     <h6 class="mb-0 fw-bold">Data Guru</h6>
 
-                    <button class="btn btn-primary btn-sm">
-                        + Tambah Guru
-                    </button>
+                    <a class="btn btn-primary ms-auto" href="/tambahguru">
+                        Tambah Guru
+                    </a>
 
                 </div>
                 <div class="card-body p-0">
 
-                    <!-- ITEM -->
+                    @forelse ($data['guru'] as $guru)
+                        <div class="border-bottom p-3 d-flex align-items-start gap-3">
+
+
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                                style="width:45px; height:45px; font-size:18px;">
+                                <span class="fw-bold">{{ $guru->kode }}</span>
+                            </div>
+
+
+                            <div class="flex-grow-1">
+
+
+                                <div class="d-flex justify-content-start gap-3 align-items-center mb-2">
+                                    <h5 class="mb-0 fw-bold">{{ $guru->nama }}</h5>
+
+                                    <button
+                                        class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                        <i class="bi bi-pencil" style="font-size: 16px;"></i>
+                                        <span>Edit Guru</span>
+                                    </button>
+                                </div>
+
+
+                                <div class="d-flex flex-wrap gap-2 align-items-center">
+
+
+                                    <div class="border px-2 py-1 d-flex align-items-center gap-2">
+                                        <span class="bg-primary text-white px-2 py-0">A.1</span>
+                                        <span class="fw-bold">Ke-NU-an Kelas 9</span>
+
+                                        <button
+                                            class="btn btn-danger btn-sm p-1 d-flex align-items-center justify-content-center m-0">
+                                            <i class="bi bi-trash" style="font-size: 20px;"></i>
+                                        </button>
+                                    </div>
+
+
+                                    <button
+                                        class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                        <i class="bi bi-plus" style="font-size: 20px;"></i>
+                                        <span class="fw-bold">Tambah Pelajaran</span>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    @empty
+                        <div class="p-4 text-center text-muted">
+                            Belum ada guru
+                        </div>
+                    @endforelse
+
+
+
+                    <!-- ITEM
                     <div class="border-bottom p-3 d-flex align-items-start gap-3">
 
-                        <!-- Avatar -->
+
                         <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
                             style="width:45px; height:45px; font-size:18px;">
                             <span class="fw-bold">A</span>
                         </div>
 
-                        <!-- Content -->
+
                         <div class="flex-grow-1">
 
-                            <!-- Header nama + tombol edit -->
+
                             <div class="d-flex justify-content-start gap-3 align-items-center mb-2">
                                 <h5 class="mb-0 fw-bold">Ibnu Sadun</h5>
 
@@ -64,10 +121,10 @@
                                 </button>
                             </div>
 
-                            <!-- List pelajaran -->
+
                             <div class="d-flex flex-wrap gap-2 align-items-center">
 
-                                <!-- Item -->
+
                                 <div class="border px-2 py-1 d-flex align-items-center gap-2">
                                     <span class="bg-primary text-white px-2 py-0">A.1</span>
                                     <span class="fw-bold">Ke-NU-an Kelas 9</span>
@@ -78,7 +135,7 @@
                                     </button>
                                 </div>
 
-                                <!-- Tombol tambah -->
+
                                 <button class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
                                     <i class="bi bi-plus" style="font-size: 20px;"></i>
                                     <span class="fw-bold">Tambah Pelajaran</span>
@@ -91,12 +148,12 @@
                     </div>
 
                 </div>
-                <!-- END ITEM -->
+                 END ITEM -->
 
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

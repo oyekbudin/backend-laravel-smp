@@ -7,6 +7,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Beritas;
 use App\Models\Kaldik;
+
 use App\Models\Plang;
 use App\Models\Pesan_kesan;
 use Illuminate\Support\Facades\Storage;
