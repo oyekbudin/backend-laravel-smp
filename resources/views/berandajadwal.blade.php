@@ -174,7 +174,7 @@
         </div>
         <div class="col-lg-3">
             <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-flex flex-row justify-content-between align-items-center">
 
                     <h6 class="mb-0 fw-bold">Mata Pelajaran</h6>
 
