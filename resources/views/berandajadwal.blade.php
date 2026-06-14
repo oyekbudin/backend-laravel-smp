@@ -65,12 +65,9 @@
         <span class="fw-bold">Ke-NU-an Kelas 9</span>
     </div>
 
-    <!-- Kanan (Delete) -->
-    <div class="border rounded-circle d-flex align-items-center justify-content-center"
-         style="width:32px; height:32px; cursor: pointer;">
-
-        <i class="bi bi-trash text-danger"></i>
-
+    <!-- Kanan (X) -->
+    <div style="cursor: pointer;">
+        <i class="bi bi-x text-danger" style="font-size: 28px;"></i>
     </div>
 
 </div>
@@ -82,12 +79,9 @@
         <span class="fw-bold">Ke-NU-an Kelas 9</span>
     </div>
 
-    <!-- Kanan (Delete) -->
-    <div class="border rounded-circle d-flex align-items-center justify-content-center"
-         style="width:32px; height:32px; cursor: pointer;">
-
-        <i class="bi bi-trash text-danger"></i>
-
+    <!-- Kanan (X) -->
+    <div style="cursor: pointer;">
+        <i class="bi bi-x text-danger" style="font-size: 28px;"></i>
     </div>
 
 </div>
@@ -99,12 +93,9 @@
         <span class="fw-bold">Ke-NU-an Kelas 9</span>
     </div>
 
-    <!-- Kanan (Delete) -->
-    <div class="border rounded-circle d-flex align-items-center justify-content-center"
-         style="width:32px; height:32px; cursor: pointer;">
-
-        <i class="bi bi-trash text-danger"></i>
-
+    <!-- Kanan (X) -->
+    <div style="cursor: pointer;">
+        <i class="bi bi-x text-danger" style="font-size: 28px;"></i>
     </div>
 
 </div>
