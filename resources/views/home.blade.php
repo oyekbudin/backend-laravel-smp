@@ -233,7 +233,7 @@
 
                                     </div>
 
-                                    <div class="experience-badge animate-float">
+                                    <div class="experience-badge">
                                         <span class="years">Garuda </span>
                                         <span class="text">Nusantara</span>
                                     </div>
@@ -243,7 +243,7 @@
                             <div class="col-lg-6">
                                 <div class="about-card animate-float">
 
-                                    <h2 id="headline-berita-home" class="feature-icon">Marching Band Garuda Nusantara</h2>
+                                    <h2 id="headline-berita-home" class="">Marching Band Garuda Nusantara</h2>
                                     <div id="isi-berita">
                                         <p class="about-text">
                                             Garuda Nusantara adalah Marching Band yang diikuti oleh siswa-siswi SMP
@@ -452,7 +452,7 @@
                                         </div>
 
                                         @if (now()->between($item->mulai, $item->selesai))
-                                            <span class="badge bg-success mt-1">Sedang Berlangsung</span>
+                                            <span class="badge bg-success mt-1 feature-icon">Sedang Berlangsung</span>
                                         @endif
 
                                     </div>
