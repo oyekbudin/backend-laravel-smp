@@ -91,13 +91,13 @@
     }
 
     .kaldik-box {
-        max-height: 420px;
-        /* ± 5 item */
+        max-height: 360px;
+        /* cukup untuk ~4–5 item */
         overflow-y: auto;
         padding-right: 6px;
     }
 
-    /* biar scrollnya halus & clean */
+    /* scroll lebih halus */
     .kaldik-box::-webkit-scrollbar {
         width: 6px;
     }
@@ -105,10 +105,6 @@
     .kaldik-box::-webkit-scrollbar-thumb {
         background: #ccc;
         border-radius: 10px;
-    }
-
-    .kaldik-box::-webkit-scrollbar-thumb:hover {
-        background: #999;
     }
 </style>
 
@@ -455,19 +451,47 @@
 
                                 Kalender Pendidikan
                             </h5>
+                            {{-- ITEM PERTAMA (DI LUAR SCROLL) --}}
+                            @if ($datakaldik->count())
+                                @php $first = $datakaldik->first(); @endphp
+
+                                <div
+                                    class="d-flex align-items-start mb-3 pb-2 border-bottom bg-success bg-opacity-10 rounded px-2 py-2">
+
+                                    <div class="me-3">
+                                        <i class="bi bi-calendar-event fs-4 text-primary"></i>
+                                    </div>
+
+                                    <div>
+                                        <div class="fw-semibold">
+                                            {{ $first->agenda }}
+                                        </div>
+
+                                        <div class="text-muted small">
+                                            @if ($first->mulai == $first->selesai)
+                                                {{ \Carbon\Carbon::parse($first->mulai)->translatedFormat('l, j F Y') }}
+                                            @else
+                                                {{ \Carbon\Carbon::parse($first->mulai)->translatedFormat('l, j F Y') }}
+                                                s/d
+                                                {{ \Carbon\Carbon::parse($first->selesai)->translatedFormat('l, j F Y') }}
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endif
+
+
+                            {{-- SCROLL AREA (SISANYA) --}}
                             <div class="kaldik-box">
 
-                                @forelse($datakaldik as $item)
-                                    <div
-                                        class="d-flex align-items-start mb-3 pb-2 border-bottom 
-             @if ($loop->first) highlight-first bg-success bg-opacity-10 rounded px-2 py-2 @endif">
+                                @foreach ($datakaldik->skip(1) as $item)
+                                    <div class="d-flex align-items-start mb-3 pb-2 border-bottom">
 
-                                        <!-- ICON -->
                                         <div class="me-3">
                                             <i class="bi bi-calendar-event fs-4 text-primary"></i>
                                         </div>
 
-                                        <!-- CONTENT -->
                                         <div>
                                             <div class="fw-semibold">
                                                 {{ $item->agenda }}
@@ -485,9 +509,7 @@
                                         </div>
 
                                     </div>
-                                @empty
-                                    <div class="text-muted">Tidak ada kegiatan</div>
-                                @endforelse
+                                @endforeach
 
                             </div>
                         </div>
