@@ -62,7 +62,7 @@
                                     <span class="fw-bold">Ke-NU-an Kelas 9</span>
                                 </div>
 
-                                <div class="border px-2 py-1 d-flex align-items-center gap-2" style="cursor: pointer;">
+                                <div class="btn btn-primary-outline" >
 
                                     <i class="bi bi-plus" style="font-size: 20px;"></i>
                                     <span class="fw-bold">Tambah Pelajaran</span>
