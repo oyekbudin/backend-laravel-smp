@@ -374,7 +374,7 @@
 
             <!-- sidebar -->
             <div class="col-lg-4">
-                <section id="mpls-ramah-anak" class="py-5 bg-light">
+                <section id="mpls-ramah-anak" class="p-0 bg-light">
                     <div class="container">
 
                         <!-- Heading jelas (SEO penting) -->
@@ -443,11 +443,11 @@
                         </div>
                     </div>
                 </section>
-                <section>
+                <section class="p-0">
                     <div class="container py-4">
 
                         <div class="mb-4 text-center">
-                            <h4 class="fw-bold text-primary">Papan Nama Sekolah</h4>
+                            <h4 id="headline-berita-home">Papan Nama Sekolah</h4>
                         </div>
 
                         <div class="row justify-content-center">
@@ -462,7 +462,7 @@
                                             <div class="card border-0 shadow-sm overflow-hidden">
 
                                                 <img src="{{ asset($item->gambar) }}" alt="{{ $item->nama }}"
-                                                    class="w-100" style="height: 180px; object-fit: cover;">
+                                                    class="img-fluid w-100">
 
                                             </div>
 
@@ -482,7 +482,7 @@
 
                     </div>
                 </section>
-                <section>
+                <section class="p-0">
 
 
 
