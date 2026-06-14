@@ -72,10 +72,11 @@
                                     <span class="fw-bold">Fiqih Kelas 8</span>
                                 </div>
 
-                                <div class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-center"
+                                <div class="border rounded-pill px-3 py-2 d-flex align-items-center gap-2"
                                     style="cursor: pointer;">
 
-                                    <i class="bi bi-plus" style="font-size: 36px;"></i>
+                                    <i class="bi bi-plus" style="font-size: 20px;"></i>
+                                    <span class="fw-bold">Tambah Pelajaran</span>
 
                                 </div>
 
