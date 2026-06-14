@@ -30,6 +30,15 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+
+                    <h6 class="mb-0 fw-bold">Data Guru</h6>
+
+                    <button class="btn btn-primary btn-sm">
+                        + Tambah Guru
+                    </button>
+
+                </div>
                 <div class="card-body p-0">
 
                     <!-- ITEM -->
@@ -61,6 +70,13 @@
                                 <div class="border rounded-pill px-3 py-2 d-flex align-items-center gap-2">
                                     <span class="badge rounded-pill bg-danger">C.3</span>
                                     <span class="fw-bold">Fiqih Kelas 8</span>
+                                </div>
+
+                                <div class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-center"
+                                    style="cursor: pointer;">
+
+                                    <i class="bi bi-plus fw-bold"></i>
+
                                 </div>
 
                             </div>
