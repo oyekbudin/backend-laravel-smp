@@ -189,7 +189,7 @@
                         <div class="border-bottom px-3 py-2 d-flex justify-content-between align-items-center">
 
                             <!-- Kiri: kode + nama -->
-                            <div>
+                            <div class="d-flex flex-row gap-3">
                                 <div class="fw-bold">{{ $pelajaran->kode }}</div>
                                 <div class="text-muted">{{ $pelajaran->nama }}</div>
                             </div>
