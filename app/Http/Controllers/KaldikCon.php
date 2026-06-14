@@ -7,6 +7,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Beritas;
 use App\Models\Kaldik;
+use App\Models\Plang;
 use App\Models\Pesan_kesan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -25,32 +26,8 @@ class KaldikCon extends BaseController
 
         return view('berandakaldik', compact('datakaldik'));
     }
-    /*
-        public function katalog()
-        {
-            $databerita = Beritas::orderBy('tanggal_publish', 'desc')->get(); // Ambil semua data dari tabel Siswa
-            return view('berita', compact('databerita')); // Kirim data ke view
-        }
-        public function home()
-        {
-            $databerita = Beritas::orderBy('tanggal_publish', 'desc')->get(); // Ambil semua data dari tabel Siswa
-            $pesankesan = Pesan_kesan::orderBy('tanggal', 'desc')->get();
-            return view('home', compact('databerita', 'pesankesan'));
-        }
 
-        public function show($slug)
-        {
-            $berita = Beritas::where('slug', $slug)->firstOrFail();
 
-            $lainnya = Beritas::where('id_berita', '!=', $berita->id_berita)
-                ->orderBy('tanggal_publish', 'desc') // 🔥 pakai ini
-                ->take(10)
-                ->get();
-
-            return view('show', compact('berita', 'lainnya'));
-        }
-
-    */
     public function tambahkaldik(Request $request)
     {
 
@@ -68,7 +45,7 @@ class KaldikCon extends BaseController
         ]);
 
         return redirect()->back()->with('success', 'Agenda berhasil ditambahkan!');
-        
+
     }
 
 
@@ -106,5 +83,67 @@ class KaldikCon extends BaseController
 
         return redirect()->back()->with('success', 'Agenda berhasil diperbarui!');
     }
-   
+
+    public function plang()
+    {
+        $dataplang = Plang::orderBy('dibuat', 'desc')->get();
+
+        return view('berandaplang', compact('dataplang'));
+    }
+
+    public function tambahplang(Request $request)
+    {
+
+
+        $request->validate([
+            'nama' => 'required',
+            'gambar' => 'required',
+        ]);
+
+        Plang::create([
+            'nama' => $request->nama,
+            'gambar' => $request->gambar,
+            'halaman' => $request->halaman,
+        ]);
+
+        return redirect()->back()->with('success', 'Papan Nama berhasil ditambahkan!');
+
+    }
+
+
+    public function editplang($id)
+    {
+        $plang = Plang::findOrFail($id);
+        return view('kaldik.editplang', compact('plang'));
+    }
+
+    public function destroyplang($id)
+    {
+        $plang = Plang::findOrFail($id);
+        $plang->delete();
+        return redirect()->back()->with('success', 'Papan Nama berhasil dihapus');
+    }
+    public function updateplang(Request $request, $id)
+    {
+        $plang = Plang::findOrFail($id);
+
+        $request->validate([
+            'nama' => 'required',
+            'gambar' => 'required',
+            
+
+        ]);
+
+        $plang->nama = $request->nama;
+        $plang->gambar = $request->gambar;
+        $plang->halaman = $request->halaman;
+
+
+
+
+        $plang->save();
+
+        return redirect()->back()->with('success', 'Papan Nama berhasil diperbarui!');
+    }
+
 }

@@ -100,6 +100,13 @@ Route::get('/kaldik/{id}/edit', [KaldikCon::class, 'edit'])->name('kaldik.edit')
 Route::delete('/kaldik/{id}', [KaldikCon::class, 'destroy'])->name('kaldik.destroy'); 
 Route::put('/kaldik/{id}', [KaldikCon::class, 'update'])->name('kaldik.update');
 
+// KaldikCon Plang
+Route::get('/plang', [KaldikCon::class, 'plang']);
+Route::post('/plang/tambahplang', [KaldikCon::class, 'tambahplang'])->name('kaldik.tambahplang'); 
+Route::get('/plang/{id}/edit', [KaldikCon::class, 'editplang'])->name('kaldik.editplang');
+Route::delete('/plang/{id}', [KaldikCon::class, 'destroyplang'])->name('kaldik.destroyplang'); 
+Route::put('/plang/{id}', [KaldikCon::class, 'updateplang'])->name('kaldik.updateplang');
+
 });
 
 //frontpage
