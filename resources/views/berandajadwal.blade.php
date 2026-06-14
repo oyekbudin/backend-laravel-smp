@@ -99,7 +99,7 @@
 
                                 </div>
 
-                                <div class="row flex-nowrap overflow-auto m-1 p-2 gap-2 bg-white"  style="scroll-behavior: smooth;">
+                                <div class="row flex-nowrap overflow-auto m-1 p-2 gap-2"  style="scroll-behavior: smooth;">
 
                                     @php
                                         $jadwalGuru = $data['jadwal']->where('id_guru', $guru->id);
