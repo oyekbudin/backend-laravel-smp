@@ -118,11 +118,13 @@
                                     @endphp
 
                                     @foreach ($colors as $color)
-                                        <label class="color-option">
-                                            <input type="radio" name="kode_warna" value="{{ $color }}"
-                                                required>
-                                            <div class="color-box" style="background: {{ $color }}"></div>
-                                        </label>
+                                        @if (!in_array($color, $warnaTerpakai))
+                                            <label class="color-option">
+                                                <input type="radio" name="kode_warna" value="{{ $color }}"
+                                                    required>
+                                                <div class="color-box" style="background: {{ $color }}"></div>
+                                            </label>
+                                        @endif
                                     @endforeach
 
                                 </div>

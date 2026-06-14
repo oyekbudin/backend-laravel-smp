@@ -205,8 +205,12 @@ class KaldikCon extends BaseController
         ]);*/
 
         $kodeTerpakai = Guru::pluck('kode')->toArray();
+        $warnaTerpakai = Guru::pluck('kode_warna')->toArray();
 
-        return view('tambahguru', ['kodeTerpakai' => $kodeTerpakai]);
+        return view('tambahguru', [
+            'kodeTerpakai' => $kodeTerpakai,
+            'warnaTerpakai' => $warnaTerpakai,
+            ]);
     }
 
     public function saveguru(Request $request)
