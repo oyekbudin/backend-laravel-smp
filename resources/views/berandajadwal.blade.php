@@ -36,26 +36,26 @@
 
                     <div class="border-bottom p-3 d-flex align-items-start gap-3">
 
-                        <!-- Avatar / Inisial -->
+                        <!-- Avatar -->
                         <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
-                            style="width:40px; height:40px;">
+                            style="width:45px; height:45px; font-size:18px;">
                             <span class="fw-bold">A</span>
                         </div>
 
                         <!-- Konten -->
                         <div class="flex-grow-1">
 
-                            <h6 class="mb-2 fw-bold">Ibnu Sadun</h6>
+                            <h5 class="mb-2 fw-bold">Ibnu Sadun</h5>
 
                             <div class="d-flex flex-wrap gap-2">
 
-                                <div class="badge bg-primary text-start p-2">
-                                    <div class="small">PAI - Kelas 7</div>
+                                <div class="badge bg-primary text-start p-3">
+                                    <div class="fw-bold">PAI - Kelas 7</div>
                                     <div class="fw-bold">A.1</div>
                                 </div>
 
-                                <div class="badge bg-success text-start p-2">
-                                    <div class="small">Ke-NU-an - Kelas 9</div>
+                                <div class="badge bg-success text-start p-3">
+                                    <div class="fw-bold">Ke-NU-an - Kelas 9</div>
                                     <div class="fw-bold">A.13</div>
                                 </div>
 
