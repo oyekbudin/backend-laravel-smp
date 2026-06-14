@@ -47,8 +47,16 @@
                             <!-- Kode -->
                             <div class="mb-2">
                                 <label class="fw-bold">Kode (A-Z)</label>
-                                <input type="text" name="kode" maxlength="2" class="form-control" required
-                                    placeholder="Contoh: A">
+
+                                <select name="kode" class="form-control" required>
+                                    <option value="">-- Pilih Kode --</option>
+
+                                    @foreach (range('A', 'Z') as $huruf)
+                                        @if (!in_array($huruf, $kodeTerpakai))
+                                            <option value="{{ $huruf }}">{{ $huruf }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
 
                             <!-- Nama -->
@@ -105,10 +113,14 @@
                             </div>
 
                             <!-- Submit -->
-                            <div class="mt-3">
-                                <button class="btn btn-primary w-100 fw-bold">
+                            <div class="mt-3 d-flex gap-2">
+                                <button type="submit" class="btn btn-primary fw-bold flex-grow-1">
                                     Simpan Guru
                                 </button>
+
+                                <a href="{{ route('jadwal') }}" class="btn btn-secondary fw-bold">
+                                    Batal
+                                </a>
                             </div>
 
                         </div>

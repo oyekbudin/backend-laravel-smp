@@ -204,7 +204,9 @@ class KaldikCon extends BaseController
             'pelajaran' => Pelajaran::all(),
         ]);*/
 
-        return view('tambahguru');
+        $kodeTerpakai = Guru::pluck('kode')->toArray();
+
+        return view('tambahguru', ['kodeTerpakai' => $kodeTerpakai]);
     }
 
     public function saveguru(Request $request)
