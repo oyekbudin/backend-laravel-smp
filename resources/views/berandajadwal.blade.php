@@ -58,7 +58,7 @@
                             <div class="d-flex flex-wrap gap-2">
 
                                 <div class="border px-2 py-1 d-flex align-items-center gap-2">
-                                    <span class="badge bg-primary">A.1</span>
+                                    <span class="bg-primary">A.1</span>
                                     <span class="fw-bold">Ke-NU-an Kelas 9</span>
                                 </div>
 
