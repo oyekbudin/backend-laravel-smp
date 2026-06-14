@@ -75,7 +75,7 @@
                                 <div class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-center"
                                     style="cursor: pointer;">
 
-                                    <i class="bi bi-plus fw-bold"></i>
+                                    <i class="bi bi-plus" style="font-size: 36px;"></i>
 
                                 </div>
 
