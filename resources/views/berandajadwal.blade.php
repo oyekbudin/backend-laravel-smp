@@ -77,14 +77,14 @@
                                             $pelajaran = $data['pelajaran']->firstWhere('id', $jd->id_pelajaran);
                                         @endphp
 
-                                        <div class="rounded-3 border p-2 d-flex align-items-center gap-2">
-                                            <span class="p-2 rounded" style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
+                                        <div class="rounded border p-1 d-flex align-items-center gap-2">
+                                            <span class="badge" style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
                                             <span class="fw-bold">{{ $pelajaran->nama ?? '-' }}
                                                 ({{ $kelas->nama ?? '-' }})
                                             </span>
 
                                             <button
-                                                class="btn btn-danger btn-sm p-1 d-flex align-items-center justify-content-center m-0">
+                                                class="btn btn-danger btn-sm d-flex align-items-center justify-content-center m-0">
                                                 <i class="bi bi-trash" style="font-size: 20px;"></i>
                                             </button>
                                         </div>
