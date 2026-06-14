@@ -233,7 +233,7 @@
 
                                     </div>
 
-                                    <div class="experience-badge">
+                                    <div class="experience-badge animate-float">
                                         <span class="years">Garuda </span>
                                         <span class="text">Nusantara</span>
                                     </div>
@@ -241,9 +241,9 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <div class="about-card">
+                                <div class="about-card animate-float">
 
-                                    <h2 id="headline-berita-home">Marching Band Garuda Nusantara</h2>
+                                    <h2 id="headline-berita-home" class="feature-icon">Marching Band Garuda Nusantara</h2>
                                     <div id="isi-berita">
                                         <p class="about-text">
                                             Garuda Nusantara adalah Marching Band yang diikuti oleh siswa-siswi SMP
