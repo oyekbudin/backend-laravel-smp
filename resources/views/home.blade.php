@@ -80,6 +80,10 @@
         color: #323233;
         background-color: #fefefe;
     }
+
+    .cert-img {
+        height: 80px;
+    }
 </style>
 
 
