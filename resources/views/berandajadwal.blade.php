@@ -67,16 +67,34 @@
 
                                 <div class="d-flex flex-wrap gap-2 align-items-center">
 
+                                    @php
+                                        $jadwalGuru = $data['jadwal']->where('id_guru', $guru->id);
+                                    @endphp
 
-                                    <div class="border px-2 py-1 d-flex align-items-center gap-2">
-                                        <span class="bg-primary text-white px-2 py-0">A.1</span>
-                                        <span class="fw-bold">Ke-NU-an Kelas 9</span>
+                                    @forelse ($jadwalGuru as $jd)
+                                        @php
+                                            $kelas = $data['kelas']->firstWhere('id', $jd->id_kelas);
+                                            $pelajaran = $data['pelajaran']->firstWhere('id', $jd->id_pelajaran);
+                                        @endphp
 
-                                        <button
-                                            class="btn btn-danger btn-sm p-1 d-flex align-items-center justify-content-center m-0">
-                                            <i class="bi bi-trash" style="font-size: 20px;"></i>
-                                        </button>
-                                    </div>
+                                        <div class="border px-2 py-1 d-flex align-items-center gap-2">
+                                            <span class="bg-primary text-white px-2 py-0">A.1</span>
+                                            <span class="fw-bold">{{ $pelajaran->nama ?? '-' }}
+                                                ({{ $kelas->nama ?? '-' }})</span>
+
+                                            <button
+                                                class="btn btn-danger btn-sm p-1 d-flex align-items-center justify-content-center m-0">
+                                                <i class="bi bi-trash" style="font-size: 20px;"></i>
+                                            </button>
+                                        </div>
+
+
+                                    @empty
+                                        <div class="p-4 text-center text-muted">
+                                            Belum ada pelajaran
+                                        </div>
+                                    @endforelse
+
 
 
                                     <button
