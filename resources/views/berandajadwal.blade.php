@@ -43,6 +43,14 @@
 
                     @forelse ($data['guru'] as $guru)
                         <div class="border-bottom p-3 d-flex align-items-start gap-3">
+                            @php
+                                $totalJP = $data['jadwal']
+                                    ->where('id_guru', $guru->id)
+                                    ->sum(function ($jd) use ($data) {
+                                        return $data['pelajaran']->firstWhere('id', $jd->id_pelajaran)->jp ?? 0;
+                                    });
+                            @endphp
+
 
 
                             <div class="rounded-circle d-flex align-items-center justify-content-center"
@@ -53,18 +61,20 @@
 
                             <div class="flex-grow-1">
 
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="d-flex justify-content-start gap-3 align-items-center ">
+                                        <h5 class="mb-0 fw-bold">{{ $guru->nama }}</h5>
 
-                                <div class="d-flex justify-content-start gap-3 align-items-center mb-2">
-                                    <h5 class="mb-0 fw-bold">{{ $guru->nama }}</h5>
+                                        <button
+                                            class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                            <i class="bi bi-pencil" style="font-size: 16px;"></i>
+                                            <span>Edit Guru</span>
+                                        </button>
+                                    </div>
 
-                                    <button
-                                        class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
-                                        <i class="bi bi-pencil" style="font-size: 16px;"></i>
-                                        <span>Edit Guru</span>
-                                    </button>
+                                    <span class="fw-bold">Total JP: {{ $totalJP }} JP</span>
+
                                 </div>
-
-
                                 <div class="d-flex flex-wrap gap-2 align-items-center">
 
                                     @php
@@ -75,7 +85,10 @@
                                         @php
                                             $kelas = $data['kelas']->firstWhere('id', $jd->id_kelas);
                                             $pelajaran = $data['pelajaran']->firstWhere('id', $jd->id_pelajaran);
+
                                         @endphp
+
+
 
                                         <div class="rounded border p-1 d-flex align-items-center gap-2">
                                             <span class="badge text-dark"
@@ -85,7 +98,8 @@
                                             </span>
 
                                             <button
-                                                class="btn btn-danger d-flex align-items-center justify-content-center m-0 p-1 rounded-2" title="Hapus">
+                                                class="btn btn-danger d-flex align-items-center justify-content-center m-0 p-1 rounded-2"
+                                                title="Hapus">
                                                 <i class="bi bi-x-lg"></i>
                                             </button>
                                         </div>
