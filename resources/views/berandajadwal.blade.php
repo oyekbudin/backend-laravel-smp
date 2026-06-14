@@ -82,15 +82,15 @@
                                         <h5 class="mb-0 fw-bold">{{ $guru->nama }}</h5>
 
                                         <button
-                                            class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
-                                            <i class="bi bi-pencil" style="font-size: 16px;"></i>
+                                            class="btn btn-secondary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                            <i class="bi bi-pencil" style="font-size: 20px;"></i>
                                             <span>Ubah Nama</span>
                                         </button>
 
                                         <a href="/tambahpelajaran/{{ $guru->id }}"
-                                            class="btn btn-success btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                            class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
                                             <i class="bi bi-plus" style="font-size: 20px;"></i>
-                                            <span class="fw-bold">Tambah Pelajaran</span>
+                                            <span>Tambah Pelajaran</span>
                                         </a>
 
                                     </div>
