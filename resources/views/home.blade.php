@@ -89,6 +89,27 @@
         border-left: 4px solid #198754;
         padding-left: 10px;
     }
+
+    .kaldik-box {
+        max-height: 420px;
+        /* ± 5 item */
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+
+    /* biar scrollnya halus & clean */
+    .kaldik-box::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .kaldik-box::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+    }
+
+    .kaldik-box::-webkit-scrollbar-thumb:hover {
+        background: #999;
+    }
 </style>
 
 
@@ -424,48 +445,45 @@
                     </div>
                 </section>
                 <section>
-                    <div class="card mt-3">
-                        <div class="card-body">
 
-                            <h5 class="mb-3" id="headline-berita-home">
+                    <div class="kaldik-box">
 
-                                Kalender Pendidikan
-                            </h5>
+                        @forelse($datakaldik as $item)
+                            <div
+                                class="d-flex align-items-start mb-3 pb-2 border-bottom 
+             @if ($loop->first) highlight-first bg-success bg-opacity-10 rounded px-2 py-2 @endif">
 
-                            @forelse($datakaldik as $item)
-                                <div
-                                    class="d-flex align-items-start mb-3 pb-2 border-bottom 
-        @if ($loop->first) highlight-first bg-success bg-opacity-10 rounded px-2 py-2 @endif">
-
-                                    <!-- ICON -->
-                                    <div class="me-3">
-                                        <i class="bi bi-calendar-event fs-4 text-primary"></i>
-                                    </div>
-
-                                    <!-- CONTENT -->
-                                    <div>
-                                        <div class="fw-semibold">
-                                            {{ $item->agenda }}
-                                        </div>
-
-                                        <div class="text-muted small">
-                                            @if ($item->mulai == $item->selesai)
-                                                {{ \Carbon\Carbon::parse($item->mulai)->translatedFormat('l, j F Y') }}
-                                            @else
-                                                {{ \Carbon\Carbon::parse($item->mulai)->translatedFormat('l, j F Y') }}
-                                                s/d
-                                                {{ \Carbon\Carbon::parse($item->selesai)->translatedFormat('l, j F Y') }}
-                                            @endif
-                                        </div>
-                                    </div>
-
+                                <!-- ICON -->
+                                <div class="me-3">
+                                    <i class="bi bi-calendar-event fs-4 text-primary"></i>
                                 </div>
-                            @empty
-                                <div class="text-muted">Tidak ada kegiatan</div>
-                            @endforelse
 
-                        </div>
+                                <!-- CONTENT -->
+                                <div>
+                                    <div class="fw-semibold">
+                                        {{ $item->agenda }}
+                                    </div>
+
+                                    <div class="text-muted small">
+                                        @if ($item->mulai == $item->selesai)
+                                            {{ \Carbon\Carbon::parse($item->mulai)->translatedFormat('l, j F Y') }}
+                                        @else
+                                            {{ \Carbon\Carbon::parse($item->mulai)->translatedFormat('l, j F Y') }}
+                                            s/d
+                                            {{ \Carbon\Carbon::parse($item->selesai)->translatedFormat('l, j F Y') }}
+                                        @endif
+                                    </div>
+                                </div>
+
+                            </div>
+                        @empty
+                            <div class="text-muted">Tidak ada kegiatan</div>
+                        @endforelse
+
                     </div>
+
+
+
                 </section>
             </div>
         </div>
