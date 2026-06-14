@@ -28,11 +28,11 @@
 
 <div class="container-fluid py-4">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-9">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
 
-                    <h6 class="mb-0 fw-bold">Data Guru</h6>
+                    <h6 class="mb-0 fw-bold">Nama Guru</h6>
 
                     <a class="btn btn-primary ms-auto" href="/tambahguru">
                         Tambah Guru
@@ -171,6 +171,47 @@
 
                 </div>
             </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+
+                    <h6 class="mb-0 fw-bold">Mata Pelajaran</h6>
+
+                    <a class="btn btn-primary ms-auto" href="/tambahmapel">
+                        Tambah Mata Pelajaran
+                    </a>
+
+                </div>
+                <div class="card-body p-0">
+
+                    @forelse ($data['pelajaran'] as $pelajaran)
+                        <div class="border-bottom px-3 py-2 d-flex justify-content-between align-items-center">
+
+                            <!-- Kiri: kode + nama -->
+                            <div>
+                                <div class="fw-bold">{{ $pelajaran->kode }}</div>
+                                <div class="text-muted">{{ $pelajaran->nama }}</div>
+                            </div>
+
+                            <!-- Kanan: JP -->
+                            <div class="fw-semibold">
+                                {{ $pelajaran->jp ?? '-' }} JP
+                            </div>
+
+                        </div>
+
+                    @empty
+
+                        <div class="p-3 text-center text-muted">
+                            Belum ada pelajaran
+                        </div>
+                    @endforelse
+
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
