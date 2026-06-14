@@ -68,7 +68,7 @@
                         @csrf
 
                         <!-- hidden id guru -->
-                        <input type="hidden" name="id_guru" value="{{ $id_guru }}">
+                        <input type="hidden" name="id_guru" value="{{ $data['id_guru'] }}">
 
                         <div>
 

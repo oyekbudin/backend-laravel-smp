@@ -233,12 +233,17 @@ class KaldikCon extends BaseController
 
     public function tambahpelajaran($id)
     {
-        $id_guru = $id;
+        
 
-
-        return view('tambahpelajaran', [
-            'id_guru' => $id_guru,
+        $data = ([
+            'guru' => Guru::all(),
+            'jadwal' => Jadwal::all(),
+            'kelas' => Kelas::all(),
+            'pelajaran' => Pelajaran::all(),
+            'id_guru' => $id,
         ]);
+
+        return view('tambahpelajaran', compact('data'));
     }
 
     public function savepelajaran(Request $request)
