@@ -72,7 +72,7 @@
                                         </button>
                                     </div>
 
-                                    <span class="fw-bold">Total JP: {{ $totalJP }} JP</span>
+                                    <span class="fw-bold text-muted">Total: {{ $totalJP }} JP</span>
 
                                 </div>
                                 <div class="d-flex flex-wrap gap-2 align-items-center">
