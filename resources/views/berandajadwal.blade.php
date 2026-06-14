@@ -78,14 +78,15 @@
                                         @endphp
 
                                         <div class="rounded border p-1 d-flex align-items-center gap-2">
-                                            <span class="badge text-dark" style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
+                                            <span class="badge text-dark"
+                                                style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
                                             <span class="fw-bold">{{ $pelajaran->nama ?? '-' }}
                                                 ({{ $kelas->nama ?? '-' }})
                                             </span>
 
                                             <button
                                                 class="btn btn-danger btn-sm d-flex align-items-center justify-content-center m-0 p-0">
-                                                <i class="bi bi-trash" style="font-size: 20px;"></i>
+                                                <i class="bi bi-x"></i>
                                             </button>
                                         </div>
 
