@@ -64,11 +64,11 @@
                 </div>
                 <div class="card-body p-0">
                     @php
-                        $nama_guru = $data['guru']->firstWhere('id', $data['id_guru']);
+                        $guru = $data['guru']->firstWhere('id', $data['id_guru']);
                     @endphp
 
                     <div class="mb-3">
-                        <span>Menambahkan pelajaran untuk : {{ $nama_guru }}</span>
+                        <span>Menambahkan pelajaran untuk : {{ $guru->nama }}</span>
                     </div>
 
                     <form action="{{ route('savepelajaran') }}" method="POST">
@@ -105,7 +105,7 @@
 
                                     @foreach ($data['kelas'] as $kelas)
                                         <option value="{{ $kelas->id }}">
-                                            {{ $kelas->kode }}
+                                            {{ $kelas->nama }}
                                         </option>
                                     @endforeach
                                 </select>
