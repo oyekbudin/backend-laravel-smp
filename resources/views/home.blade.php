@@ -481,25 +481,25 @@
             <h4 class="certification-title"></h4>
         </div>
 
-        <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 certifications">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 certifications animate-float">
 
-            <div class="certification-item animate-float" >
+            <div class="certification-item  feature-icon" >
                 <img src="assets/img/lazisnu.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item animate-float" >
+            <div class="certification-item feature-icon" >
                 <img src="assets/img/tutwuri.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item animate-float" >
+            <div class="certification-item feature-icon" >
                 <img src="assets/img/ipnuippnu.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item animate-float" >
+            <div class="certification-item feature-icon" >
                 <img src="assets/img/tunaskelapa.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item animate-float" >
+            <div class="certification-item feature-icon" >
                 <img src="assets/img/logo_pmi.png" class="cert-img" alt="Certification">
             </div>
 
@@ -532,7 +532,7 @@
                         <div class="department-content">
                             <!--div class="department-icon"-->
                             <img src="assets/img/ikon panahan.png" alt="Neurology Department"
-                                class="department-icon">
+                                class="department-icon feature-icon">
                             <!--div-->
                             <h3>Panahan</h3>
                             <p>Ekstrakulikuler panahan adalah salah satu kegiatan di luar jam pelajaran yang bertujuan
@@ -552,7 +552,7 @@
                                 alt="Cardiology Department" class="img-fluid"> <!--Gambar-->
                         </div>
                         <div class="department-content">
-                            <img src="assets/img/silat.png" alt="Neurology Department" class="department-icon">
+                            <img src="assets/img/silat.png" alt="Neurology Department" class="department-icon feature-icon">
                             <!--ikon/lambang-->
                             <h3>Pagar Nusa</h3>
                             <p>Pagar Nusa atau sering disingkat PN, adalah organisasi pencak silat di bawah naungan
@@ -572,7 +572,7 @@
                                 alt="Cardiology Department" class="img-fluid"> <!--Gambar-->
                         </div>
                         <div class="department-content">
-                            <img src="assets/img/hadroh.png" alt="Neurology Department" class="department-icon">
+                            <img src="assets/img/hadroh.png" alt="Neurology Department" class="department-icon feature-icon">
                             <!--ikon/lambang-->
                             <h3>Hadroh</h3>
                             <p>Hadrah adalah sebuah seni pertunjukan tradisional dalam budaya Islam yang melibatkan
