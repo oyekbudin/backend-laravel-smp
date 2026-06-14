@@ -174,11 +174,11 @@
         </div>
         <div class="col-lg-3">
             <div class="card">
-                <div class="card-header d-flex flex-row justify-content-between align-items-center">
+                <div class="card-header d-flex flex-column justify-content-between align-items-center gap-3">
 
                     <h6 class="mb-0 fw-bold">Mata Pelajaran</h6>
 
-                    <a class="btn btn-primary ms-auto" href="/tambahmapel">
+                    <a class="btn btn-primary m-0" href="/tambahmapel">
                         Tambah Mata Pelajaran
                     </a>
 

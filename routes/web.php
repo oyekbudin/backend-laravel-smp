@@ -115,6 +115,9 @@ Route::post('/saveguru', [KaldikCon::class, 'saveguru'])->name('saveguru');
 Route::get('/tambahpelajaran/{id}', [KaldikCon::class, 'tambahpelajaran']);
 Route::post('/savepelajaran', [KaldikCon::class, 'savepelajaran'])->name('savepelajaran');
 
+Route::get('/tambahmapel', [KaldikCon::class, 'tambahmapel']);
+Route::post('/savemapel', [KaldikCon::class, 'savemapel'])->name('savemapel');
+
 });
 
 //frontpage

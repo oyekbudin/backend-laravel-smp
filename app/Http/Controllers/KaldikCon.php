@@ -233,7 +233,7 @@ class KaldikCon extends BaseController
 
     public function tambahpelajaran($id)
     {
-        
+
 
         $data = ([
             'guru' => Guru::all(),
@@ -254,12 +254,44 @@ class KaldikCon extends BaseController
             'id_kelas' => 'required',
         ]);
 
-        Pelajaran::create([
+        Jadwal::create([
             'id_guru' => $request->id_guru,
             'id_pelajaran' => $request->id_pelajaran,
             'id_kelas' => $request->id_kelas,
         ]);
 
         return redirect()->route('jadwal')->with('success', 'Pelajaran berhasil ditambahkan');
+    }
+
+    public function tambahmapel()
+    {
+
+
+        /* $data = ([
+             'guru' => Guru::all(),
+             'jadwal' => Jadwal::all(),
+             'kelas' => Kelas::all(),
+             'pelajaran' => Pelajaran::all(),
+             'id_guru' => $id,
+         ]);*/
+
+        return view('tambahmapel');
+    }
+
+    public function savemapel(Request $request)
+    {
+        $request->validate([
+            'kode' => 'required',
+            'nama' => 'required',
+            'jp' => 'required',
+        ]);
+
+        Pelajaran::create([
+            'kode' => $request->kode,
+            'nama' => $request->nama,
+            'jp' => $request->jp,
+        ]);
+
+        return redirect()->route('jadwal')->with('success', 'Mata Pelajaran berhasil ditambahkan');
     }
 }
