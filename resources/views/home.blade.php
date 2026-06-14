@@ -456,7 +456,7 @@
                                 @php $first = $datakaldik->first(); @endphp
 
                                 <div
-                                    class="d-flex align-items-start mb-3 pb-2 border-bottom bg-success bg-opacity-10 rounded px-2 py-2">
+                                    class="d-flex align-items-start mb-3 pb-2 border-bottom bg-success bg-opacity-10 rounded px-2 py-2 highlight-first">
 
                                     <div class="me-3">
                                         <i class="bi bi-calendar-event fs-4 text-primary"></i>
