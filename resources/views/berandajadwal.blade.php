@@ -99,7 +99,7 @@
 
                                 </div>
 
-                                <div class="d-flex flex-nowrap overflow-auto m-1 p-2 gap-2"
+                                <div class="d-flex flex-nowrap overflow-auto w-100 m-1 p-2 gap-2"
                                     style="scroll-behavior: smooth;">
 
                                     @php
