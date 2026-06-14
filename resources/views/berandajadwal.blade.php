@@ -71,9 +71,9 @@
 
 
 
-                            <div class="flex-grow-1">
+                            
 
-                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="d-flex justify-content-between align-items-center mb-2 w-100">
                                     <div class="d-flex justify-content-start gap-3 align-items-center ">
                                         <div class="rounded-circle d-flex align-items-center justify-content-center"
                                             style="width:30px; height:30px; background: {{ $guru->kode_warna }};">
@@ -148,7 +148,7 @@
 
                                 </div>
 
-                            </div>
+                            
 
                         </div>
                     @empty
