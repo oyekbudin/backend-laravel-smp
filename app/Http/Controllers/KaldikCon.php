@@ -184,7 +184,9 @@ class KaldikCon extends BaseController
         //return view('berandakaldik', compact('datakaldik'));
         $data = ([
             'guru' => Guru::all(),
-            'jadwal' => Jadwal::all(),
+            'jadwal' => Jadwal::orderBy('id_pelajaran')
+                ->orderBy('id_kelas')
+                ->get(),
             'kelas' => Kelas::all(),
             'pelajaran' => Pelajaran::all(),
         ]);
