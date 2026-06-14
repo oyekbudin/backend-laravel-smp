@@ -49,6 +49,7 @@
                     <h6 class="mb-0 fw-bold">Nama Guru</h6>
 
                     <a class="btn btn-primary ms-auto" href="/tambahguru">
+                        <i class="bi bi-person-plus"></i>
                         Tambah Guru
                     </a>
 
@@ -105,17 +106,16 @@
 
 
 
-                                        <div class="rounded border p-1 d-flex align-items-center gap-2">
+                                        <div class="rounded border p-1 d-flex align-items-center gap-2 bg-white flex-column">
                                             <span class="badge text-dark"
                                                 style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
-                                            <span class="fw-bold">{{ $pelajaran->nama ?? '-' }}
-                                                ({{ $kelas->nama ?? '-' }})
-                                            </span>
+                                            <div class="fw-bold">{{ $pelajaran->nama ?? '-' }}</div>
+                                            <div class="text-muted">({{ $kelas->nama ?? '-' }})</div>
 
                                             <button
-                                                class="btn btn-danger d-flex align-items-center justify-content-center m-0 p-1 rounded-2"
+                                                class="btn btn-outline-danger d-flex align-items-center justify-content-center m-0 p-1 rounded-2"
                                                 title="Hapus">
-                                                <i class="bi bi-x-lg"></i>
+                                                Hapus
                                             </button>
                                         </div>
 
