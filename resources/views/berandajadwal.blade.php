@@ -34,7 +34,8 @@
                     <h6 class="mb-0 fw-bold">Jadwal Pelajaran</h6>
 
                     <a class="btn btn-primary ms-auto" href="/aturhari">
-                        Berikutnya : Pembagian Hari Mengajar
+                        
+                        Lanjutkan <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
