@@ -63,34 +63,16 @@
                                     <span class="fw-bold">Ke-NU-an Kelas 9</span>
 
                                     <button
-                                        class="btn btn-outline-danger btn-sm p-1 d-flex align-items-center justify-content-center m-0">
+                                        class="btn btn-danger btn-sm p-1 d-flex align-items-center justify-content-center m-0">
                                         <i class="bi bi-trash" style="font-size: 20px;"></i>
                                     </button>
                                 </div>
-                                <!-- Item -->
-                                <div class="border px-2 py-1 d-flex align-items-center gap-2">
-                                    <span class="bg-primary text-white px-2 py-0">A.1</span>
-                                    <span class="fw-bold">Ke-NU-an Kelas 9</span>
-
-                                    <button
-                                        class="btn btn-outline-danger btn-sm p-1 d-flex align-items-center justify-content-center m-0">
-                                        <i class="bi bi-trash" style="font-size: 20px;"></i>
-                                    </button>
-                                </div>
-                                <!-- Item -->
-                                <div class="border px-2 py-1 d-flex align-items-center gap-2">
-                                    <span class="bg-primary text-white px-2 py-0">A.1</span>
-                                    <span class="fw-bold">Ke-NU-an Kelas 9</span>
-
-                                    <button
-                                        class="btn btn-outline-danger btn-sm p-1 d-flex align-items-center justify-content-center m-0">
-                                        <i class="bi bi-trash" style="font-size: 20px;"></i>
-                                    </button>
-                                </div>
+                                
+                                
 
                                 <!-- Tombol tambah -->
                                 <button
-                                    class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                    class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
                                     <i class="bi bi-plus" style="font-size: 20px;"></i>
                                     <span class="fw-bold">Tambah Pelajaran</span>
                                 </button>
