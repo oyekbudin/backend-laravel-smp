@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
 @include('header')
 <style>
     .berita-img {
@@ -86,7 +89,7 @@
     }
 
     .highlight-first {
-        border-left: 4px solid #198754;
+        border-left: 4px solid #3c20de;
         padding-left: 10px;
     }
 
@@ -452,19 +455,24 @@
                                 Kalender Pendidikan
                             </h5>
                             {{-- ITEM PERTAMA (DI LUAR SCROLL) --}}
+
                             @if ($datakaldik->count())
                                 @php $first = $datakaldik->first(); @endphp
 
                                 <div
-                                    class="d-flex align-items-start mb-3 pb-2 border-bottom bg-success bg-opacity-10 rounded px-2 py-2 highlight-first">
+                                    class="d-flex align-items-start mb-3 pb-2 border-bottom bg-primary bg-opacity-10 rounded px-2 py-2 highlight-first">
 
                                     <div class="me-3">
                                         <i class="bi bi-calendar-event fs-4 text-primary"></i>
                                     </div>
 
                                     <div>
-                                        <div class="fw-semibold">
+                                        <div
+                                            class="fw-semibold
+                @if (Str::contains(strtolower($first->agenda), 'libur')) text-danger @endif">
+
                                             {{ $first->agenda }}
+
                                         </div>
 
                                         <div class="text-muted small">
@@ -493,8 +501,13 @@
                                         </div>
 
                                         <div>
-                                            <div class="fw-semibold">
+
+                                            <div
+                                                class="fw-semibold
+                    @if (Str::contains(strtolower($item->agenda), 'libur')) text-danger @endif">
+
                                                 {{ $item->agenda }}
+
                                             </div>
 
                                             <div class="text-muted small">
@@ -506,6 +519,7 @@
                                                     {{ \Carbon\Carbon::parse($item->selesai)->translatedFormat('l, j F Y') }}
                                                 @endif
                                             </div>
+
                                         </div>
 
                                     </div>
