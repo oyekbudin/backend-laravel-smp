@@ -18,6 +18,25 @@
         font-family: Arial, sans-serif;
         line-height: 1.6;
     }
+
+
+    .jadwal-scroll::-webkit-scrollbar {
+        height: 14px;
+    }
+
+    .jadwal-scroll::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .jadwal-scroll::-webkit-scrollbar-thumb {
+        background: #999;
+        border-radius: 10px;
+    }
+
+    .jadwal-scroll::-webkit-scrollbar-thumb:hover {
+        background: #666;
+    }
 </style>
 <!-- Pell CSS -->
 <link rel="stylesheet" href="https://unpkg.com/pell/dist/pell.min.css">
@@ -71,84 +90,84 @@
 
 
 
-                            
 
-                                <div class="d-flex justify-content-between align-items-center mb-2 w-100">
-                                    <div class="d-flex justify-content-start gap-3 align-items-center ">
-                                        <div class="rounded-circle d-flex align-items-center justify-content-center"
-                                            style="width:30px; height:30px; background: {{ $guru->kode_warna }};">
-                                            <span class="fw-bold">{{ $guru->kode }}</span>
+
+                            <div class="d-flex justify-content-between align-items-center mb-2 w-100">
+                                <div class="d-flex justify-content-start gap-3 align-items-center ">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width:30px; height:30px; background: {{ $guru->kode_warna }};">
+                                        <span class="fw-bold">{{ $guru->kode }}</span>
+                                    </div>
+                                    <h5 class="mb-0 fw-bold">{{ $guru->nama }}</h5>
+
+                                    <button
+                                        class="btn btn-secondary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                        <i class="bi bi-pencil" style="font-size: 20px;"></i>
+                                        <span>Ubah Nama</span>
+                                    </button>
+
+                                    <a href="/tambahpelajaran/{{ $guru->id }}"
+                                        class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
+                                        <i class="bi bi-plus" style="font-size: 20px;"></i>
+                                        <span>Tambah Pelajaran</span>
+                                    </a>
+
+                                </div>
+
+                                <span class="fw-bold text-muted">Total: {{ $totalJP }} JP</span>
+
+                            </div>
+
+                            <div class="jadwal-scroll d-flex flex-nowrap overflow-auto w-100 m-1 p-2 gap-2"
+                                style="scroll-behavior: smooth;">
+
+                                @php
+                                    $jadwalGuru = $data['jadwal']->where('id_guru', $guru->id);
+                                @endphp
+
+                                @forelse ($jadwalGuru as $jd)
+                                    @php
+                                        $kelas = $data['kelas']->firstWhere('id', $jd->id_kelas);
+                                        $pelajaran = $data['pelajaran']->firstWhere('id', $jd->id_pelajaran);
+                                    @endphp
+
+                                    <div class="flex-shrink-0 bg-white border rounded shadow-sm p-2 d-flex flex-column align-items-center gap-2"
+                                        style="width: 160px; min-width: 160px;">
+
+                                        <span class="badge text-dark" style="background: {{ $guru->kode_warna }};">
+                                            {{ $guru->kode }}.{{ $pelajaran->kode }}
+                                        </span>
+
+                                        <div class="fw-bold text-center small">
+                                            {{ $pelajaran->nama ?? '-' }}
                                         </div>
-                                        <h5 class="mb-0 fw-bold">{{ $guru->nama }}</h5>
 
-                                        <button
-                                            class="btn btn-secondary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
-                                            <i class="bi bi-pencil" style="font-size: 20px;"></i>
-                                            <span>Ubah Nama</span>
-                                        </button>
+                                        <div class="text-muted small">
+                                            {{ $kelas->nama ?? '-' }}
+                                        </div>
 
-                                        <a href="/tambahpelajaran/{{ $guru->id }}"
-                                            class="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
-                                            <i class="bi bi-plus" style="font-size: 20px;"></i>
-                                            <span>Tambah Pelajaran</span>
-                                        </a>
+                                        <form action="{{ route('kaldik.destroypelajaran', $jd->id) }}" method="POST"
+                                            class="mt-auto">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-danger btn-sm w-100"
+                                                onclick="return confirm('Yakin hapus?')">
+                                                Hapus
+                                            </button>
+                                        </form>
 
                                     </div>
 
-                                    <span class="fw-bold text-muted">Total: {{ $totalJP }} JP</span>
+                                @empty
+                                    <div class="p-4 text-center text-muted w-100">
+                                        Belum ada pelajaran
+                                    </div>
+                                @endforelse
 
-                                </div>
+                            </div>
 
-                                <div class="d-flex flex-nowrap overflow-auto w-100 m-1 p-2 gap-2"
-                                    style="scroll-behavior: smooth;">
 
-                                    @php
-                                        $jadwalGuru = $data['jadwal']->where('id_guru', $guru->id);
-                                    @endphp
-
-                                    @forelse ($jadwalGuru as $jd)
-                                        @php
-                                            $kelas = $data['kelas']->firstWhere('id', $jd->id_kelas);
-                                            $pelajaran = $data['pelajaran']->firstWhere('id', $jd->id_pelajaran);
-                                        @endphp
-
-                                        <div class="flex-shrink-0 bg-white border rounded shadow-sm p-2 d-flex flex-column align-items-center gap-2"
-                                            style="width: 160px; min-width: 160px;">
-
-                                            <span class="badge text-dark" style="background: {{ $guru->kode_warna }};">
-                                                {{ $guru->kode }}.{{ $pelajaran->kode }}
-                                            </span>
-
-                                            <div class="fw-bold text-center small">
-                                                {{ $pelajaran->nama ?? '-' }}
-                                            </div>
-
-                                            <div class="text-muted small">
-                                                {{ $kelas->nama ?? '-' }}
-                                            </div>
-
-                                            <form action="{{ route('kaldik.destroypelajaran', $jd->id) }}"
-                                                method="POST" class="mt-auto">
-                                                @csrf
-                                                @method('DELETE')
-
-                                                <button type="submit" class="btn btn-danger btn-sm w-100"
-                                                    onclick="return confirm('Yakin hapus?')">
-                                                    Hapus
-                                                </button>
-                                            </form>
-
-                                        </div>
-
-                                    @empty
-                                        <div class="p-4 text-center text-muted w-100">
-                                            Belum ada pelajaran
-                                        </div>
-                                    @endforelse
-
-                                </div>
-
-                            
 
                         </div>
                     @empty
