@@ -84,6 +84,11 @@
     .cert-img {
         height: 80px;
     }
+
+    .highlight-first {
+        border-left: 4px solid #198754;
+        padding-left: 10px;
+    }
 </style>
 
 
@@ -430,7 +435,7 @@
                             @forelse($datakaldik as $item)
                                 <div
                                     class="d-flex align-items-start mb-3 pb-2 border-bottom 
-        @if ($loop->first) bg-success bg-opacity-10 rounded px-2 py-2 @endif">
+        @if ($loop->first) highlight-first @endif">
 
                                     <!-- ICON -->
                                     <div class="me-3">
