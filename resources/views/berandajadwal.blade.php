@@ -57,19 +57,64 @@
 
                             <div class="d-flex flex-wrap gap-2">
 
-                                <div class="border rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                                    <span class="badge rounded-pill bg-primary">A.1</span>
-                                    <span class="fw-bold">Ke-NU-an Kelas 9</span>
+                                <div
+                                    class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
+
+                                    <!-- Kiri -->
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="badge rounded-pill bg-primary">A.1</span>
+                                        <span class="fw-bold">Ke-NU-an Kelas 9</span>
+                                    </div>
+
+                                    <!-- Kanan (Aksi) -->
+                                    <div class="d-flex align-items-center gap-2">
+
+                                        <i class="bi bi-pencil-square text-warning" style="cursor: pointer;"></i>
+
+                                        <i class="bi bi-trash text-danger" style="cursor: pointer;"></i>
+
+                                    </div>
+
                                 </div>
 
-                                <div class="border rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                                    <span class="badge rounded-pill bg-success">B.2</span>
-                                    <span class="fw-bold">PAI Kelas 7</span>
+                                <div
+                                    class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
+
+                                    <!-- Kiri -->
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="badge rounded-pill bg-primary">A.1</span>
+                                        <span class="fw-bold">Ke-NU-an Kelas 9</span>
+                                    </div>
+
+                                    <!-- Kanan (Aksi) -->
+                                    <div class="d-flex align-items-center gap-2">
+
+                                        <i class="bi bi-pencil-square text-warning" style="cursor: pointer;"></i>
+
+                                        <i class="bi bi-trash text-danger" style="cursor: pointer;"></i>
+
+                                    </div>
+
                                 </div>
 
-                                <div class="border rounded-pill px-3 py-2 d-flex align-items-center gap-2">
-                                    <span class="badge rounded-pill bg-danger">C.3</span>
-                                    <span class="fw-bold">Fiqih Kelas 8</span>
+                                <div
+                                    class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
+
+                                    <!-- Kiri -->
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="badge rounded-pill bg-primary">A.1</span>
+                                        <span class="fw-bold">Ke-NU-an Kelas 9</span>
+                                    </div>
+
+                                    <!-- Kanan (Aksi) -->
+                                    <div class="d-flex align-items-center gap-2">
+
+                                        <i class="bi bi-pencil-square text-warning" style="cursor: pointer;"></i>
+
+                                        <i class="bi bi-trash text-danger" style="cursor: pointer;"></i>
+
+                                    </div>
+
                                 </div>
 
                                 <div class="border rounded-pill px-3 py-2 d-flex align-items-center gap-2"
