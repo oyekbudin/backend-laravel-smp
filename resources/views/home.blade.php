@@ -444,6 +444,45 @@
                     </div>
                 </section>
                 <section>
+                    <div class="container py-4">
+
+                        <div class="mb-4 text-center">
+                            <h4 class="fw-bold text-primary">Papan Nama Sekolah</h4>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+
+                                <div class="d-flex flex-column gap-3">
+
+                                    @forelse($dataplang as $item)
+                                        <a href="{{ $item->halaman ?? '#' }}" target="_blank"
+                                            class="text-decoration-none">
+
+                                            <div class="card border-0 shadow-sm overflow-hidden">
+
+                                                <img src="{{ asset($item->gambar) }}" alt="{{ $item->nama }}"
+                                                    class="w-100" style="height: 180px; object-fit: cover;">
+
+                                            </div>
+
+                                        </a>
+
+                                    @empty
+
+                                        <div class="text-center text-muted py-5">
+                                            Tidak ada papan nama
+                                        </div>
+                                    @endforelse
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <section>
 
 
 
