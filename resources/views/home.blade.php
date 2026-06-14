@@ -51,51 +51,103 @@
 <main class="main">
 
     <!-- HERO (cukup 1 animasi saja) -->
-    <section id="hero" class="hero section dark-background">
-        <div class="container-fluid p-0">
+    <!-- SPMB SECTION -->
+    <section class="py-5">
 
-            <div class="hero-wrapper">
-                <div class="hero-image">
-                    <img src="assets/img/cover_smp.webp" class="img-fluid">
+        <div class="container">
+
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-primary">
+                    SPMB SMP Ma'arif NU 01 Wanareja
+                </h2>
+                <p class="text-muted">
+                    Tahun Ajaran 2026/2027
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- GELOMBANG 1 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <h5 class="fw-bold text-primary">
+                                PENDAFTARAN GELOMBANG 1
+                            </h5>
+
+                            <p class="text-muted mb-2">
+                                JANUARI - MEI 2026
+                            </p>
+
+                            <ul class="mb-0">
+                                <li>Free Tas Sekolah</li>
+                                <li>Free Seragam OSIS (1 Stel)</li>
+                                <li>Free Seragam Almamater</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="hero-content">
-                    <div class="container">
+                <!-- GELOMBANG 2 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
 
-                        <div class="col-lg-7 col-md-10" data-aos="fade-up">
-                            <span class="badge-neon">Sekolah Unggul, Berakhlak Mulia</span>
+                        <div class="card-body">
 
-                            <h1 class="text-gradient">
-                                SPMB SMP Ma'arif NU 01 Wanareja
-                            </h1>
+                            <h5 class="fw-bold text-primary">
+                                PENDAFTARAN GELOMBANG 2
+                            </h5>
 
-                            <h2 class="text-gradient-small">
-                                Tahun Ajaran 2026/2027
-                            </h2>
+                            <p class="text-muted mb-2">
+                                JUNI - JULI 2026
+                            </p>
 
-                            <div class="cta-group">
-                                <a href="https://spmb.smpmaarifnuwanareja.sch.id" class="btn-zoom">
-                                    Website SPMB Klik Disini!
-                                </a>
-                            </div>
+                            <ul class="mb-0">
+                                <li>Free Tas Sekolah</li>
+                                <li>Free Seragam Almamater</li>
+                            </ul>
 
-                            <div class="info-badges">
-                                <div class="badge-item">
-                                    <i class="bi bi-telephone-fill"></i>
-                                    <div>
-                                        <span>Kontak</span>
-                                        <strong>082358767313</strong>
-                                    </div>
-                                </div>
+                        </div>
 
-                                <div class="badge-item">
-                                    <i class="bi bi-clock-fill"></i>
-                                    <div>
-                                        <span>Jam Operasional</span>
-                                        <strong>Senin-Sabtu: 07.00-13.00 WIB</strong>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+
+                <!-- DAFTAR ULANG -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <h5 class="fw-bold text-primary">
+                                DAFTAR ULANG
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                JUNI 2026
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- MPLS -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <h5 class="fw-bold text-primary">
+                                MPLS & MAKESTA
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                JULI 2026
+                            </p>
 
                         </div>
 
@@ -103,7 +155,9 @@
                 </div>
 
             </div>
+
         </div>
+
     </section>
 
     <div class="container">
