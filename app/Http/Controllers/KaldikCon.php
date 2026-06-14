@@ -91,7 +91,7 @@ class KaldikCon extends BaseController
         return view('berandaplang', compact('dataplang'));
     }
 
-    use Illuminate\Support\Str;
+
 
     public function tambahplang(Request $request)
     {
