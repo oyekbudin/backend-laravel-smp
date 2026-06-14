@@ -38,7 +38,6 @@
                         Lanjutkan <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-                <div class="card-footer"></div>
             </div>
         </div>
     </div>
