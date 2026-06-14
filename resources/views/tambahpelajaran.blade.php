@@ -67,7 +67,7 @@
                         $guru = $data['guru']->firstWhere('id', $data['id_guru']);
                     @endphp
 
-                    <div class="mb-3">
+                    <div class="p-3">
                         <span>Menambahkan pelajaran untuk : {{ $guru->nama }}</span>
                     </div>
 
