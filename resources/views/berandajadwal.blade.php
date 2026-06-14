@@ -34,7 +34,48 @@
             <div class="card">
                 <div class="card-body p-0">
 
-                    <table>
+                    <div class="border-bottom p-3 d-flex align-items-start">
+                        <div>
+                            <span>A</span>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1 fw-bold">Ibnu Sadun</h6>
+
+
+                            <div class="badge bg-primary d-flex flex-column">
+                                <span>PAI - Kelas 7</span>
+                                <span>A.1</span>
+                            </div>
+                            <div class="badge bg-primary d-flex flex-column">
+                                <span>Ke-NU-an - Kelas 9</span>
+                                <span>A.13</span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="border-bottom p-3 d-flex align-items-start">
+                        <div>
+                            <span>A</span>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1 fw-bold">Ibnu Sadun</h6>
+
+
+                            <div class="badge bg-primary d-flex flex-column">
+                                <span>PAI - Kelas 7</span>
+                                <span>A.1</span>
+                            </div>
+                            <div class="badge bg-primary d-flex flex-column">
+                                <span>Ke-NU-an - Kelas 9</span>
+                                <span>A.13</span>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!--table>
                         <thead>
                             <tr>
                                 <td>KODE</td>
@@ -55,7 +96,7 @@
                                 <td>Ahmad</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table-->
 
                 </div>
             </div>
@@ -91,7 +132,7 @@
             </div>
         </div>
 
-      
+
 
     </div>
 </div>
