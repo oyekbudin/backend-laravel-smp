@@ -107,6 +107,9 @@ Route::get('/plang/{id}/edit', [KaldikCon::class, 'editplang'])->name('kaldik.ed
 Route::delete('/plang/{id}', [KaldikCon::class, 'destroyplang'])->name('kaldik.destroyplang'); 
 Route::put('/plang/{id}', [KaldikCon::class, 'updateplang'])->name('kaldik.updateplang');
 
+// KaldikCon Jadwal
+Route::get('/jadwal', [KaldikCon::class, 'jadwal']);
+
 });
 
 //frontpage

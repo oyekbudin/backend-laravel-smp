@@ -26,6 +26,13 @@ class KaldikCon extends BaseController
 
         return view('berandakaldik', compact('datakaldik'));
     }
+    public function jadwal()
+    {
+        /*$datakaldik = Kaldik::orderBy('mulai', 'desc')->get();*/
+
+        //return view('berandakaldik', compact('datakaldik'));
+        return view('berandajadwal');
+    }
 
 
     public function tambahkaldik(Request $request)
