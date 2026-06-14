@@ -428,7 +428,9 @@
                             </h5>
 
                             @forelse($datakaldik as $item)
-                                <div class="d-flex align-items-start mb-3 pb-2 border-bottom">
+                                <div
+                                    class="d-flex align-items-start mb-3 pb-2 border-bottom 
+        @if ($loop->first) bg-success bg-opacity-10 rounded px-2 py-2 @endif">
 
                                     <!-- ICON -->
                                     <div class="me-3">
@@ -450,15 +452,9 @@
                                                 {{ \Carbon\Carbon::parse($item->selesai)->translatedFormat('l, j F Y') }}
                                             @endif
                                         </div>
-
-                                        @if (now()->between($item->mulai, $item->selesai))
-                                            <span class="badge bg-success mt-1 feature-icon">Sedang Berlangsung</span>
-                                        @endif
-
                                     </div>
 
                                 </div>
-
                             @empty
                                 <div class="text-muted">Tidak ada kegiatan</div>
                             @endforelse
@@ -475,7 +471,7 @@
 
 
 
-    <div class="container mt-5 pt-4 certifications-row" >
+    <div class="container mt-5 pt-4 certifications-row">
 
         <div class="text-center mb-4">
             <h4 class="certification-title"></h4>
@@ -483,23 +479,23 @@
 
         <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 certifications animate-float">
 
-            <div class="certification-item  feature-icon" >
+            <div class="certification-item  feature-icon">
                 <img src="assets/img/lazisnu.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item feature-icon" >
+            <div class="certification-item feature-icon">
                 <img src="assets/img/tutwuri.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item feature-icon" >
+            <div class="certification-item feature-icon">
                 <img src="assets/img/ipnuippnu.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item feature-icon" >
+            <div class="certification-item feature-icon">
                 <img src="assets/img/tunaskelapa.png" class="cert-img" alt="Certification">
             </div>
 
-            <div class="certification-item feature-icon" >
+            <div class="certification-item feature-icon">
                 <img src="assets/img/logo_pmi.png" class="cert-img" alt="Certification">
             </div>
 
@@ -513,12 +509,12 @@
     <section id="featured-departments" class="featured-departments section">
 
         <!-- Section Title -->
-        <div class="container section-title" >
+        <div class="container section-title">
             <h2>Ekstrakurikuler </h2>
 
         </div><!-- End Section Title -->
 
-        <div class="container" >
+        <div class="container">
 
             <div class="row gy-4">
 
@@ -545,14 +541,15 @@
                     </div>
                 </div><!-- End Department Card -->
 
-                <div class="col-lg-4 col-md-6" >
+                <div class="col-lg-4 col-md-6">
                     <div class="department-card">
                         <div class="department-image">
                             <img src="uploads/berita/54dfd5cd-5dde-4f9a-ad31-294a1687a6a8.jpeg"
                                 alt="Cardiology Department" class="img-fluid"> <!--Gambar-->
                         </div>
                         <div class="department-content">
-                            <img src="assets/img/silat.png" alt="Neurology Department" class="department-icon feature-icon">
+                            <img src="assets/img/silat.png" alt="Neurology Department"
+                                class="department-icon feature-icon">
                             <!--ikon/lambang-->
                             <h3>Pagar Nusa</h3>
                             <p>Pagar Nusa atau sering disingkat PN, adalah organisasi pencak silat di bawah naungan
@@ -565,14 +562,15 @@
                     </div>
                 </div><!-- End Department Card -->
 
-                <div class="col-lg-4 col-md-6" >
+                <div class="col-lg-4 col-md-6">
                     <div class="department-card">
                         <div class="department-image">
                             <img src="uploads/berita/39bec5e8-3dbe-4748-9367-420c9fa395d4.png"
                                 alt="Cardiology Department" class="img-fluid"> <!--Gambar-->
                         </div>
                         <div class="department-content">
-                            <img src="assets/img/hadroh.png" alt="Neurology Department" class="department-icon feature-icon">
+                            <img src="assets/img/hadroh.png" alt="Neurology Department"
+                                class="department-icon feature-icon">
                             <!--ikon/lambang-->
                             <h3>Hadroh</h3>
                             <p>Hadrah adalah sebuah seni pertunjukan tradisional dalam budaya Islam yang melibatkan
