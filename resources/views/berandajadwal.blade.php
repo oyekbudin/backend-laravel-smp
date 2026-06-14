@@ -58,7 +58,7 @@
                                 <h5 class="mb-0 fw-bold">Ibnu Sadun</h5>
 
                                 <button
-                                    class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1">
+                                    class="btn btn-outline-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 m-0">
                                     <i class="bi bi-pencil" style="font-size: 16px;"></i>
                                     <span>Edit Guru</span>
                                 </button>
