@@ -34,48 +34,37 @@
             <div class="card">
                 <div class="card-body p-0">
 
-                    <div class="border-bottom p-3 d-flex align-items-start">
-                        <div>
-                            <span>A</span>
+                    <div class="border-bottom p-3 d-flex align-items-start gap-3">
+
+                        <!-- Avatar / Inisial -->
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                            style="width:40px; height:40px;">
+                            <span class="fw-bold">A</span>
                         </div>
+
+                        <!-- Konten -->
                         <div class="flex-grow-1">
-                            <h6 class="mb-1 fw-bold">Ibnu Sadun</h6>
 
-                            <div class="d-flex flex-row">
+                            <h6 class="mb-2 fw-bold">Ibnu Sadun</h6>
 
+                            <div class="d-flex flex-wrap gap-2">
 
-                                <div class="badge bg-primary d-flex flex-column">
-                                    <span>PAI - Kelas 7</span>
-                                    <span>A.1</span>
+                                <div class="badge bg-primary text-start p-2">
+                                    <div class="small">PAI - Kelas 7</div>
+                                    <div class="fw-bold">A.1</div>
                                 </div>
-                                <div class="badge bg-primary d-flex flex-column">
-                                    <span>Ke-NU-an - Kelas 9</span>
-                                    <span>A.13</span>
+
+                                <div class="badge bg-success text-start p-2">
+                                    <div class="small">Ke-NU-an - Kelas 9</div>
+                                    <div class="fw-bold">A.13</div>
                                 </div>
+
                             </div>
 
                         </div>
+
                     </div>
-                    <div class="border-bottom p-3 d-flex align-items-start">
-                        <div>
-                            <span>A</span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-1 fw-bold">Ibnu Sadun</h6>
 
-
-                            <div class="badge bg-primary d-flex flex-column">
-                                <span>PAI - Kelas 7</span>
-                                <span>A.1</span>
-                            </div>
-                            <div class="badge bg-primary d-flex flex-column">
-                                <span>Ke-NU-an - Kelas 9</span>
-                                <span>A.13</span>
-                            </div>
-
-
-                        </div>
-                    </div>
 
                     <!--table>
                         <thead>
