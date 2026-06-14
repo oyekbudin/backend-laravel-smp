@@ -41,16 +41,18 @@
                         <div class="flex-grow-1">
                             <h6 class="mb-1 fw-bold">Ibnu Sadun</h6>
 
+                            <div class="d-flex flex-row">
 
-                            <div class="badge bg-primary d-flex flex-column">
-                                <span>PAI - Kelas 7</span>
-                                <span>A.1</span>
-                            </div>
-                            <div class="badge bg-primary d-flex flex-column">
-                                <span>Ke-NU-an - Kelas 9</span>
-                                <span>A.13</span>
-                            </div>
 
+                                <div class="badge bg-primary d-flex flex-column">
+                                    <span>PAI - Kelas 7</span>
+                                    <span>A.1</span>
+                                </div>
+                                <div class="badge bg-primary d-flex flex-column">
+                                    <span>Ke-NU-an - Kelas 9</span>
+                                    <span>A.13</span>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
