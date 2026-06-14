@@ -114,12 +114,12 @@
                             <br>
 
                             <!-- Submit -->
-                            <div>
-                                <button type="submit">
-                                    Simpan
+                            <div class="mt-3 d-flex gap-2">
+                                <button type="submit" class="btn btn-primary fw-bold flex-grow-1">
+                                    Simpan Pelajaran
                                 </button>
 
-                                <a href="{{ route('jadwal') }}">
+                                <a href="{{ route('jadwal') }}" class="btn btn-secondary fw-bold">
                                     Batal
                                 </a>
                             </div>
