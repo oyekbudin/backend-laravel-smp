@@ -57,45 +57,48 @@
 
                             <div class="d-flex flex-wrap gap-2">
 
-                                <div class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
-
-    <!-- Kiri -->
-    <div class="d-flex align-items-center gap-2">
-        <span class="badge rounded-pill bg-primary">A.1</span>
+                                <div class="d-flex align-items-center">
+    
+    <!-- Konten utama -->
+    <div class="border px-2 py-1 d-flex align-items-center gap-2">
+        <span class="badge bg-primary">A.1</span>
         <span class="fw-bold">Ke-NU-an Kelas 9</span>
     </div>
 
-    <!-- Kanan (X) -->
-    <div style="cursor: pointer;">
-        <i class="bi bi-x text-danger" style="font-size: 28px;"></i>
+    <!-- Tombol hapus -->
+    <div class="bg-danger text-white d-flex align-items-center justify-content-center px-2"
+         style="cursor: pointer;">
+        <i class="bi bi-x-lg"></i>
     </div>
 
 </div>
-<div class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
-
-    <!-- Kiri -->
-    <div class="d-flex align-items-center gap-2">
-        <span class="badge rounded-pill bg-primary">A.1</span>
+<div class="d-flex align-items-center">
+    
+    <!-- Konten utama -->
+    <div class="border px-2 py-1 d-flex align-items-center gap-2">
+        <span class="badge bg-primary">A.1</span>
         <span class="fw-bold">Ke-NU-an Kelas 9</span>
     </div>
 
-    <!-- Kanan (X) -->
-    <div style="cursor: pointer;">
-        <i class="bi bi-x text-danger" style="font-size: 28px;"></i>
+    <!-- Tombol hapus -->
+    <div class="bg-danger text-white d-flex align-items-center justify-content-center px-2"
+         style="cursor: pointer;">
+        <i class="bi bi-x-lg"></i>
     </div>
 
 </div>
-<div class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
-
-    <!-- Kiri -->
-    <div class="d-flex align-items-center gap-2">
-        <span class="badge rounded-pill bg-primary">A.1</span>
+<div class="d-flex align-items-center">
+    
+    <!-- Konten utama -->
+    <div class="border px-2 py-1 d-flex align-items-center gap-2">
+        <span class="badge bg-primary">A.1</span>
         <span class="fw-bold">Ke-NU-an Kelas 9</span>
     </div>
 
-    <!-- Kanan (X) -->
-    <div style="cursor: pointer;">
-        <i class="bi bi-x text-danger" style="font-size: 28px;"></i>
+    <!-- Tombol hapus -->
+    <div class="bg-danger text-white d-flex align-items-center justify-content-center px-2"
+         style="cursor: pointer;">
+        <i class="bi bi-x-lg"></i>
     </div>
 
 </div>
