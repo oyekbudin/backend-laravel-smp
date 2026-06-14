@@ -57,65 +57,57 @@
 
                             <div class="d-flex flex-wrap gap-2">
 
-                                <div
-                                    class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
+                                <div class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
 
-                                    <!-- Kiri -->
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge rounded-pill bg-primary">A.1</span>
-                                        <span class="fw-bold">Ke-NU-an Kelas 9</span>
-                                    </div>
+    <!-- Kiri -->
+    <div class="d-flex align-items-center gap-2">
+        <span class="badge rounded-pill bg-primary">A.1</span>
+        <span class="fw-bold">Ke-NU-an Kelas 9</span>
+    </div>
 
-                                    <!-- Kanan (Aksi) -->
-                                    <div class="d-flex align-items-center gap-2">
+    <!-- Kanan (Delete) -->
+    <div class="border rounded-circle d-flex align-items-center justify-content-center"
+         style="width:32px; height:32px; cursor: pointer;">
 
-                                        <i class="bi bi-pencil-square text-warning" style="cursor: pointer;"></i>
+        <i class="bi bi-trash text-danger"></i>
 
-                                        <i class="bi bi-trash text-danger" style="cursor: pointer;"></i>
+    </div>
 
-                                    </div>
+</div>
+<div class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
 
-                                </div>
+    <!-- Kiri -->
+    <div class="d-flex align-items-center gap-2">
+        <span class="badge rounded-pill bg-primary">A.1</span>
+        <span class="fw-bold">Ke-NU-an Kelas 9</span>
+    </div>
 
-                                <div
-                                    class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
+    <!-- Kanan (Delete) -->
+    <div class="border rounded-circle d-flex align-items-center justify-content-center"
+         style="width:32px; height:32px; cursor: pointer;">
 
-                                    <!-- Kiri -->
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge rounded-pill bg-primary">A.1</span>
-                                        <span class="fw-bold">Ke-NU-an Kelas 9</span>
-                                    </div>
+        <i class="bi bi-trash text-danger"></i>
 
-                                    <!-- Kanan (Aksi) -->
-                                    <div class="d-flex align-items-center gap-2">
+    </div>
 
-                                        <i class="bi bi-pencil-square text-warning" style="cursor: pointer;"></i>
+</div>
+<div class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
 
-                                        <i class="bi bi-trash text-danger" style="cursor: pointer;"></i>
+    <!-- Kiri -->
+    <div class="d-flex align-items-center gap-2">
+        <span class="badge rounded-pill bg-primary">A.1</span>
+        <span class="fw-bold">Ke-NU-an Kelas 9</span>
+    </div>
 
-                                    </div>
+    <!-- Kanan (Delete) -->
+    <div class="border rounded-circle d-flex align-items-center justify-content-center"
+         style="width:32px; height:32px; cursor: pointer;">
 
-                                </div>
+        <i class="bi bi-trash text-danger"></i>
 
-                                <div
-                                    class="border rounded-pill px-3 py-2 d-flex align-items-center justify-content-between">
+    </div>
 
-                                    <!-- Kiri -->
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge rounded-pill bg-primary">A.1</span>
-                                        <span class="fw-bold">Ke-NU-an Kelas 9</span>
-                                    </div>
-
-                                    <!-- Kanan (Aksi) -->
-                                    <div class="d-flex align-items-center gap-2">
-
-                                        <i class="bi bi-pencil-square text-warning" style="cursor: pointer;"></i>
-
-                                        <i class="bi bi-trash text-danger" style="cursor: pointer;"></i>
-
-                                    </div>
-
-                                </div>
+</div>
 
                                 <div class="border rounded-pill px-3 py-2 d-flex align-items-center gap-2"
                                     style="cursor: pointer;">
