@@ -99,11 +99,11 @@
                             <div class="col-lg-7 col-md-10">
                                 <div class="content-box">
                                     <span class="badge-neon">Sekolah Unggul, Berakhlak Mulia</span>
-                                    <h1 class="text-gradient" data-aos="fade-up">
+                                    <h1 class="text-gradient">
                                         SPMB SMP Ma'arif NU 01 Wanareja
                                     </h1>
 
-                                    <h2 class="text-gradient-small" data-aos="fade-up">
+                                    <h2 class="text-gradient-small">
                                         Tahun Ajaran 2026/2027
                                     </h2>
 
@@ -171,7 +171,7 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <div class="feature-item animate-float delay-2" >
+                                    <div class="feature-item animate-float delay-2">
                                         <div class="feature-icon">
                                             <i class="bi bi-calendar-check"></i>
                                         </div>
@@ -183,7 +183,7 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <div class="feature-item animate-float delay-3" >
+                                    <div class="feature-item animate-float delay-3">
                                         <div class="feature-icon">
                                             <i class="bi bi-calendar-check"></i>
                                         </div>
@@ -211,7 +211,7 @@
                 <!-- Home About Section -->
                 <section id="home-about" class="home-about section">
 
-                    <div class="container" >
+                    <div class="container">
 
                         <div class="row gy-5 align-items-center">
                             <div class="col-lg-6">
@@ -236,7 +236,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6" >
+                            <div class="col-lg-6">
                                 <div class="about-card">
 
                                     <h2 id="headline-berita-home">Marching Band Garuda Nusantara</h2>
@@ -471,29 +471,36 @@
 
 
 
-    <div class="row mt-5 pt-4 certifications-row" data-aos="fade-up" data-aos-delay="600">
-        <div class="col-12 text-center mb-4">
+    <div class="container mt-5 pt-4 certifications-row" data-aos="fade-up">
+
+        <div class="text-center mb-4">
             <h4 class="certification-title"></h4>
         </div>
-        <div class="col-12">
-            <div class="certifications"> <!-- logo logo -->
-                <div class="certification-item" data-aos="zoom-in" data-aos-delay="700">
-                    <img src="assets/img/lazisnu.png" alt="Certification">
-                </div>
-                <div class="certification-item" data-aos="zoom-in" data-aos-delay="800">
-                    <img src="assets/img/tutwuri.png" alt="Certification">
-                </div>
-                <div class="certification-item" data-aos="zoom-in" data-aos-delay="900">
-                    <img src="assets/img/ipnuippnu.png" alt="Certification">
-                </div>
-                <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
-                    <img src="assets/img/tunaskelapa.png" alt="Certification">
-                </div>
-                <div class="certification-item" data-aos="zoom-in" data-aos-delay="1000">
-                    <img src="assets/img/logo_pmi.png" style="height:70px" alt="Certification">
-                </div>
+
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 certifications">
+
+            <div class="certification-item" data-aos="zoom-in" data-aos-delay="100">
+                <img src="assets/img/lazisnu.png" class="cert-img" alt="Certification">
             </div>
+
+            <div class="certification-item" data-aos="zoom-in" data-aos-delay="200">
+                <img src="assets/img/tutwuri.png" class="cert-img" alt="Certification">
+            </div>
+
+            <div class="certification-item" data-aos="zoom-in" data-aos-delay="300">
+                <img src="assets/img/ipnuippnu.png" class="cert-img" alt="Certification">
+            </div>
+
+            <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
+                <img src="assets/img/tunaskelapa.png" class="cert-img" alt="Certification">
+            </div>
+
+            <div class="certification-item" data-aos="zoom-in" data-aos-delay="500">
+                <img src="assets/img/logo_pmi.png" class="cert-img" alt="Certification">
+            </div>
+
         </div>
+
     </div>
 
 
