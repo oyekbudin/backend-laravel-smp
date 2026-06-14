@@ -33,11 +33,12 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="mb-0 fw-bold">Jadwal Pelajaran</h6>
 
-                    <a class="btn btn-primary ms-auto" href="/aturhari">
+                    <a class="btn btn-primary m-0" href="/aturhari">
                         
                         Lanjutkan <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
+                <div class="card-footer"></div>
             </div>
         </div>
     </div>
