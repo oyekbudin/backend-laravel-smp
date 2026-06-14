@@ -265,6 +265,13 @@ class KaldikCon extends BaseController
         return redirect()->route('jadwal')->with('success', 'Pelajaran berhasil ditambahkan');
     }
 
+    public function destroypelajaran($id)
+    {
+        $jadwal = Jadwal::findOrFail($id);
+        $jadwal->delete();
+        return redirect()->back()->with('success', 'Pelajaran berhasil dihapus');
+    }
+
     public function tambahmapel()
     {
 

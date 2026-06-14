@@ -99,7 +99,8 @@
 
                                 </div>
 
-                                <div class="row flex-nowrap overflow-auto m-1 p-2 gap-2"  style="scroll-behavior: smooth;">
+                                <div class="row flex-nowrap overflow-auto m-1 p-2 gap-2"
+                                    style="scroll-behavior: smooth;">
 
                                     @php
                                         $jadwalGuru = $data['jadwal']->where('id_guru', $guru->id);
@@ -121,11 +122,20 @@
                                             <div class="fw-bold text-center">{{ $pelajaran->nama ?? '-' }}</div>
                                             <div class="text-muted">{{ $kelas->nama ?? '-' }}</div>
 
-                                            <button
+                                            <!--button
                                                 class="btn btn-danger d-flex align-items-center justify-content-center m-0 p-1 rounded-2"
                                                 title="Hapus">
                                                 Hapus
-                                            </button>
+                                            </button-->
+                                            <form action="{{ route('kaldik.destroypelajaran', $jd->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Yakin hapus?')">
+                                                    Hapus
+                                                </button>
+                                            </form>
                                         </div>
 
 
