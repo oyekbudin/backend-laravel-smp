@@ -22,20 +22,24 @@
 
     .jadwal-scroll::-webkit-scrollbar {
         height: 14px;
+        /* tebal scrollbar */
     }
 
     .jadwal-scroll::-webkit-scrollbar-track {
-        background: #f1f1f1;
+        background: #e6f0ff;
+        /* biru muda background track */
         border-radius: 10px;
     }
 
     .jadwal-scroll::-webkit-scrollbar-thumb {
-        background: #999;
+        background: #0d6efd;
+        /* Bootstrap primary blue */
         border-radius: 10px;
     }
 
     .jadwal-scroll::-webkit-scrollbar-thumb:hover {
-        background: #666;
+        background: #0b5ed7;
+        /* lebih gelap saat hover */
     }
 </style>
 <!-- Pell CSS -->
