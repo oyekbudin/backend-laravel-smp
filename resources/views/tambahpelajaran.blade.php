@@ -79,28 +79,39 @@
 
                         <div class="p-3 border-bottom">
 
-                            <!-- Pilih Pelajaran -->
                             <div class="mb-2">
                                 <label class="fw-bold">Pilih Pelajaran</label>
 
-                                <select name="id_pelajaran" class="form-control" required>
+                                <select name="id_pelajaran" id="pelajaran" class="form-control" required>
                                     <option value="">-- Pilih Pelajaran --</option>
 
                                     @foreach ($data['pelajaran'] as $pelajaran)
-                                        <option value="{{ $pelajaran->id }}">
-                                            {{ $pelajaran->kode }} {{ $pelajaran->nama }}
-                                        </option>
+                                        @php
+                                            $totalKelas = count($data['kelas']);
+
+                                            $kelasTerpakai = $data['jadwal']
+                                                ->where('id_pelajaran', $pelajaran->id)
+                                                ->pluck('id_kelas')
+                                                ->unique()
+                                                ->count();
+                                        @endphp
+
+                                        {{-- tampilkan hanya jika belum penuh --}}
+                                        @if ($kelasTerpakai < $totalKelas)
+                                            <option value="{{ $pelajaran->id }}">
+                                                {{ $pelajaran->kode }} {{ $pelajaran->nama }}
+                                            </option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>
 
 
-
-                            <!-- Pilih Kelas -->
+                            <!-- Kelas -->
                             <div class="mb-2">
                                 <label class="fw-bold">Pilih Kelas</label>
 
-                                <select name="id_kelas" class="form-control" required>
+                                <select name="id_kelas" id="kelas" class="form-control" required>
                                     <option value="">-- Pilih Kelas --</option>
 
                                     @foreach ($data['kelas'] as $kelas)
@@ -111,7 +122,8 @@
                                 </select>
                             </div>
 
-                            <br>
+
+
 
                             <!-- Submit -->
                             <div class="mt-3 d-flex gap-2">
@@ -133,5 +145,33 @@
     </div>
 </div>
 
+<script>
+    const jadwal = @json($jadwal);
+    const semuaKelas = @json($data['kelas']);
 
+    const pelajaranSelect = document.getElementById('pelajaran');
+    const kelasSelect = document.getElementById('kelas');
+
+    pelajaranSelect.addEventListener('change', function() {
+        const selectedPelajaran = this.value;
+
+        kelasSelect.innerHTML = '<option value="">-- Pilih Kelas --</option>';
+
+        semuaKelas.forEach(kelas => {
+
+            const sudahDipakai = jadwal.some(j =>
+                j.id_pelajaran == selectedPelajaran &&
+                j.id_kelas == kelas.id
+            );
+
+            if (!sudahDipakai) {
+                const option = document.createElement('option');
+                option.value = kelas.id;
+                option.textContent = kelas.nama;
+                kelasSelect.appendChild(option);
+            }
+
+        });
+    });
+</script>
 @include('footerbar')

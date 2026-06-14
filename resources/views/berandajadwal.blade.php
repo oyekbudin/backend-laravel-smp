@@ -77,8 +77,8 @@
                                             $pelajaran = $data['pelajaran']->firstWhere('id', $jd->id_pelajaran);
                                         @endphp
 
-                                        <div class="border px-2 py-1 d-flex align-items-center gap-2">
-                                            <span class="text-white px-2 py-0" style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
+                                        <div class="rounded-3 border p-2 d-flex align-items-center gap-2">
+                                            <span class="p-2 rounded" style="background: {{ $guru->kode_warna }};">{{ $guru->kode }}.{{ $pelajaran->kode }}</span>
                                             <span class="fw-bold">{{ $pelajaran->nama ?? '-' }}
                                                 ({{ $kelas->nama ?? '-' }})
                                             </span>
